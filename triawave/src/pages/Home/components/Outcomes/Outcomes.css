@@ -1,0 +1,42 @@
+.outcomes {
+  padding: 112px 60px 60px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.outcomes .top-bar {
+  border-top: 1px solid #d1cecc;
+}
+
+.cards-list {
+  display: flex;
+  gap: 20px;
+}
+
+.cards-list .card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+  background-color: var(--light-grey);
+  width: 100%;
+}
+
+.card-number {
+  color: var(--pink);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 6%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-content .text-p1 {
+  color: #555555;
+}

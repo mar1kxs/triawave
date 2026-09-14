@@ -1,0 +1,49 @@
+.outline-text {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px var(--white);
+}
+
+.cta {
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  height: 600px;
+  background-color: #121215;
+}
+
+.cta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 78px;
+  width: 50%;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.cta-left .text-p1 {
+  max-width: 450px;
+}
+
+.cta-left .text-h1 {
+  font-size: 152px;
+}
+
+.cta-right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.cta-right button {
+  padding: 27px 24px;
+  width: 590px;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 14%;
+}

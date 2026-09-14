@@ -1,0 +1,98 @@
+.text-h1 {
+  font-size: clamp(64px, 8vw, 128px);
+  line-height: 0.95;
+  letter-spacing: -4%;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.text-h2 {
+  font-size: clamp(48px, 5.5vw, 88px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -3%;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+}
+
+.text-h2-secondary {
+  font-size: clamp(40px, 4vw, 64px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -3%;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--dark);
+  text-transform: uppercase;
+}
+
+.text-h3 {
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: auto;
+  font-weight: 500;
+  letter-spacing: -4%;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+}
+
+.text-h4 {
+  font-size: clamp(28px, 2.4vw, 38px);
+  line-height: 105%;
+  font-weight: 500;
+  letter-spacing: -3%;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+}
+
+.text-h4-secondary {
+  font-size: clamp(20px, 1.7vw, 24px);
+  line-height: auto;
+  font-weight: 500;
+  letter-spacing: -4%;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--dark);
+  text-transform: uppercase;
+}
+
+.text-h5 {
+  font-size: clamp(18px, 1.4vw, 20px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -3%;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.text-small-title {
+  font-size: 11px;
+  line-height: auto;
+  font-weight: 400;
+  letter-spacing: 2.42px;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+.text-p1 {
+  font-size: clamp(15px, 1vw, 16px);
+  line-height: 1.35;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  color: var(--grey);
+}
+
+.text-p2 {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  color: var(--grey);
+}
+
+.text-p3 {
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 4%;
+  font-family: "Inter", sans-serif;
+  color: var(--grey);
+}

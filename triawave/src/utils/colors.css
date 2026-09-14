@@ -1,0 +1,9 @@
+:root {
+  /** Colors */
+  --white: #f7f3f0; /* Headings, background */
+  --grey: #c8c2c9; /* Paragraphs */
+  --pink: #f82b93; /* Text accent, Buttons, Links */
+  --dark: #050506; /*Background, Text */
+  --light-grey: #ebe7e4; /* Cards bg, hover bg */
+  --border: #373738;
+}
