@@ -1,5 +1,4 @@
 import { useEffect, useRef, type ReactNode } from "react";
-// @ts-expect-error TypeScript does not resolve CSS side-effect imports without a declaration file.
 import "./MathGrid.css";
 
 type MathGridProps = {
@@ -15,18 +14,9 @@ export default function MathGrid({
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const rootElement = rootRef.current;
-    const canvasElement = canvasRef.current;
-
-    if (!rootElement || !canvasElement) return;
-
-    const context = canvasElement.getContext("2d");
-
-    if (!context) return;
-
-    const root = rootElement;
-    const canvas = canvasElement;
-    const ctx = context;
+    const root = rootRef.current!;
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext("2d")!;
 
     let width = 0;
     let height = 0;
@@ -75,7 +65,9 @@ export default function MathGrid({
       const influence = Math.exp(-distance * 0.008);
 
       const wave =
-        Math.sin(distance * 0.032 - currentTime * 2.2) *
+        Math.sin(
+          distance * 0.032 - currentTime * 2.2
+        ) *
         18 *
         influence;
 
@@ -117,7 +109,12 @@ export default function MathGrid({
 
       ctx.lineWidth = 1;
 
-      for (let row = -1; row < rows; row += 1) {
+      // Horizontal lines
+      for (
+        let row = -1;
+        row < rows;
+        row += 1
+      ) {
         ctx.beginPath();
 
         for (
@@ -150,6 +147,7 @@ export default function MathGrid({
         ctx.stroke();
       }
 
+      // Vertical lines
       for (
         let column = -1;
         column < columns;
@@ -187,6 +185,7 @@ export default function MathGrid({
         ctx.stroke();
       }
 
+      // Dots
       for (
         let row = 0;
         row < rows;
@@ -214,7 +213,7 @@ export default function MathGrid({
 
           const distance = Math.sqrt(
             deltaX * deltaX +
-            deltaY * deltaY
+              deltaY * deltaY
           );
 
           const opacity = Math.max(
@@ -232,8 +231,9 @@ export default function MathGrid({
             Math.PI * 2
           );
 
-          ctx.fillStyle =
-            `rgba(248, 43, 147, ${opacity * 0.9})`;
+          ctx.fillStyle = `rgba(248, 43, 147, ${
+            opacity * 0.9
+          })`;
 
           ctx.fill();
         }
