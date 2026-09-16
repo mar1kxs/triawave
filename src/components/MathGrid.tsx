@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+
 import "./MathGrid.css";
 
 type MathGridProps = {
@@ -10,13 +11,33 @@ export default function MathGrid({
   children,
   className = "",
 }: MathGridProps) {
-  const rootRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rootRef = useRef<HTMLElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const root = rootRef.current!;
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
+    const rootElement = rootRef.current;
+    const canvasElement = canvasRef.current;
+
+    // Проверяем refs
+    if (rootElement === null || canvasElement === null) {
+      return;
+    }
+
+    const context = canvasElement.getContext("2d");
+
+    // Проверяем canvas context
+    if (context === null) {
+      return;
+    }
+
+    /*
+      Создаём переменные с конкретными non-null типами.
+      Благодаря этому TypeScript больше не ругается
+      внутри resize(), draw(), handlePointerMove() и т.д.
+    */
+    const root: HTMLElement = rootElement;
+    const canvas: HTMLCanvasElement = canvasElement;
+    const ctx: CanvasRenderingContext2D = context;
 
     let width = 0;
     let height = 0;
@@ -37,16 +58,42 @@ export default function MathGrid({
       width = rect.width;
       height = rect.height;
 
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(
+        window.devicePixelRatio || 1,
+        2
+      );
 
-      canvas.width = Math.round(width * dpr);
-      canvas.height = Math.round(height * dpr);
+      canvas.width = Math.round(
+        width * dpr
+      );
 
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      canvas.height = Math.round(
+        height * dpr
+      );
 
-      if (pointer.x === 0 && pointer.y === 0) {
-        pointer.x = pointer.targetX = width * 0.58;
-        pointer.y = pointer.targetY = height * 0.46;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+      );
+
+      if (
+        pointer.x === 0 &&
+        pointer.y === 0
+      ) {
+        pointer.x =
+          pointer.targetX =
+          width * 0.58;
+
+        pointer.y =
+          pointer.targetY =
+          height * 0.46;
       }
     }
 
@@ -55,61 +102,108 @@ export default function MathGrid({
       y: number,
       currentTime: number
     ) {
-      const deltaX = x - pointer.x;
-      const deltaY = y - pointer.y;
+      const deltaX =
+        x - pointer.x;
+
+      const deltaY =
+        y - pointer.y;
 
       const distance = Math.sqrt(
-        deltaX * deltaX + deltaY * deltaY
+        deltaX * deltaX +
+          deltaY * deltaY
       );
 
-      const influence = Math.exp(-distance * 0.008);
+      const influence =
+        Math.exp(
+          -distance * 0.008
+        );
 
       const wave =
         Math.sin(
-          distance * 0.032 - currentTime * 2.2
+          distance * 0.032 -
+            currentTime * 2.2
         ) *
         18 *
         influence;
 
       const globalWave =
-        Math.sin(x * 0.014 + currentTime) *
-        Math.cos(y * 0.012 - currentTime * 0.7) *
+        Math.sin(
+          x * 0.014 +
+            currentTime
+        ) *
+        Math.cos(
+          y * 0.012 -
+            currentTime * 0.7
+        ) *
         4;
 
       return {
-        x: (deltaX / (distance + 1)) * wave,
+        x:
+          (deltaX /
+            (distance + 1)) *
+          wave,
+
         y:
-          (deltaY / (distance + 1)) * wave +
+          (deltaY /
+            (distance + 1)) *
+            wave +
           globalWave,
       };
     }
 
     function draw() {
-      ctx.clearRect(0, 0, width, height);
+      // Очистка
+      ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+      );
 
+      // Background
       ctx.fillStyle = "#0A0A0B";
-      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+      );
 
       const spacing = Math.max(
         34,
-        Math.min(52, width / 16)
+        Math.min(
+          52,
+          width / 16
+        )
       );
 
       const columns =
-        Math.ceil(width / spacing) + 2;
+        Math.ceil(
+          width / spacing
+        ) + 2;
 
       const rows =
-        Math.ceil(height / spacing) + 2;
+        Math.ceil(
+          height / spacing
+        ) + 2;
 
+      // Плавное движение за курсором
       pointer.x +=
-        (pointer.targetX - pointer.x) * 0.055;
+        (pointer.targetX -
+          pointer.x) *
+        0.055;
 
       pointer.y +=
-        (pointer.targetY - pointer.y) * 0.055;
+        (pointer.targetY -
+          pointer.y) *
+        0.055;
 
       ctx.lineWidth = 1;
 
-      // Horizontal lines
+      /*
+       * HORIZONTAL LINES
+       */
       for (
         let row = -1;
         row < rows;
@@ -122,19 +216,30 @@ export default function MathGrid({
           column < columns;
           column += 1
         ) {
-          const baseX = column * spacing;
-          const baseY = row * spacing;
+          const baseX =
+            column * spacing;
 
-          const distortion = field(
-            baseX,
-            baseY,
-            time
-          );
+          const baseY =
+            row * spacing;
 
-          const x = baseX + distortion.x;
-          const y = baseY + distortion.y;
+          const distortion =
+            field(
+              baseX,
+              baseY,
+              time
+            );
 
-          if (column === -1) {
+          const x =
+            baseX +
+            distortion.x;
+
+          const y =
+            baseY +
+            distortion.y;
+
+          if (
+            column === -1
+          ) {
             ctx.moveTo(x, y);
           } else {
             ctx.lineTo(x, y);
@@ -147,7 +252,9 @@ export default function MathGrid({
         ctx.stroke();
       }
 
-      // Vertical lines
+      /*
+       * VERTICAL LINES
+       */
       for (
         let column = -1;
         column < columns;
@@ -160,17 +267,26 @@ export default function MathGrid({
           row < rows;
           row += 1
         ) {
-          const baseX = column * spacing;
-          const baseY = row * spacing;
+          const baseX =
+            column * spacing;
 
-          const distortion = field(
-            baseX,
-            baseY,
-            time
-          );
+          const baseY =
+            row * spacing;
 
-          const x = baseX + distortion.x;
-          const y = baseY + distortion.y;
+          const distortion =
+            field(
+              baseX,
+              baseY,
+              time
+            );
+
+          const x =
+            baseX +
+            distortion.x;
+
+          const y =
+            baseY +
+            distortion.y;
 
           if (row === -1) {
             ctx.moveTo(x, y);
@@ -185,7 +301,9 @@ export default function MathGrid({
         ctx.stroke();
       }
 
-      // Dots
+      /*
+       * DOTS
+       */
       for (
         let row = 0;
         row < rows;
@@ -196,53 +314,76 @@ export default function MathGrid({
           column < columns;
           column += 1
         ) {
-          const baseX = column * spacing;
-          const baseY = row * spacing;
+          const baseX =
+            column * spacing;
 
-          const distortion = field(
-            baseX,
-            baseY,
-            time
-          );
+          const baseY =
+            row * spacing;
 
-          const x = baseX + distortion.x;
-          const y = baseY + distortion.y;
+          const distortion =
+            field(
+              baseX,
+              baseY,
+              time
+            );
 
-          const deltaX = x - pointer.x;
-          const deltaY = y - pointer.y;
+          const x =
+            baseX +
+            distortion.x;
 
-          const distance = Math.sqrt(
-            deltaX * deltaX +
-              deltaY * deltaY
-          );
+          const y =
+            baseY +
+            distortion.y;
 
-          const opacity = Math.max(
-            0.12,
-            1 - distance / 330
-          );
+          const deltaX =
+            x - pointer.x;
+
+          const deltaY =
+            y - pointer.y;
+
+          const distance =
+            Math.sqrt(
+              deltaX *
+                deltaX +
+                deltaY *
+                  deltaY
+            );
+
+          const opacity =
+            Math.max(
+              0.12,
+              1 -
+                distance /
+                  330
+            );
 
           ctx.beginPath();
 
           ctx.arc(
             x,
             y,
-            1.4 + opacity * 1.8,
+            1.4 +
+              opacity * 1.8,
             0,
             Math.PI * 2
           );
 
-          ctx.fillStyle = `rgba(248, 43, 147, ${
-            opacity * 0.9
-          })`;
+          ctx.fillStyle =
+            `rgba(248, 43, 147, ${
+              opacity * 0.9
+            })`;
 
           ctx.fill();
         }
       }
 
+      // Скорость анимации
       time += 0.016;
 
       animationFrame =
-        requestAnimationFrame(draw);
+        window.requestAnimationFrame(
+          draw
+        );
     }
 
     function handlePointerMove(
@@ -252,10 +393,20 @@ export default function MathGrid({
         root.getBoundingClientRect();
 
       pointer.targetX =
-        event.clientX - rect.left;
+        event.clientX -
+        rect.left;
 
       pointer.targetY =
-        event.clientY - rect.top;
+        event.clientY -
+        rect.top;
+    }
+
+    function handlePointerLeave() {
+      pointer.targetX =
+        width * 0.58;
+
+      pointer.targetY =
+        height * 0.46;
     }
 
     root.addEventListener(
@@ -263,8 +414,15 @@ export default function MathGrid({
       handlePointerMove
     );
 
+    root.addEventListener(
+      "pointerleave",
+      handlePointerLeave
+    );
+
     const observer =
-      new ResizeObserver(resize);
+      new ResizeObserver(
+        resize
+      );
 
     observer.observe(root);
 
@@ -277,9 +435,14 @@ export default function MathGrid({
         handlePointerMove
       );
 
+      root.removeEventListener(
+        "pointerleave",
+        handlePointerLeave
+      );
+
       observer.disconnect();
 
-      cancelAnimationFrame(
+      window.cancelAnimationFrame(
         animationFrame
       );
     };
@@ -301,7 +464,9 @@ export default function MathGrid({
         aria-hidden="true"
       />
 
-      {children}
+      <div className="math-grid__content">
+        {children}
+      </div>
     </section>
   );
 }
