@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-ssr/
+output/
+.playwright-cli/
+.vite/
+.vercel/
+
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
