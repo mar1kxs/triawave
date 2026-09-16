@@ -1,5 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import {
   SITE,
   SEO_ROUTES,
@@ -10,24 +12,30 @@ import {
   structuredDataForPath,
 } from "../dist-ssr/entry-server.js";
 
-const projectRoot = new URL("..", import.meta.url).pathname;
+const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const distDir = join(projectRoot, "dist");
+
 const template = await readFile(join(distDir, "index.html"), "utf8");
 
-const escapeHtml = (value) => value
-  .replaceAll("&", "&amp;")
-  .replaceAll('"', "&quot;")
-  .replaceAll("<", "&lt;")
-  .replaceAll(">", "&gt;");
+const escapeHtml = (value) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 
 function headForPath(path) {
   const route = seoForPath(path);
   const canonical = canonicalForPath(path);
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
+
   const structuredData = structuredDataForPath(path);
+
   const jsonLd = structuredData
-    ? `\n    <script id="structured-data" type="application/ld+json">${JSON.stringify(structuredData).replaceAll("<", "\\u003c")}</script>`
+    ? `\n    <script id="structured-data" type="application/ld+json">${JSON.stringify(
+        structuredData,
+      ).replaceAll("<", "\\u003c")}</script>`
     : "";
 
   return `<!-- seo:start -->
@@ -48,30 +56,43 @@ function headForPath(path) {
 }
 
 function outputPath(path) {
-  return path === "/" ? join(distDir, "index.html") : join(distDir, `${path.slice(1)}.html`);
+  return path === "/"
+    ? join(distDir, "index.html")
+    : join(distDir, `${path.slice(1)}.html`);
 }
 
 async function writeRoute(path) {
   const appHtml = render(path);
+
   const html = template
     .replace(/<!-- seo:start -->[\s\S]*?<!-- seo:end -->/, headForPath(path))
     .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+
   const destination = outputPath(path);
-  await mkdir(dirname(destination), { recursive: true });
+
+  await mkdir(dirname(destination), {
+    recursive: true,
+  });
+
   await writeFile(destination, html);
 }
 
 for (const route of SEO_ROUTES) {
   await writeRoute(route.path);
 }
+
 await writeRoute("/404");
 
 const indexableRoutes = SEO_ROUTES.filter((route) => route.indexable);
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexableRoutes.map((route) => `  <url><loc>${canonicalForPath(route.path)}</loc></url>`).join("\n")}
+${indexableRoutes
+  .map((route) => `  <url><loc>${canonicalForPath(route.path)}</loc></url>`)
+  .join("\n")}
 </urlset>
 `;
+
 const robots = `User-agent: *
 Allow: /
 
@@ -79,6 +100,7 @@ Sitemap: ${SITE.url}/sitemap.xml
 `;
 
 await writeFile(join(distDir, "sitemap.xml"), sitemap);
+
 await writeFile(join(distDir, "robots.txt"), robots);
 
 console.log(`Prerendered ${SEO_ROUTES.length + 1} HTML documents.`);
