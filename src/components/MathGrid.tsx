@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+// @ts-expect-error TypeScript does not resolve CSS side-effect imports without a declaration file.
 import "./MathGrid.css";
 
 type MathGridProps = {
