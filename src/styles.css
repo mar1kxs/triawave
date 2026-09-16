@@ -1086,14 +1086,19 @@ img {
 }
 
 .cta-section {
-  background: #0A0A0B;
-  display: grid;
-  gap: 32px;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  background: #0a0a0b;
   min-height: 601px;
   min-width: 0;
   padding: 60px var(--page-pad);
   position: relative;
+}
+.cta-content {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: 340px 80px;
+  min-height: 481px;
+  width: 100%;
 }
 .cta-title {
   align-self: center;
@@ -1114,14 +1119,25 @@ img {
   margin: 0;
   max-width: 470px;
 }
+.cta-content > p {
+  align-self: end;
+  color: var(--muted);
+  grid-column: 1;
+  grid-row: 2;
+  line-height: 1.45;
+  margin: 0;
+  max-width: 470px;
+}
 .cta-button {
   align-self: end;
+  grid-column: 2;
   display: flex;
   font-size: 22px;
   height: 80px;
   justify-content: space-between;
   padding-inline: 24px;
   width: 100%;
+  grid-row: 2;
 }
 .cube-cluster {
   min-height: 340px;

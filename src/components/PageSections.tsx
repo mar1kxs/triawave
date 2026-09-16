@@ -26,10 +26,11 @@ export function CubeCluster({ className = "" }: { className?: string }) {
 export function CTASection() {
   return (
     <MathGrid className="cta-section">
-      <div className="cta-title">LET’S TALK<br /><span>MOVE.</span></div>
-      <img className="cta-glow" src="/assets/cta-glow.svg" alt="" aria-hidden="true" width="515" height="515" loading="lazy" decoding="async" />
-      <p>A new website, a fresh direction, or an idea worth exploring.<br />Let&apos;s talk it through.</p>
-      <AppLink href="/contact" className="button cta-button">Discuss your project <span>↗</span></AppLink>
+      <div className="cta-content">
+        <div className="cta-title">LET’S TALK<br /><span>MOVE.</span></div>
+        <p>A new website, a fresh direction, or an idea worth exploring.<br />Let&apos;s talk it through.</p>
+        <AppLink href="/contact" className="button cta-button">Discuss your project <span>↗</span></AppLink>
+      </div>
     </MathGrid>
   );
 }
