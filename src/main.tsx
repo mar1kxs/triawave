@@ -6,13 +6,9 @@ import "@fontsource/space-grotesk/latin-700.css";
 import "@fontsource/inter/latin-400.css";
 import "@fontsource/inter/latin-500.css";
 import "@fontsource/dm-sans/latin-600.css";
-import App from "./App";
+import App from "./app/App";
 
-// CSS order is intentional: measured Figma fidelity overrides load after the base styles.
-import "./styles.css";
-import "./home-fidelity.css";
-import "./shared-fidelity.css";
-import "./about-fidelity.css";
+import "./styles/index.css";
 
 const root = document.getElementById("root")!;
 const app = (

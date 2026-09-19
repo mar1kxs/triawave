@@ -1,0 +1,112 @@
+.cta-section {
+  /* Main sizing controls; typography can be adjusted here. */
+  --cta-title-size: 96px;
+  --cta-copy-size: 16px;
+  --cta-button-size: 20px;
+  --cta-card-width: 370px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  min-width: 0;
+  padding: 60px;
+}
+
+.cta-section > .math-grid__content {
+  display: grid;
+  flex: 1;
+}
+
+.cta-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--cta-card-width);
+  align-items: end;
+  gap: 48px;
+}
+
+.cta-content > * {
+  min-width: 0;
+}
+
+.cta-title {
+  align-self: center;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--display);
+  font-size: var(--cta-title-size);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.cta-title span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--white);
+}
+
+.cta-card {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 18px;
+  background: #242428;
+}
+
+.cta-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--cta-copy-size);
+  line-height: 22.75px;
+  letter-spacing: 0;
+}
+
+.cta-card .cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  white-space: normal;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 48px;
+  padding: 17px 24px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: var(--cta-button-size);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .cta-content {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cta-content {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 32px;
+  }
+
+  .cta-title {
+    overflow-wrap: anywhere;
+  }
+
+  .cta-card {
+    width: 100%;
+    max-width: var(--cta-card-width);
+    justify-self: end;
+  }
+}

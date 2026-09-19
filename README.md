@@ -35,16 +35,22 @@ npm run preview
 
 ```text
 src/
-├── components/       общая навигация, footer, CTA и небольшие UI-примитивы
+├── app/              App.tsx — выбор страницы; seo.ts — metadata и JSON-LD
+├── components/
+│   ├── layout/       Shell, Header с MegaMenu, MinimalHeader, ReferralBar, Footer
+│   ├── sections/     CTASection — секция, общая для нескольких страниц
+│   └── ui/           AppLink, Reveal, SectionHead, MathGrid
 ├── config/
 │   ├── site.ts       домен, бренд, email, язык и год copyright
 │   └── routes.ts     все маршруты, названия экранов и SEO-статус
-├── content/          тексты и повторяющиеся данные Home, About и Services
-├── hooks/            изолированная интерактивная логика
-├── App.tsx           выбор страницы для текущего URL
-├── HomePage.tsx      композиция секций главной страницы
-├── AboutPage.tsx     композиция секций About
-└── seo.ts            metadata, canonical, robots и JSON-LD
+├── content/          services.ts — общие данные услуг
+├── pages/
+│   ├── home/         HomePage.tsx, content.ts, sections/, components/, hooks/
+│   ├── about/        AboutPage.tsx, content.ts, sections/
+│   └── placeholder/  PlaceholderPage.tsx
+├── styles/           index.css — порядок подключения; base.css и fidelity-файлы
+├── main.tsx          клиентский вход и гидратация
+└── entry-server.tsx  серверный рендеринг для prerender
 ```
 
 Главные источники правды:
@@ -52,29 +58,32 @@ src/
 - домен, email или название студии — `src/config/site.ts`;
 - URL, title, description и индексируемость — `src/config/routes.ts`;
 - услуги — `src/content/services.ts` (меню, главная, footer и service routes используют один массив);
-- тексты секций — файлы в `src/content/`;
+- тексты секций — `src/pages/home/content.ts` и `src/pages/about/content.ts`;
 - общая разметка — `src/components/`.
+
+Страница собирает готовые секции; каждая секция находится в отдельном файле в её `sections/`. Компоненты и хуки, нужные только одной странице, остаются внутри её папки. В общие `components/` выносите то, что используется несколькими страницами. Импорты ведут непосредственно к файлам компонентов, без общего barrel-файла. Отдельная папка компонента нужна, когда у него есть собственные вспомогательные файлы: например, `Header/MegaMenu.tsx` или `MathGrid/MathGrid.css`.
 
 ## Стили
 
-Порядок импортов в `src/main.tsx` важен:
+`src/main.tsx` подключает `src/styles/index.css`. Порядок импортов внутри него важен:
 
-1. `styles.css` — токены, базовая разметка и адаптивность;
+1. `base.css` — токены, базовая разметка и адаптивность;
 2. `home-fidelity.css` — точные desktop-настройки главной;
 3. `shared-fidelity.css` — общие уточнения header/footer/CTA;
 4. `about-fidelity.css` — точные настройки About.
+5. `../components/sections/CTASection.css` — самостоятельные стили CTA: расположение, карточка, типографика и адаптивность. Размеры удобно менять через переменные `--cta-*` в начале файла.
 
-Обычное изменение начинайте в `styles.css`. Fidelity-файлы меняйте только когда нужно синхронизировать конкретные размеры с Figma; они намеренно перекрывают базовые правила.
+Обычное изменение начинайте в `src/styles/base.css`. Fidelity-файлы меняйте только когда нужно синхронизировать конкретные размеры с Figma; они намеренно перекрывают базовые правила. Общий каскад сохранён централизованно; стили MathGrid находятся рядом с компонентом.
 
 ## Как добавить страницу
 
-1. Создайте компонент страницы и подключите его в `App.tsx`.
+1. Создайте `src/pages/<name>/<Name>Page.tsx`, вынесите секции в соседнюю папку `sections/` и подключите страницу в `src/app/App.tsx`.
 2. Добавьте маршрут и уникальные metadata в `src/config/routes.ts`.
 3. Оставьте `indexable: false`, пока страница содержит заглушки или неполный контент.
 4. Добавьте понятные внутренние ссылки на страницу.
 5. Запустите `npm run validate` и проверьте desktop/mobile в браузере.
 
-Для новой услуги сначала обновите `src/content/services.ts`: route, меню, список услуг и footer синхронизируются автоматически. Отдельный полноценный компонент услуги всё равно нужно подключить в `App.tsx` до включения индексации.
+Для новой услуги сначала обновите `src/content/services.ts`: route, меню, список услуг и footer синхронизируются автоматически. Отдельный полноценный компонент услуги всё равно нужно подключить в `src/app/App.tsx` до включения индексации.
 
 ## SEO и рендеринг
 
