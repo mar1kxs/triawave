@@ -10,11 +10,13 @@ import { ProcessSection } from "./sections/ProcessSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { FAQSection } from "./sections/FAQSection";
 import { ProcessStrip } from "./sections/ProcessStrip";
+import { useHomeMotion } from "./hooks/useHomeMotion";
 
 export default function HomePage() {
+  const motionRef = useHomeMotion();
   return (
     <Shell>
-      <main>
+      <main className="home-page" ref={motionRef}>
         <HomeHero />
         <ProcessStrip />
         <WorkSection />

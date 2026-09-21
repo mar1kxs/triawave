@@ -1,3 +1,4 @@
+import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { useState } from "react";
 import { SectionHead } from "../../../components/ui/SectionHead";
 import { FAQS } from "../content";
@@ -8,7 +9,7 @@ export function FAQSection() {
     <section className="faq-section">
       <SectionHead index="08" label="Questions" axis="FAQ" />
       <div className="faq-layout">
-        <div className="faq-intro"><h2>Frequently<br />asked</h2><p>For brands that need a strong identity and a clear path from product to purchase.</p></div>
+        <div className="faq-intro"><MotionHeading>Frequently<br />asked</MotionHeading><p>For brands that need a strong identity and a clear path from product to purchase.</p></div>
         <div className="faq-list">
           {FAQS.map(([question, answer], index) => (
             <article className={open === index ? "faq-item open" : "faq-item"} key={question}>

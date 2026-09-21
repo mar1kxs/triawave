@@ -1,16 +1,15 @@
 .cta-section {
   /* Main sizing controls; typography can be adjusted here. */
-  --cta-title-size: 96px;
   --cta-copy-size: 16px;
   --cta-button-size: 20px;
   --cta-card-width: 370px;
-  min-height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
   min-width: 0;
-  padding: 60px;
+  padding: clamp(24px, 4vw, 60px);
+  --cta-title-size: clamp(36px, 5vw, 96px);
 }
 
 .cta-section > .math-grid__gradient::after {
@@ -18,22 +17,25 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(to right,
+  background: linear-gradient(
+      to right,
       rgba(10, 10, 11, 0.85),
       rgba(10, 10, 11, 0.3) 5%,
       transparent 16%,
       transparent 84%,
       rgba(10, 10, 11, 0.3) 95%,
-      rgba(10, 10, 11, 0.85)),
-    linear-gradient(to bottom,
+      rgba(10, 10, 11, 0.85)
+    ),
+    linear-gradient(
+      to bottom,
       rgba(10, 10, 11, 0.95),
       rgba(10, 10, 11, 0.6) 12%,
       rgba(10, 10, 11, 0.2) 26%,
       transparent 40%,
       transparent 76%,
       rgba(10, 10, 11, 0.25) 92%,
-      rgba(10, 10, 11, 0.75));
+      rgba(10, 10, 11, 0.75)
+    );
 }
 
 .cta-section > .math-grid__content {
@@ -46,6 +48,7 @@
   grid-template-columns: minmax(0, 1fr) var(--cta-card-width);
   align-items: end;
   gap: 48px;
+  padding-block: clamp(16px, 3vw, 48px);
 }
 
 .cta-content > * {
@@ -64,7 +67,7 @@
   text-transform: uppercase;
 }
 
-.cta-title span {
+.cta-title-outline {
   color: transparent;
   -webkit-text-stroke: 1px var(--white);
 }
@@ -98,8 +101,6 @@
   gap: 8px;
   width: 100%;
   min-width: 0;
-  height: auto;
-  min-height: 48px;
   padding: 17px 24px;
   font-family: "Space Grotesk", sans-serif;
   font-size: var(--cta-button-size);
@@ -122,14 +123,22 @@
     min-height: 0;
     gap: 32px;
   }
-
   .cta-title {
     overflow-wrap: anywhere;
   }
-
   .cta-card {
     width: 100%;
     max-width: var(--cta-card-width);
+    justify-self: end;
+  }
+}
+
+@media (max-width: 900px) {
+  .cta-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cta-card {
+    width: min(100%, var(--cta-card-width));
     justify-self: end;
   }
 }

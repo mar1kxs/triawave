@@ -26,7 +26,7 @@ export function Footer() {
           <div>
             {SERVICES.map((service) => (
               <AppLink href={service.path} key={service.path}>
-                <span>{service.number}</span>{service.title}<b>→</b>
+                <span>{service.number}</span>{service.title}<b className="footer-service-arrow" aria-hidden="true" />
               </AppLink>
             ))}
           </div>

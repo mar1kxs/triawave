@@ -1,3 +1,4 @@
+import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { SectionHead } from "../../../components/ui/SectionHead";
 import { Reveal } from "../../../components/ui/Reveal";
 import { OUTCOMES } from "../content";
@@ -6,7 +7,7 @@ export function OutcomesSection() {
   return (
     <section className="light-section outcomes-section">
       <SectionHead index="04" label="Outcomes" axis="VALUE" />
-      <h2>What we help you achieve</h2>
+      <MotionHeading>What we help you achieve</MotionHeading>
       <div className="outcomes-grid">
         {OUTCOMES.map((outcome) => (
           <Reveal className="outcome" key={outcome.title}>

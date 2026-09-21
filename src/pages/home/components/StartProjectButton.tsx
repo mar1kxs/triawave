@@ -1,9 +1,10 @@
 import type { PointerEvent } from "react";
+import { isMotionDisabled } from "../../../lib/motion/preferences";
 import { AppLink } from "../../../components/ui/AppLink";
 import "./StartProjectButton.css";
 
 function followPointer(event: PointerEvent<HTMLSpanElement>) {
-  if (event.pointerType !== "mouse" || !window.matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)").matches) return;
+  if (isMotionDisabled() || event.pointerType !== "mouse" || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   // Measure the stationary wrapper so the movement never feeds back into itself.
   const target = event.currentTarget;

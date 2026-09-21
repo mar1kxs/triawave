@@ -4,6 +4,7 @@ import HomePage from "../pages/home/HomePage";
 import { PlaceholderPage } from "../pages/placeholder/PlaceholderPage";
 import { normalizePath, screenTitleForPath } from "../config/routes";
 import { applySeo } from "./seo";
+import { scrollToDestination, startSmoothScroll, targetForHash } from "../lib/motion/smoothScroll";
 
 export default function App({ initialPath }: { initialPath?: string }) {
   const [path, setPath] = useState(() => normalizePath(
@@ -13,6 +14,18 @@ export default function App({ initialPath }: { initialPath?: string }) {
   useEffect(() => {
     applySeo(path);
   }, [path]);
+
+  useEffect(() => {
+    const stop = startSmoothScroll();
+    const frame = requestAnimationFrame(() => {
+      const target = targetForHash(window.location.hash);
+      if (target) scrollToDestination(target, true);
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      stop();
+    };
+  }, []);
 
   useEffect(() => {
     const onNavigation = () => setPath(normalizePath(window.location.pathname));

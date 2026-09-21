@@ -1,14 +1,17 @@
 import type { AnchorHTMLAttributes } from "react";
+import { scrollToDestination, stopScrollMomentum, targetForHash } from "../../lib/motion/smoothScroll";
 
 export function navigate(path: string) {
   const url = new URL(path, window.location.origin);
+  const changedPage = url.pathname !== window.location.pathname;
+  stopScrollMomentum();
   if (window.location.href !== url.href) window.history.pushState({}, "", url);
   window.dispatchEvent(new PopStateEvent("popstate"));
 
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    const target = url.hash && document.getElementById(decodeURIComponent(url.hash.slice(1)));
-    if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
-    else window.scrollTo({ top: 0, behavior: "instant" });
+    if (window.location.href !== url.href) return;
+    const target = targetForHash(url.hash);
+    scrollToDestination(target ?? 0, changedPage || !target);
   }));
 }
 
@@ -36,4 +39,3 @@ export function AppLink({ href, className, children, onClick, ...props }: AppLin
     </a>
   );
 }
-

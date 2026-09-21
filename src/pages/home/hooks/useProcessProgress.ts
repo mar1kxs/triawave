@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { isMotionDisabled } from "../../../lib/motion/preferences";
 
 /**
- * Maps desktop scroll progress to the active process step. Mobile and
- * reduced-motion users keep the static, fully readable list.
+ * Tracks actual step positions without a viewport-sized pin or scroll spacer.
+ * Mobile and reduced-motion users keep the static, fully readable list.
  */
-export function usePinnedProcess(stepCount: number) {
+export function useProcessProgress(stepCount: number) {
   const sectionRef = useRef<HTMLElement>(null);
-  const pinRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
@@ -16,18 +16,17 @@ export function usePinnedProcess(stepCount: number) {
     const update = () => {
       frame = 0;
       const section = sectionRef.current;
-      const pin = pinRef.current;
-
-      if (!section || !pin || !motionQuery.matches) {
-        document.documentElement.classList.remove("process-header-fixed");
+      if (!section || !motionQuery.matches || isMotionDisabled()) {
         setActiveStep(0);
         return;
       }
 
-      const sectionTop = window.scrollY + section.getBoundingClientRect().top;
-      const scrollDistance = Math.max(1, section.offsetHeight - pin.offsetHeight);
-      const progress = Math.min(1, Math.max(0, (window.scrollY - sectionTop) / scrollDistance));
-      const nextStep = Math.min(stepCount - 1, Math.floor(progress * stepCount));
+      const steps = section.querySelectorAll<HTMLElement>(".process-step");
+      const activationLine = window.innerHeight * 0.55;
+      let nextStep = 0;
+      steps.forEach((step, index) => {
+        if (step.getBoundingClientRect().top <= activationLine) nextStep = index;
+      });
 
       setActiveStep((current) => current === nextStep ? current : nextStep);
     };
@@ -37,6 +36,8 @@ export function usePinnedProcess(stepCount: number) {
     };
 
     update();
+    const observer = new ResizeObserver(scheduleUpdate);
+    if (sectionRef.current) observer.observe(sectionRef.current);
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
     motionQuery.addEventListener("change", scheduleUpdate);
@@ -46,9 +47,9 @@ export function usePinnedProcess(stepCount: number) {
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", scheduleUpdate);
       motionQuery.removeEventListener("change", scheduleUpdate);
-      document.documentElement.classList.remove("process-header-fixed");
+      observer.disconnect();
     };
   }, [stepCount]);
 
-  return { sectionRef, pinRef, activeStep };
+  return { sectionRef, activeStep };
 }

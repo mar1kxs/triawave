@@ -1,3 +1,4 @@
+import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { useRef, useState } from "react";
 import { SectionHead } from "../../../components/ui/SectionHead";
 import { TESTIMONIALS } from "../content";
@@ -16,7 +17,7 @@ export function TestimonialsSection() {
     <section className="testimonials-section">
       <SectionHead index="06" label="Client stories" axis="PROCESS" />
       <div className="testimonial-title-row">
-        <h2>What clients say</h2>
+        <MotionHeading>What clients say</MotionHeading>
         <div className="testimonial-controls" aria-label="Review navigation">
           <button type="button" aria-label="Previous review" disabled={current === 0} onClick={() => move(-1)}><img src="/assets/review-arrow-left.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
           <span aria-live="polite">{current + 1}/{TESTIMONIALS.length}</span>

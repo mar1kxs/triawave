@@ -5,7 +5,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   const [node, setNode] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!node) return;
+    if (!node || node.closest(".home-page")) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setShown(true);

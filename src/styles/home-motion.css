@@ -1,0 +1,97 @@
+/* Motion stays separate from content layout and typography. */
+html.home-motion-page,
+html.home-motion-static,
+html.lenis {
+  scroll-behavior: auto;
+}
+
+.home-page h1,
+.home-page h2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.motion-line,
+.motion-line-inner {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+.motion-line,
+.motion-line-inner {
+  display: block;
+}
+
+.home-page .motion-line {
+  overflow: clip;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+}
+
+.motion-line-inner {
+  transform-origin: left bottom;
+}
+
+/* Server HTML and no-JS pages are visible; WAAPI only animates entering content. */
+.home-page .reveal,
+.home-page .reveal.is-shown {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-page .button {
+    transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  }
+  .home-page .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px #f82b9326;
+  }
+  .home-page .button:active {
+    transform: translateY(0);
+  }
+  .home-page .start-project-button__link {
+    transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  }
+  .home-page .start-project-button:hover .start-project-button__link {
+    transition-duration: 160ms, 220ms, 220ms, 220ms;
+  }
+  .home-page .service-arrow {
+    transition: background-color var(--service-duration) var(--service-easing), translate 250ms ease;
+  }
+  .home-page .service-row:hover .service-arrow {
+    translate: 3px -3px;
+  }
+}
+
+.home-page a:focus-visible,
+.home-page button:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 5px;
+}
+
+.home-motion-static .home-page *,
+.home-motion-static .home-page *::before,
+.home-motion-static .home-page *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.home-motion-static .home-page .process-step > * {
+  opacity: 1;
+  transform: none;
+}
+
+.home-motion-static .home-page .button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

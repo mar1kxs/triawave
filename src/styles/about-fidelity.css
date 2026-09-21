@@ -1,36 +1,36 @@
 /* Measurements from the 1920px About frame 4730:20305. */
-.about-page .about-hero { height:513px; min-height:0; padding:107px var(--page-pad) 0; border-bottom:1px solid #373738; }
+.about-page .about-hero { padding:107px var(--page-pad) 0; border-bottom:1px solid #373738; padding-bottom:60px; }
 .about-page .about-hero .eyebrow { font-size:11px; line-height:14px; letter-spacing:.44px; margin:0 0 12px; }
 .about-page .about-hero h1 { font-size:88px; line-height:1.05; letter-spacing:-2.64px; font-weight:700; }
-.about-page .about-hero > p { width:409px; max-width:100%; font-size:16px; line-height:19px; margin:16px 0 32px; }
-.about-page .about-hero .button { width:178px; height:43px; padding:14px 18px; gap:10px; letter-spacing:2.16px; }
+.about-page .about-hero > p { width:min(100%, 409px); max-width:100%; font-size:16px; line-height:19px; margin:16px 0 32px; }
+.about-page .about-hero .button { padding:14px 18px; gap:10px; letter-spacing:2.16px; width:fit-content; max-width:100%; }
 .about-page .about-hero .button img { width:16px; height:14px; }
 .about-page .about-orbit { width:603px; height:603px; max-width:none; left:calc(75% - 166px); top:-42px; right:auto; }
 .about-diamond { position:absolute; left:calc(75% + 42.627px); top:161.127px; width:193.747px; height:193.747px; border:1px solid rgba(255,50,136,.5); transform:rotate(45deg); }
 .about-square { position:absolute; left:calc(75% + 54.733px); top:227.727px; width:60.546px; height:60.546px; background:#ff3288; transform:rotate(15deg); }
-.about-page .team-section { height:2371px; padding:102px var(--page-pad) 60px; }
-.about-page .team-layout { grid-template-columns:minmax(0,1fr) minmax(0,891px); gap:0; margin:0; }
-.about-page .team-intro { position:static; width:522px; }
+.about-page .team-section { padding:102px var(--page-pad) 60px; }
+.about-page .team-layout { margin:0; grid-template-columns:minmax(0, 0.9fr) minmax(0, 1.1fr); gap:clamp(32px, 5vw, 80px); }
+.about-page .team-intro { position:static; width:min(100%, 522px); }
 .about-page .team-intro .eyebrow { line-height:14px; margin:0 0 24px; letter-spacing:.44px; }
 .about-page .team-intro h2 { font-size:64px; font-weight:500; letter-spacing:-1.92px; line-height:1.05; }
-.about-page .team-intro p { width:496px; max-width:100%; font-size:16px; line-height:1.35; margin:24px 0 0; }
-.about-page .team-grid { grid-template-rows:repeat(3,703px); gap:50px 20px; padding:0; }
-.about-page .person .portrait-placeholder { height:543px; margin:0 0 25px; position:relative; border:.594px solid rgba(255,255,255,.12); background-color:rgba(255,255,255,.03); background-image:repeating-linear-gradient(to bottom,rgba(247,243,240,.06) 0 .594px,transparent .594px 76.02px); color:#c8c3ca; }
+.about-page .team-intro p { width:min(100%, 496px); max-width:100%; font-size:16px; line-height:1.35; margin:24px 0 0; }
+.about-page .team-grid { grid-template-rows:auto; gap:50px 20px; padding:0; }
+.about-page .person .portrait-placeholder { margin:0 0 25px; position:relative; border:.594px solid rgba(255,255,255,.12); background-color:rgba(255,255,255,.03); background-image:repeating-linear-gradient(to bottom,rgba(247,243,240,.06) 0 .594px,transparent .594px 76.02px); color:#c8c3ca; }
 .about-page .portrait-placeholder span,.about-page .portrait-placeholder b { font:400 16.342px/24.513px var(--display); letter-spacing:3.5953px; margin:0; }
 .about-page .portrait-placeholder b { color:#ff3288; }
 .about-page .portrait-placeholder span,.about-page .portrait-placeholder b { transform:translateY(14.5px); }
 .about-page .portrait-placeholder i { position:absolute; top:9.75px; left:9.51px; font:400 7.131px/9.508px var(--display); letter-spacing:2.1393px; color:#ff3288; }
 .about-page .person h3 { font-size:20px; line-height:1.05; font-weight:700; letter-spacing:-.6px; margin:0 0 12px; padding:0 0 12px; border-bottom:1px solid rgba(255,255,255,.2); }
-.about-page .person small { font:400 14px/22.75px Inter,sans-serif; min-height:0; }
+.about-page .person small { font:400 14px/22.75px Inter,sans-serif; }
 .about-page .person p { font:400 14px/22.75px Inter,sans-serif; color:#c8c3ca; margin:20px 0 0; padding:0; border:0; }
-.about-page .about-approach { height:987px; padding:60px var(--page-pad); }
+.about-page .about-approach { padding:60px var(--page-pad); }
 .about-page .about-approach .section-head { font-size:11px; line-height:16.5px; letter-spacing:2.42px; }
-.about-page .approach-layout { grid-template-columns:607px 893px; justify-content:space-between; gap:0; margin-top:60px; }
+.about-page .approach-layout { justify-content:space-between; margin-top:60px; grid-template-columns:minmax(0, 0.8fr) minmax(0, 1.2fr); gap:clamp(32px, 5vw, 80px); }
 .about-page .approach-intro h2 { font-size:64px; font-weight:700; line-height:1.05; letter-spacing:-1.92px; }
-.about-page .approach-intro p { width:373px; max-width:100%; font-size:16px; line-height:1.35; color:#555; margin:26px 0 0; }
-.about-page .about-approach-cubes { width:176.24px; height:177.1px; margin-top:30px; }
+.about-page .approach-intro p { width:min(100%, 373px); max-width:100%; font-size:16px; line-height:1.35; color:#555; margin:26px 0 0; }
+.about-page .about-approach-cubes { width:176.24px; margin-top:30px; }
 .about-page .approach-list { border:0; }
-.about-page .approach-row { grid-template-columns:29px 1fr 31px; gap:32px; min-height:129px; padding:30px 0; border-top:1px solid #d1cecc; border-bottom:1px solid #d1cecc; align-items:start; }
+.about-page .approach-row { grid-template-columns:29px 1fr 31px; gap:32px; padding:30px 0; border-top:1px solid #d1cecc; border-bottom:1px solid #d1cecc; align-items:start; }
 .about-page .approach-row > span { font:700 16px/20px var(--display); letter-spacing:.96px; }
 .about-page .approach-row:nth-child(1) { grid-template-columns:26px 1fr 31px; }
 .about-page .approach-row:nth-child(2) { grid-template-columns:28px 1fr 31px; }
@@ -42,7 +42,7 @@
 .about-page .approach-row .shape-4 { background:rgba(255,50,136,.7); transform:rotate(105deg); }
 .about-page .approach-row .shape-5 { background:rgba(255,50,136,.6); transform:rotate(180deg); }
 .about-page .approach-row .shape-6 { background:transparent; border:1px solid #c6c6c6; transform:rotate(-150deg); }
-.about-page .working-section { height:615px; min-height:0; padding:112px var(--page-pad) 60px; }
+.about-page .working-section { padding:112px var(--page-pad) 60px; }
 .about-page .working-section .section-head { line-height:16.5px; letter-spacing:.44px; }
 .about-page .working-section h2 { font-size:64px; line-height:1.05; letter-spacing:-1.92px; margin:40px 0 60px; }
 .about-page .expectations-grid { gap:20px; }
@@ -58,27 +58,26 @@
  .about-page .expectation h3 { font-size:clamp(18px,1.25vw,24px); }
 }
 @media(max-width:900px) {
- .about-page .about-hero { height:auto; min-height:500px; padding-top:80px; padding-bottom:60px; }
+ .about-page .about-hero { padding-top:80px; padding-bottom:60px; }
  .about-page .about-hero h1 { font-size:clamp(42px,8vw,72px); letter-spacing:-.03em; }
  .about-page .about-orbit,.about-diamond,.about-square { opacity:.25; }
- .about-page .team-section { height:auto; padding-block:60px; }
+ .about-page .team-section { padding-block:60px; }
  .about-page .team-layout,.about-page .approach-layout { grid-template-columns:minmax(0,1fr); gap:50px; }
  .about-page .team-layout > *, .about-page .approach-layout > * { min-width:0; }
  .about-page .team-intro h2 { font-size:48px; }
- .about-page .team-grid { grid-template-rows:none; gap:50px 20px; }
- .about-page .person .portrait-placeholder { height:55vw; }
+ .about-page .team-grid { grid-template-rows:auto; gap:50px 20px; }
  .about-page .portrait-placeholder span,.about-page .portrait-placeholder b { font-size:12px; letter-spacing:1.5px; }
- .about-page .about-approach { height:auto; }
  .about-page .approach-intro h2 { font-size:48px; }
  .about-page .approach-row { grid-template-columns:29px 1fr 24px; gap:20px; }
- .about-page .working-section { height:auto; padding-block:60px; }
+ .about-page .working-section { padding-block:60px; }
  .about-page .working-section h2 { font-size:48px; }
  .about-page .expectations-grid { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:540px) {
  .about-page .team-grid,.about-page .expectations-grid { grid-template-columns:1fr; }
- .about-page .person .portrait-placeholder { height:115vw; }
  .about-page .team-intro h2,.about-page .approach-intro h2,.about-page .working-section h2 { font-size:40px; }
  .about-page .approach-row h3 { font-size:20px; }
  .about-page .approach-row p { font-size:14px; }
 }
+@media (max-width: 900px) {
+ .about-page .team-layout, .about-page .approach-layout { grid-template-columns:minmax(0, 1fr); } }
