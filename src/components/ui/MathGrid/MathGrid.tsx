@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+import { isMotionDisabled } from "../../../lib/motion/preferences";
 
 import "./MathGrid.css";
 
@@ -44,6 +45,10 @@ export default function MathGrid({
     let dpr = 1;
     let time = 0;
     let animationFrame = 0;
+    let visible = false;
+    let motionDisabled = isMotionDisabled();
+    let previousTime = 0;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const pointer = {
       x: 0,
@@ -151,7 +156,10 @@ export default function MathGrid({
       };
     }
 
-    function draw() {
+    function draw(timestamp = performance.now()) {
+      animationFrame = 0;
+      const elapsed = previousTime ? Math.min((timestamp - previousTime) / 1000, 0.05) : 1 / 60;
+      previousTime = timestamp;
       // Очистка
       ctx.clearRect(
         0,
@@ -378,17 +386,16 @@ export default function MathGrid({
       }
 
       // Скорость анимации
-      time += 0.016;
-
-      animationFrame =
-        window.requestAnimationFrame(
-          draw
-        );
+      if (!motionDisabled && visible && !document.hidden) {
+        time += elapsed;
+        animationFrame = window.requestAnimationFrame(draw);
+      }
     }
 
     function handlePointerMove(
       event: PointerEvent
     ) {
+      if (motionDisabled) return;
       const rect =
         root.getBoundingClientRect();
 
@@ -421,13 +428,30 @@ export default function MathGrid({
 
     const observer =
       new ResizeObserver(
-        resize
+        () => {
+          resize();
+          if (!animationFrame) draw();
+        }
       );
 
     observer.observe(root);
 
     resize();
     draw();
+
+    const updateMotion = () => {
+      window.cancelAnimationFrame(animationFrame);
+      motionDisabled = isMotionDisabled();
+      previousTime = 0;
+      draw();
+    };
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      updateMotion();
+    });
+    visibilityObserver.observe(root);
+    document.addEventListener("visibilitychange", updateMotion);
+    motionPreference.addEventListener("change", updateMotion);
 
     return () => {
       root.removeEventListener(
@@ -441,6 +465,9 @@ export default function MathGrid({
       );
 
       observer.disconnect();
+      visibilityObserver.disconnect();
+      document.removeEventListener("visibilitychange", updateMotion);
+      motionPreference.removeEventListener("change", updateMotion);
 
       window.cancelAnimationFrame(
         animationFrame

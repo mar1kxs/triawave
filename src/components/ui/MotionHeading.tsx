@@ -5,7 +5,7 @@ type MotionHeadingProps = HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2
 /** Explicit editorial line breaks remain part of React's server and client markup. */
 export function MotionHeading({ as: Tag = "h2", children, ...props }: MotionHeadingProps) {
   const lines: ReactNode[][] = [[]];
-  Children.forEach(children, (child) => {
+  Children.toArray(children).forEach((child) => {
     if (isValidElement(child) && child.type === "br") lines.push([]);
     else lines[lines.length - 1].push(child);
   });

@@ -1059,7 +1059,7 @@ img {
   margin: 52px 0 72px;
 }
 
-.testimonial-title-row span {
+.testimonial-controls > span {
   font-family: var(--display);
   font-size: 16px;
 }
@@ -1921,7 +1921,7 @@ img {
     align-items: flex-end;
     margin: 44px 0;
   }
-  .testimonial-title-row span {
+  .testimonial-controls > span {
     font-size: 12px;
   }
   .testimonials-track {
