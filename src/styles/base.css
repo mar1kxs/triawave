@@ -463,7 +463,7 @@ img {
   font-size: 32px;
   letter-spacing: -0.035em;
   text-transform: uppercase;
-  padding: 55px var(--page-pad);
+  padding: 22px var(--page-pad);
   flex-wrap: wrap;
   gap: 24px;
   white-space: normal;
@@ -545,7 +545,7 @@ img {
 
 .work-grid {
   display: grid;
-  gap: 112px 20px;
+  gap: 132px 20px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   min-width: 0;
 }
@@ -654,6 +654,11 @@ img {
 
 .light-section .section-head {
   border-color: rgba(5, 5, 6, 0.18);
+}
+
+/* Cover fractional-pixel seams between consecutive light backgrounds. */
+.home-page .light-section + .light-section {
+  margin-top: -1px;
 }
 
 .light-section .section-head span:last-child {
@@ -964,9 +969,9 @@ img {
 
 .process-intro {
   align-self: start;
-  padding-top: 22px;
+  padding-top: 0;
   position: sticky;
-  top: 120px;
+  top: 55px;
 }
 
 .process-intro h2 {
@@ -1238,7 +1243,7 @@ img {
   margin-bottom: 22px;
   overflow-wrap: anywhere;
   text-transform: uppercase;
-  text-wrap-mode: wrap;
+  text-wrap-mode: nowrap;
 }
 
 .footer-contact p {
@@ -1274,7 +1279,13 @@ img {
   font-size: 16px;
   grid-template-columns: 34px minmax(0, 1fr) 36px;
   column-gap: 12px;
-  padding: 18px 0;
+  padding: 18px 12px;
+  transition: background-color 200ms ease;
+}
+
+.footer-services a:hover,
+.footer-services a:focus-visible {
+  background-color: #2d2d32;
 }
 
 .footer-services a span {
@@ -1306,7 +1317,7 @@ img {
 
 .footer-services a:hover .footer-service-arrow,
 .footer-services a:focus-visible .footer-service-arrow {
-  width: 28px;
+  width: 28px; 
 }
 
 .legal-strip {
@@ -1329,9 +1340,9 @@ img {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(18px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.3, 1),
+    transform 0.8s cubic-bezier(0.25, 0.8, 0.3, 1);
 }
 
 .reveal.is-shown {
@@ -1741,7 +1752,7 @@ img {
     width: 100%;
   }
   .work-card + .work-card {
-    margin-top: 72px;
+    margin-top: 92px;
   }
   .work-card > * {
     min-width: 0;

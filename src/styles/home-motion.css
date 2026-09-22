@@ -42,6 +42,9 @@ html.lenis {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .home-page .audience-card.reveal {
+    transition: background-color 320ms ease-in-out;
+  }
   .home-page .button {
     transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
   }
@@ -59,7 +62,8 @@ html.lenis {
     transition-duration: 160ms, 220ms, 220ms, 220ms;
   }
   .home-page .service-arrow {
-    transition: background-color var(--service-duration) var(--service-easing), translate 250ms ease;
+    translate: 0 0;
+    transition: background-color 200ms ease, translate 250ms ease;
   }
   .home-page .service-row:hover .service-arrow {
     translate: 3px -3px;

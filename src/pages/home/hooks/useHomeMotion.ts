@@ -24,9 +24,9 @@ export function useHomeMotion() {
       const play = (element: HTMLElement, delay = 0) => {
         const line = element.classList.contains("motion-line-inner");
         const animation = element.animate([
-          { opacity: 0, transform: line ? "translateY(105%) rotate(2deg)" : "translateY(24px)" },
+          { opacity: 0, transform: line ? "translateY(105%) rotate(1deg)" : "translateY(18px)" },
           { opacity: 1, transform: "translateY(0) rotate(0deg)" },
-        ], { duration: line ? 850 : 700, delay, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "backwards" });
+        ], { duration: line ? 950 : 800, delay, easing: "cubic-bezier(0.25, 0.8, 0.3, 1)", fill: "backwards" });
         animations.add(animation);
         animation.onfinish = () => animations.delete(animation);
       };

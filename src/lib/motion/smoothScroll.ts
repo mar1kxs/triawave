@@ -18,8 +18,8 @@ export function startSmoothScroll() {
 
     instance = new Lenis({
       autoRaf: true,
-      lerp: 0.14,
-      wheelMultiplier: 0.85,
+      lerp: 0.19,
+      wheelMultiplier: 1.15,
       smoothWheel: true,
       syncTouch: false,
       anchors: false,

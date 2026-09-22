@@ -70,7 +70,7 @@ export const AUDIENCES: Audience[] = [
 export const OUTCOMES: ContentCard[] = [
   { number: "01", title: "Build trust", copy: "Present your business with the clarity and credibility your customers expect" },
   { number: "02", title: "Clarify your offer", copy: "Help visitors understand what you do, who it is for and why it matters — within seconds" },
-  { number: "03", title: "Turn attention into action", copy: "Guide the right visitors towards an enquiry, booking or purchase" },
+  { number: "03", title: "Drive action", copy: "Guide the right visitors towards an enquiry, booking or purchase" },
   { number: "04", title: "Support growth", copy: "Give your team a flexible website that evolves with your services, content and audience" },
 ];
 
