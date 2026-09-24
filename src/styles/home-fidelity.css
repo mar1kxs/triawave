@@ -623,7 +623,7 @@
 
 @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
   .process-scroll .process-intro {
-    top: var(--process-activation-line, 55px);
+    top: var(--process-intro-top, 55px);
   }
   .process-scroll .process-step > * {
     opacity: 0.72;
