@@ -33,7 +33,7 @@ export function useProcessProgress(stepCount: number) {
         ? steps[1].offsetTop - steps[0].offsetTop
         : 0;
       section.style.setProperty("--process-intro-top", `${activationLine - secondStepOffset}px`);
-      let nextStep = -1;
+      let nextStep = 0;
       steps.forEach((step, index) => {
         if (step.getBoundingClientRect().top <= activationLine) nextStep = index;
       });
