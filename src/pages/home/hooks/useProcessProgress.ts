@@ -17,13 +17,19 @@ export function useProcessProgress(stepCount: number) {
       frame = 0;
       const section = sectionRef.current;
       if (!section || !motionQuery.matches || isMotionDisabled()) {
+        section?.style.removeProperty("--process-activation-line");
         setActiveStep(0);
         return;
       }
 
       const steps = section.querySelectorAll<HTMLElement>(".process-step");
-      const activationLine = window.innerHeight * 0.55;
-      let nextStep = 0;
+      const intro = section.querySelector<HTMLElement>(".process-intro");
+      const activationLine = Math.max(55, Math.min(
+        window.innerHeight * 0.55,
+        window.innerHeight - (intro?.offsetHeight ?? 0) - 32,
+      ));
+      section.style.setProperty("--process-activation-line", `${activationLine}px`);
+      let nextStep = -1;
       steps.forEach((step, index) => {
         if (step.getBoundingClientRect().top <= activationLine) nextStep = index;
       });
@@ -37,7 +43,12 @@ export function useProcessProgress(stepCount: number) {
 
     update();
     const observer = new ResizeObserver(scheduleUpdate);
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
+      const intro = section.querySelector<HTMLElement>(".process-intro");
+      if (intro) observer.observe(intro);
+    }
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
     motionQuery.addEventListener("change", scheduleUpdate);
@@ -48,6 +59,7 @@ export function useProcessProgress(stepCount: number) {
       window.removeEventListener("resize", scheduleUpdate);
       motionQuery.removeEventListener("change", scheduleUpdate);
       observer.disconnect();
+      section?.style.removeProperty("--process-activation-line");
     };
   }, [stepCount]);
 

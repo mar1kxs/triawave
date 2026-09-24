@@ -164,6 +164,9 @@ img {
 }
 
 .desktop-nav a::after,
+.mega-column a::after,
+.footer-primary a::after,
+.legal-strip a::after,
 .nav-services::after {
   background: var(--pink);
   content: "";
@@ -176,6 +179,12 @@ img {
 
 .desktop-nav a:hover::after,
 .desktop-nav a:focus-visible::after,
+.mega-column a:hover::after,
+.mega-column a:focus-visible::after,
+.footer-primary a:hover::after,
+.footer-primary a:focus-visible::after,
+.legal-strip a:hover::after,
+.legal-strip a:focus-visible::after,
 .nav-services:hover::after,
 .nav-services.active::after {
   transform: scaleX(1);
@@ -274,11 +283,6 @@ img {
   color: var(--white);
   font-size: 14px;
   line-height: 1.15;
-}
-
-.mega-column a:hover,
-.mega-column a.active {
-  color: var(--pink);
 }
 
 .mega-help {
@@ -1210,6 +1214,19 @@ img {
   display: contents;
 }
 
+.footer-primary a,
+.legal-strip a {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.footer-primary a::after,
+.legal-strip a::after {
+  position: absolute;
+  inset: auto 0 -1px;
+}
+
 .site-footer h3 {
   color: #c8c3ca;
   font-family: var(--display);
@@ -1336,6 +1353,7 @@ img {
 
 .legal-strip > *:last-child {
   text-align: right;
+  justify-self: end;
 }
 
 .reveal {
@@ -1975,6 +1993,7 @@ img {
   }
   .legal-strip > *:last-child {
     text-align: left;
+    justify-self: start;
   }
   .about-hero {
     padding-top: 76px;

@@ -25,7 +25,6 @@ export default function HomePage() {
         <ServicesSection />
         <ProcessSection />
         <TestimonialsSection />
-        <FAQSection />
         <CTASection />
       </main>
       <Footer />

@@ -9,8 +9,8 @@ export function MegaMenu({ close }: { close: () => void }) {
       {groups.map((group) => (
         <div className="mega-column" key={group}>
           <h3>{group}</h3>
-          {SERVICES.filter((service) => service.group === group).map((service, index) => (
-            <AppLink className={group === "Design" && index === 0 ? "active" : undefined} href={service.path} onClick={close} key={service.path}>
+          {SERVICES.filter((service) => service.group === group).map((service) => (
+            <AppLink href={service.path} onClick={close} key={service.path}>
               {service.number === "01" ? "Website Design & Redesign" : service.number === "02" ? "UI/UX Design" : service.title}
             </AppLink>
           ))}
