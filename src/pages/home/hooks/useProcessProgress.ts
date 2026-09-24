@@ -17,7 +17,6 @@ export function useProcessProgress(stepCount: number) {
       frame = 0;
       const section = sectionRef.current;
       if (!section || !motionQuery.matches || isMotionDisabled()) {
-        section?.style.removeProperty("--process-intro-top");
         setActiveStep(0);
         return;
       }
@@ -28,11 +27,6 @@ export function useProcessProgress(stepCount: number) {
         window.innerHeight * 0.55,
         window.innerHeight - (intro?.offsetHeight ?? 0) - 32,
       ));
-      // Delay the intro's sticky position until the second step reaches the activation line.
-      const secondStepOffset = steps.length > 1
-        ? steps[1].offsetTop - steps[0].offsetTop
-        : 0;
-      section.style.setProperty("--process-intro-top", `${activationLine - secondStepOffset}px`);
       let nextStep = 0;
       steps.forEach((step, index) => {
         if (step.getBoundingClientRect().top <= activationLine) nextStep = index;
@@ -64,7 +58,6 @@ export function useProcessProgress(stepCount: number) {
       window.removeEventListener("resize", scheduleUpdate);
       motionQuery.removeEventListener("change", scheduleUpdate);
       observer.disconnect();
-      section?.style.removeProperty("--process-intro-top");
     };
   }, [stepCount]);
 
