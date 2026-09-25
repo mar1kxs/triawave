@@ -1,6 +1,6 @@
 import { Shell } from "../../components/layout/Shell";
 import { Footer } from "../../components/layout/Footer";
-import { CTASection } from "../../components/sections/CTASection";
+import { InnerPageCTA } from "../shared/InnerPageCTA";
 import { HomeHero } from "./sections/HomeHero";
 import { WorkSection } from "./sections/WorkSection";
 import { AudienceSection } from "./sections/AudienceSection";
@@ -25,7 +25,7 @@ export default function HomePage() {
         <ServicesSection />
         <ProcessSection />
         <TestimonialsSection />
-        <CTASection />
+        <InnerPageCTA />
       </main>
       <Footer />
     </Shell>

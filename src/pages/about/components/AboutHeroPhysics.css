@@ -1,0 +1,20 @@
+.about-page .about-hero-physics {
+  position:absolute;
+  width:320px;
+  height:320px;
+  max-width:none;
+  left:calc(75% - 21px);
+  top:98px;
+  pointer-events:none;
+}
+.about-page .about-hero-impact { filter:blur(5px); }
+@media(max-width:900px) {
+  .about-page .about-hero-physics {
+    width:240px;
+    height:240px;
+    left:auto;
+    right:-35px;
+    top:150px;
+    opacity:.3;
+  }
+}

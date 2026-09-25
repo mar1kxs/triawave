@@ -1,3 +1,4 @@
+import { SITE } from "../../../config/site";
 import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "../../../content/services";
 import { AppLink } from "../../ui/AppLink";
@@ -74,9 +75,8 @@ export function Header() {
           Services <span aria-hidden="true"><img src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>
         </button>
         <AppLink href="/about">About</AppLink>
-        <AppLink href="/contact">Contact</AppLink>
       </nav>
-      <AppLink href="/contact" className="button header-cta">Let’s talk</AppLink>
+      <AppLink href={`mailto:${SITE.email}`} className="button header-cta">Let’s talk</AppLink>
       <button className="mobile-toggle" type="button" aria-expanded={mobileOpen} aria-label="Toggle menu" onClick={() => setMobileOpen((value) => !value)}>
         <span /> <span />
       </button>
@@ -85,7 +85,6 @@ export function Header() {
         <nav className="mobile-nav" aria-label="Mobile navigation">
           <AppLink href="/work" onClick={() => setMobileOpen(false)}>Work</AppLink>
           <AppLink href="/about" onClick={() => setMobileOpen(false)}>About</AppLink>
-          <AppLink href="/contact" onClick={() => setMobileOpen(false)}>Contact</AppLink>
           {SERVICES.map((service) => <AppLink href={service.path} onClick={() => setMobileOpen(false)} key={service.path}>{service.title}</AppLink>)}
         </nav>
       )}

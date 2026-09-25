@@ -164,9 +164,8 @@ img {
 }
 
 .desktop-nav a::after,
-.mega-column a::after,
-.footer-primary a::after,
-.legal-strip a::after,
+.footer-primary > div:first-child a::after,
+.footer-social::after,
 .nav-services::after {
   background: var(--pink);
   content: "";
@@ -179,12 +178,10 @@ img {
 
 .desktop-nav a:hover::after,
 .desktop-nav a:focus-visible::after,
-.mega-column a:hover::after,
-.mega-column a:focus-visible::after,
-.footer-primary a:hover::after,
-.footer-primary a:focus-visible::after,
-.legal-strip a:hover::after,
-.legal-strip a:focus-visible::after,
+.footer-primary > div:first-child a:hover::after,
+.footer-primary > div:first-child a:focus-visible::after,
+.footer-social:hover::after,
+.footer-social:focus-visible::after,
 .nav-services:hover::after,
 .nav-services.active::after {
   transform: scaleX(1);
@@ -283,6 +280,12 @@ img {
   color: var(--white);
   font-size: 14px;
   line-height: 1.15;
+  transition: color 0.2s ease;
+}
+
+.mega-column a:hover,
+.mega-column a:focus-visible {
+  color: var(--pink);
 }
 
 .mega-help {
@@ -1215,14 +1218,15 @@ img {
 }
 
 .footer-primary a,
+.footer-social,
 .legal-strip a {
   position: relative;
   width: fit-content;
   max-width: 100%;
 }
 
-.footer-primary a::after,
-.legal-strip a::after {
+.footer-primary > div:first-child a::after,
+.footer-social::after {
   position: absolute;
   inset: auto 0 -1px;
 }

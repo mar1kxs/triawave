@@ -1,6 +1,6 @@
 import { Shell } from "../../components/layout/Shell";
 import { Footer } from "../../components/layout/Footer";
-import { CTASection } from "../../components/sections/CTASection";
+import { InnerPageCTA } from "../shared/InnerPageCTA";
 import { AboutHero } from "./sections/AboutHero";
 import { TeamSection } from "./sections/TeamSection";
 import { ApproachSection } from "./sections/ApproachSection";
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <TeamSection />
         <ApproachSection />
         <WorkingSection />
-        <CTASection />
+        <InnerPageCTA />
       </main>
       <Footer />
     </Shell>

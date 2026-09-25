@@ -4,6 +4,8 @@ export const TEAM = [
   { name: "Max Marans", role: "Web Developer", copy: "Turns designs into working websites, with a focus on functionality, animation and technical performance" },
   { name: "Oleg Lastname", role: "Web Designer & Developer", copy: "Designs interfaces and builds responsive websites, connecting visual detail with usability" },
   { name: "Liza Lastname", role: "Co-founder & Business Development Lead", copy: "Shapes the studio’s direction, develops partnerships and explores new business opportunities" },
+  // The current Figma frame has two matching Liza placeholder cards.
+  { name: "Liza Lastname", role: "Co-founder & Business Development Lead", copy: "Shapes the studio’s direction, develops partnerships and explores new business opportunities" },
 ] as const;
 
 export const APPROACH = [
@@ -21,4 +23,3 @@ export const EXPECTATIONS = [
   { number: "03", title: "Attention to the details", copy: "Layouts, interactions and responsive behaviour are treated as parts of one experience" },
   { number: "04", title: "A considered handover", copy: "Website handover and any ongoing support are defined as part of the project" },
 ] as const;
-

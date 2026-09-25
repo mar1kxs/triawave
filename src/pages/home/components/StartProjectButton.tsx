@@ -1,3 +1,4 @@
+import { SITE } from "../../../config/site";
 import type { PointerEvent } from "react";
 import { isMotionDisabled } from "../../../lib/motion/preferences";
 import { AppLink } from "../../../components/ui/AppLink";
@@ -31,7 +32,7 @@ export function StartProjectButton() {
       onPointerCancel={resetPosition}
       onBlur={resetPosition}
     >
-      <AppLink href="/contact" className="button start-project-button__link">Start a project</AppLink>
+      <AppLink href={`mailto:${SITE.email}`} className="button start-project-button__link">Start a project</AppLink>
     </span>
   );
 }

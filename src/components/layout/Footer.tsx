@@ -12,13 +12,12 @@ export function Footer() {
             <AppLink href="/work">Work</AppLink>
             <AppLink href="/#services">Services</AppLink>
             <AppLink href="/about">About</AppLink>
-            <AppLink href="/contact">Contact</AppLink>
           </div>
           <div className="footer-contact">
             <h3>Get in touch</h3>
             <a className="footer-email" href={`mailto:${SITE.email}`}>{SITE.email}</a>
-            <p><span>Instagram </span><i /> <span>Telegram </span><i /> <span>WhatsApp </span></p>
-            <p><span>Upwork </span><i /> <span>LinkedIn </span></p>
+            <p><span className="footer-social">Instagram</span><i /> <span className="footer-social">Telegram</span><i /> <span className="footer-social">WhatsApp</span></p>
+            <p><span className="footer-social">Upwork</span><i /> <span className="footer-social">LinkedIn</span></p>
           </div>
         </div>
         <div className="footer-services">

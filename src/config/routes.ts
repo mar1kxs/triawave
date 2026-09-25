@@ -31,13 +31,6 @@ const STATIC_ROUTES: RouteConfig[] = [
     indexable: false,
   },
   {
-    path: "/contact",
-    screenTitle: "START A PROJECT\n(CONTACT PAGE)",
-    seoTitle: "Start a Website Project | Triawave",
-    seoDescription: "Start a conversation with Triawave about website strategy, UI/UX design, development or ongoing support.",
-    indexable: false,
-  },
-  {
     path: "/privacy-policy",
     screenTitle: "/PRIVACY-POLICY",
     seoTitle: "Privacy Policy | Triawave",
@@ -69,9 +62,9 @@ const SERVICE_ROUTES: RouteConfig[] = SERVICES.map((service) => ({
 }));
 
 export const APP_ROUTES: RouteConfig[] = [
-  ...STATIC_ROUTES.slice(0, 4),
+  ...STATIC_ROUTES.slice(0, 3),
   ...SERVICE_ROUTES,
-  ...STATIC_ROUTES.slice(4),
+  ...STATIC_ROUTES.slice(3),
 ];
 
 const routeMap = new Map(APP_ROUTES.map((route) => [route.path, route]));
@@ -88,4 +81,3 @@ export function routeForPath(path: string) {
 export function screenTitleForPath(path: string) {
   return routeForPath(path)?.screenTitle ?? "PAGE NOT FOUND";
 }
-
