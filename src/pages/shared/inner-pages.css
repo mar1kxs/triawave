@@ -45,7 +45,7 @@
 .strategy-signature { display:flex; align-items:center; gap:30px; margin-top:60px; color:#999; font-size:16px; line-height:1.3; }
 .strategy-signature img { width:90px; height:90px; object-fit:contain; }
 .strategy-hero-copy { width:590px; max-width:34%; }
-.strategy-hero-copy p { font-size:22px; margin:0 0 22px; }
+.strategy-hero-copy p { font-size:clamp(16px,1.146vw,22px); margin:0 0 22px; }
 .strategy-hero-copy .button { min-width:285px; max-width:100%; }
 .strategy-hero-meta { border-top:1px solid #242428; padding-top:20px; margin-top:60px; }
 .strategy-hero-meta > span { color:#e63b8b; }
@@ -68,8 +68,18 @@
 .strategy-scope::before { content:""; border-left:2px solid #b52869; float:left; height:44px; margin-right:20px; }
 .strategy-deliverables .strategy-scope { max-width:100%; padding-right:max(0px,calc(100% - 820px)); }
 .strategy-work-heading { padding:40px var(--page-pad) 0; }
-.strategy-project-strip { display:grid; grid-template-columns:1fr 1.9fr 1.12fr; gap:10px; overflow:hidden; }
-.strategy-project-strip > div { background:#211f24; min-height:clamp(300px,28.65vw,550px); display:flex; align-items:flex-end; padding:40px; }
+.strategy-project-strip { overflow:hidden; }
+.strategy-project-track { display:flex; width:max-content; animation:strategy-project-marquee 32s linear infinite; }
+.strategy-project-group { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding-right:10px; width:100vw; flex-shrink:0; }
+.strategy-project-card { background:#211f24; min-height:clamp(300px,28.65vw,550px); display:flex; align-items:flex-end; padding:40px; min-width:0; }
+.strategy-project-strip:hover .strategy-project-track,.strategy-project-strip:focus-within .strategy-project-track { animation-play-state:paused; }
+.strategy-project-strip:focus-visible { outline:2px solid #ff3288; outline-offset:-2px; }
+@keyframes strategy-project-marquee { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce) {
+ .strategy-project-strip { overflow-x:auto; }
+ .strategy-project-track { animation:none; }
+ .strategy-project-group[aria-hidden="true"] { display:none; }
+}
 .strategy-project-strip h3 { font-size:28px; }
 .strategy-process { padding:120px var(--page-pad) 60px; }
 .strategy-process-grid { display:grid; grid-template-columns:38% 1fr; gap:40px; }
@@ -81,17 +91,24 @@
 .strategy-step-grid p { margin:0; }
 .strategy-faq { padding:60px var(--page-pad) 140px; background:#111113; }
 .strategy-faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
-.strategy-faq details { border-top:1px solid #373738; }
-.strategy-faq details:last-child { border-bottom:1px solid #373738; }
-.strategy-faq summary { list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:30px 0; font-size:18px; }
-.strategy-faq summary::-webkit-details-marker { display:none; }
-.strategy-faq summary span { font-size:24px; color:#ef388b; font-weight:300; }
-.strategy-faq details[open] summary span { transform:rotate(45deg); }
-.strategy-faq details p { color:#c8c3ca; margin:0 40px 28px 0; max-width:650px; }
-.strategy-faq summary:focus-visible,.inner-page a:focus-visible,.inner-cta a:focus-visible { outline:2px solid #ff3288; outline-offset:5px; }
+.strategy-faq-item { border-top:1px solid #373738; }
+.strategy-faq-item:last-child { border-bottom:1px solid #373738; }
+.strategy-faq-trigger { cursor:pointer; display:flex; width:100%; align-items:center; justify-content:space-between; gap:24px; padding:30px 0; border:0; background:none; color:inherit; font:400 18px/1.35 "Inter",Arial,sans-serif; text-align:left; text-transform:none; letter-spacing:normal; }
+.strategy-faq-icon { position:relative; width:20px; height:20px; flex:0 0 20px; color:#ef388b; }
+.strategy-faq-icon::before,.strategy-faq-icon::after { content:""; position:absolute; background:currentColor; }
+.strategy-faq-icon::before { width:16px; height:2px; left:2px; top:9px; }
+.strategy-faq-icon::after { width:2px; height:16px; left:9px; top:2px; transform:scaleY(1); transform-origin:center; transition:transform 350ms cubic-bezier(.22,1,.36,1); }
+.strategy-faq-item[data-open="true"] .strategy-faq-icon::after { transform:scaleY(0); }
+.strategy-faq-answer { display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows 400ms cubic-bezier(.22,1,.36,1),opacity 300ms ease; }
+.strategy-faq-item[data-open="true"] .strategy-faq-answer { grid-template-rows:1fr; opacity:1; }
+.strategy-faq-answer-inner { min-height:0; overflow:hidden; }
+.strategy-faq-answer p { color:#c8c3ca; margin:0 40px 28px 0; max-width:650px; }
+@media (prefers-reduced-motion:reduce) {
+ .strategy-faq-answer,.strategy-faq-icon::after { transition:none; }
+}
+.strategy-faq-trigger:focus-visible,.inner-page a:focus-visible,.inner-cta a:focus-visible { outline:2px solid #ff3288; outline-offset:5px; }
 @media(max-width:1100px) {
  .strategy-hero-copy { max-width:42%; }
- .strategy-hero-copy p { font-size:18px; }
  .strategy-process-grid { grid-template-columns:1fr; }
  .strategy-step-grid { padding-top:10px; }
  .inner-cta h2 { font-size:clamp(40px,5vw,64px); }
@@ -132,14 +149,13 @@
  .strategy-deliverable { padding:28px 0; gap:14px; }
  .strategy-deliverable h3 { font-size:24px; }
  .strategy-scope { padding-bottom:40px; }
- .strategy-project-strip { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding-inline:var(--page-pad); }
- .strategy-project-strip > div:first-child { display:none; }
- .strategy-project-strip > div { min-height:250px; padding:16px; }
+ .strategy-project-group { width:240vw; gap:8px; padding-right:8px; }
+ .strategy-project-card { min-height:250px; padding:16px; }
  .strategy-project-strip h3 { font-size:18px; }
  .strategy-process { padding-block:60px; }
  .strategy-step-grid { grid-template-columns:1fr; gap:28px; }
  .strategy-step-grid h3 { margin:16px 0; }
  .strategy-faq { padding-block:40px 60px; }
  .strategy-faq-grid { grid-template-columns:1fr; gap:30px; }
- .strategy-faq summary { font-size:16px; padding:24px 0; }
+ .strategy-faq-trigger { font-size:16px; padding:24px 0; }
 }

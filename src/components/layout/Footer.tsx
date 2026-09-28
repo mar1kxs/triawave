@@ -12,6 +12,7 @@ export function Footer() {
             <AppLink href="/work">Work</AppLink>
             <AppLink href="/#services">Services</AppLink>
             <AppLink href="/about">About</AppLink>
+            <AppLink href={`mailto:${SITE.email}`}>Contact</AppLink>
           </div>
           <div className="footer-contact">
             <h3>Get in touch</h3>

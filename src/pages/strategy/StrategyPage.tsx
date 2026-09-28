@@ -5,8 +5,11 @@ import { AppLink } from "../../components/ui/AppLink";
 import MathGrid from "../../components/ui/MathGrid/MathGrid";
 import { InnerPageCTA, InnerSectionLabel } from "../shared/InnerPageCTA";
 import { DELIVERABLES, STRATEGY_FAQ, STRATEGY_STEPS } from "./content";
+import { useDeliverableMotion } from "./useDeliverableMotion";
+import { StrategyFaqItem } from "./StrategyFaqItem";
 
 export default function StrategyPage() {
+  const deliverablesRef = useDeliverableMotion();
   return <Shell>
     <main className="inner-page strategy-page">
       <MathGrid className="strategy-hero">
@@ -25,12 +28,20 @@ export default function StrategyPage() {
       <section className="strategy-deliverables">
         <InnerSectionLabel number="02" title="What you get" axis="Deliverables" />
         <h2>A clear plan<br />for your website</h2><p className="strategy-section-intro">A practical foundation for your website. Clear enough to <br />move into design, detailed enough to keep everyone aligned</p>
-        <div>{DELIVERABLES.map((item, index) => <article className="strategy-deliverable" key={item.title}><span className="strategy-number">0{index + 1}</span><div><h3>{item.title}</h3><p>{item.copy}</p><p className="strategy-result"><span>You get</span> {item.result}</p></div></article>)}</div>
+        <div ref={deliverablesRef}>{DELIVERABLES.map((item, index) => <article className="strategy-deliverable" key={item.title}><span className="strategy-number">0{index + 1}</span><div><h3>{item.title}</h3><p>{item.copy}</p><p className="strategy-result"><span>You get</span> {item.result}</p></div></article>)}</div>
         <p className="strategy-scope">Scope, timeline and pricing are agreed before we begin. Design, development, full copywriting and ongoing SEO are quoted separately</p>
       </section>
       <section className="strategy-work">
         <div className="strategy-work-heading"><InnerSectionLabel number="03" title="Selected work" axis="Work" /><h2>Thinking, made visible</h2><p className="strategy-section-intro">Selected projects showing how we bring <br />structure, content and design together</p></div>
-        <div className="strategy-project-strip" aria-label="Selected project image placeholders"><div aria-hidden="true" /><div><h3>Architecture & interiors</h3></div><div><h3>Beauty & e-commerce</h3></div></div>
+        <div className="strategy-project-strip" aria-label="Selected project image placeholders" tabIndex={0}>
+          <div className="strategy-project-track">
+            {[0, 1].map((copy) => <div className="strategy-project-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+              <div className="strategy-project-card"><h3>Brand & digital experience</h3></div>
+              <div className="strategy-project-card"><h3>Architecture & interiors</h3></div>
+              <div className="strategy-project-card"><h3>Beauty & e-commerce</h3></div>
+            </div>)}
+          </div>
+        </div>
       </section>
       <section className="strategy-process">
         <InnerSectionLabel number="04" title="Working with us" axis="Process" />
@@ -38,7 +49,7 @@ export default function StrategyPage() {
       </section>
       <section className="strategy-faq">
         <InnerSectionLabel number="05" title="A little more clarity" axis="FAQ" />
-        <div className="strategy-faq-grid"><h2>Good questions<br />straight answers</h2><div>{STRATEGY_FAQ.map((item,index)=><details key={index}><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></div>
+        <div className="strategy-faq-grid"><h2>Good questions<br />straight answers</h2><div>{STRATEGY_FAQ.map((item,index)=><StrategyFaqItem key={index} question={item.question} answer={item.answer} />)}</div></div>
       </section>
       <InnerPageCTA />
     </main>
