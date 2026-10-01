@@ -4,9 +4,11 @@ import { Footer } from "../../components/layout/Footer";
 import { AppLink } from "../../components/ui/AppLink";
 import MathGrid from "../../components/ui/MathGrid/MathGrid";
 import { InnerPageCTA, InnerSectionLabel } from "../shared/InnerPageCTA";
-import { DELIVERABLES, STRATEGY_FAQ, STRATEGY_STEPS } from "./content";
+import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "./content";
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
+import { StrategyCubes } from "./StrategyCubes";
+import "./strategy-light.css";
 
 export default function StrategyPage() {
   const deliverablesRef = useDeliverableMotion();
@@ -23,13 +25,22 @@ export default function StrategyPage() {
       </MathGrid>
       <section className="strategy-start" id="strategy-start">
         <InnerSectionLabel number="01" title="The right start" axis="Audience" />
-        <div className="strategy-start-copy"><h2>Before you invest in a website, <br />know what you’re building. And why</h2><div className="strategy-useful"><p>Especially useful for</p><ul><li>Launching a new business</li><li>Planning a website redesign</li><li>Making a complex offer clear</li></ul></div></div>
+        <div className="strategy-start-copy">
+          <h2>Know what you need <br />before you invest</h2>
+          <p>Strategy is useful when the next step is unclear. We turn business goals and scattered ideas into a practical plan for the website</p>
+        </div>
+        <div className="strategy-audiences">{STRATEGY_AUDIENCES.map((item, index) => <article key={item.title}>
+          <span className="strategy-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.copy}</p>
+        </article>)}</div>
       </section>
       <section className="strategy-deliverables">
         <InnerSectionLabel number="02" title="What you get" axis="Deliverables" />
-        <h2>A clear plan<br />for your website</h2><p className="strategy-section-intro">A practical foundation for your website. Clear enough to <br />move into design, detailed enough to keep everyone aligned</p>
-        <div ref={deliverablesRef}>{DELIVERABLES.map((item, index) => <article className="strategy-deliverable" key={item.title}><span className="strategy-number">0{index + 1}</span><div><h3>{item.title}</h3><p>{item.copy}</p><p className="strategy-result"><span>You get</span> {item.result}</p></div></article>)}</div>
-        <p className="strategy-scope">Scope, timeline and pricing are agreed before we begin. Design, development, full copywriting and ongoing SEO are quoted separately</p>
+        <div className="strategy-deliverables-heading"><h2>A plan your team<br />can work from</h2><p className="strategy-scope">Strategy does not automatically include visual design, development, full copywriting or ongoing SEO. Scope and timing are agreed before work begins</p></div>
+        <div className="strategy-deliverable-list" ref={deliverablesRef}>{DELIVERABLES.map((item, index) => <article className={`strategy-deliverable${index % 2 ? " strategy-deliverable-dark" : ""}`} key={item.title}>
+          <span className="strategy-deliverable-label">Chapter 0{index + 1} / 04</span>
+          <div className="strategy-deliverable-copy"><h3>{item.title}</h3><p>{item.copy}</p><p className="strategy-result"><span>You get</span>{item.result}</p></div>
+          <StrategyCubes variant={index} />
+        </article>)}</div>
       </section>
       <section className="strategy-work">
         <div className="strategy-work-heading"><InnerSectionLabel number="03" title="Selected work" axis="Work" /><h2>Thinking, made visible</h2><p className="strategy-section-intro">Selected projects showing how we bring <br />structure, content and design together</p></div>

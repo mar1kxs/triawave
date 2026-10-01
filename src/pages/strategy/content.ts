@@ -1,8 +1,14 @@
 export const DELIVERABLES = [
-  { title: "A direction everyone understands", copy: "We define what your website needs to achieve, who it needs to reach and which goals matter most", result: "Website objectives & project priorities" },
-  { title: "The right pages, in the right order", copy: "We organise your offer into a clear website structure and plan how visitors move from an initial question to the next step", result: "Sitemap & key user journeys" },
-  { title: "A clear role for every page", copy: "We outline the purpose of each key page, the questions it needs to answer and the content that supports it, with initial guidance on search intent", result: "Page-by-page content outline & SEO recommendations" },
-  { title: "A brief that’s ready for design", copy: "We bring the agreed goals, structure and content requirements into one brief, ready for design and development", result: "Agreed design & development brief" },
+  { title: "Goals and priorities", copy: "We talk through your business, audience and competitors, then agree what the website needs to achieve and which parts of the project matter most in the first version", result: "Agreed design & development brief" },
+  { title: "Structure and key journeys", copy: "We define the pages you need and map how visitors move between them towards an enquiry, booking or purchase, so nothing important is buried", result: "A sitemap and key user journeys" },
+  { title: "The role of each page", copy: "We outline each page’s purpose, main message and supporting content, noting what people are likely to be searching for when they arrive", result: "Page content outlines and initial search-intent guidance" },
+  { title: "A clear handoff", copy: "We bring the decisions together in one practical document that a designer and developer can work from — whether that’s us or another team", result: "An agreed design and development brief" },
+] as const;
+
+export const STRATEGY_AUDIENCES = [
+  { title: "Launching a business", copy: "You need to decide what the first version of your website should include — and what can wait" },
+  { title: "Planning a redesign", copy: "Your business has changed, but your website structure and message have not kept up" },
+  { title: "Making a complex offer clear", copy: "You have several services or audiences and need a simpler way to explain what you do" },
 ] as const;
 
 export const STRATEGY_STEPS = [

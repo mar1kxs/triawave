@@ -32,7 +32,7 @@ export function InnerPageCTA() {
   return <section className="inner-cta">
     <div className="inner-cta-copy">
       <h2>Let’s talk<br />about <span>your website</span></h2>
-      <p>Planning a new website or rethinking your current one? <br />Tell us what you have in mind. We’ll help you explore the next steps</p>
+      <p>Tell us what you have in mind. We’ll help you explore the next steps</p>
       <AppLink href={`mailto:${SITE.email}`} className="button">Tell us your idea</AppLink>
     </div>
     <Cubes />

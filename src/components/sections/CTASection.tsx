@@ -9,7 +9,7 @@ export function CTASection() {
       <div className="cta-content">
         <MotionHeading className="cta-title">LET’S TALK<br />ABOUT <span className="cta-title-outline">YOUR WEBSITE</span></MotionHeading>
         <div className="cta-card">
-          <p>Planning a new website or rethinking your current one? Tell us what you have in mind we’ll help you explore the next steps</p>
+          <p>Tell us what you have in mind. We’ll help you explore the next steps</p>
           <AppLink href={`mailto:${SITE.email}`} className="button cta-button">TELL US YOUR IDEA ↗</AppLink>
         </div>
       </div>
