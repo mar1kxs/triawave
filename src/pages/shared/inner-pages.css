@@ -377,10 +377,10 @@
 }
 .strategy-project-group {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 895px);
   gap: 10px;
   padding-right: 10px;
-  width: 100vw;
+  width: max-content;
   flex-shrink: 0;
 }
 .strategy-project-card {
@@ -451,7 +451,7 @@
   margin: 0;
 }
 .strategy-faq {
-  padding: 60px var(--page-pad) 140px;
+  padding: 60px var(--page-pad) 60px;
   background: #111113;
 }
 .strategy-faq-grid {
@@ -692,7 +692,6 @@
     padding-bottom: 40px;
   }
   .strategy-project-group {
-    width: 240vw;
     gap: 8px;
     padding-right: 8px;
   }
