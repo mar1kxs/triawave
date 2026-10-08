@@ -204,7 +204,7 @@
   );
 }
 .strategy-page .strategy-hero .math-grid__gradient {
-  background: radial-gradient(
+  background: linear-gradient(#00000080, #00000080), radial-gradient(
     ellipse 62% 95% at 50% 50%,
     #f82b930a 0%,
     #05050600 35%,

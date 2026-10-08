@@ -14,7 +14,8 @@ export function usePageMotion(path: string) {
     const selector = "h1, h2, p, .eyebrow, .section-head, .inner-section-label, .reveal, .inner-cubes, .work-page-placeholder, .strategy-deliverable, .strategy-project-strip > div, .strategy-step-grid > article, .strategy-faq details, .strategy-signature, .strategy-useful, .strategy-breadcrumb, .strategy-hero-meta, .inner-cta-copy, .button";
     // Animate a card as one unit instead of animating it and its text together.
     const targets = Array.from(root.querySelectorAll<HTMLElement>(selector)).filter(
-      (element) => !element.parentElement?.closest(selector),
+      // Sticky deliverables must remain visible, including their nested text.
+      (element) => !element.closest(".strategy-deliverable, .work-projects-expansion") && !element.parentElement?.closest(selector),
     );
 
     const reset = () => {

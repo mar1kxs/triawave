@@ -1,0 +1,20 @@
+const {chromium}=require('C:/Users/mar1k/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{
+const b=await chromium.launch({channel:'msedge',headless:true});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+await p.goto('http://127.0.0.1:5174/work');await p.waitForTimeout(1100);
+const panel=p.locator('.work-projects-expansion');
+console.log('closed',await panel.evaluate(e=>e.getBoundingClientRect().height));
+await p.locator('.work-page-more').evaluate(e=>e.click());
+await p.waitForTimeout(100);
+console.log('during',await panel.evaluate(e=>e.getBoundingClientRect().height));
+await p.waitForTimeout(450);
+console.log('open',await panel.evaluate(e=>e.getBoundingClientRect().height));
+console.log('styles',await p.evaluate(()=>({stroke:getComputedStyle(document.querySelector('.work-cube-edges path')).stroke,bar:getComputedStyle(document.querySelector('.work-hero-cross'),'::before').height,focused:document.activeElement.getAttribute('aria-label')})));
+await p.screenshot({path:'reference/work-hero-edges.png'});
+await p.setViewportSize({width:390,height:844});await p.reload();await p.waitForTimeout(500);
+console.log('mobileClosed',await panel.evaluate(e=>e.getBoundingClientRect().height));
+await p.locator('.work-page-more').evaluate(e=>e.click());await p.waitForTimeout(500);
+console.log('mobileOpen',await panel.evaluate(e=>e.getBoundingClientRect().height));
+await b.close();
+})();
