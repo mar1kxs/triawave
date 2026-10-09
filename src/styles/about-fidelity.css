@@ -48,10 +48,10 @@
 .about-page .working-section { padding:112px var(--page-pad) 60px; }
 .about-page .working-section .section-head { line-height:16.5px; letter-spacing:.44px; }
 .about-page .working-section h2 { font-size:64px; line-height:1.05; letter-spacing:-1.92px; margin:40px 0 60px; }
-.about-page .expectations-grid { gap:20px; }
-.about-page .expectation,.about-page .expectation + .expectation { padding:20px; border-right:0; border-bottom:1px solid #373738; }
-.about-page .expectation span { font-size:16px; line-height:20px; font-weight:700; letter-spacing:.96px; }
-.about-page .expectation h3 { font-size:24px; font-weight:500; line-height:1.25; letter-spacing:-.96px; margin:24px 0 16px; }
+.about-page .expectations-grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+.about-page .expectation,.about-page .expectation + .expectation { min-width:0; padding:20px; background:#111113; border-right:0; border-bottom:1px solid #373738; }
+.about-page .expectation span { display:block; color:#ff0099; font-size:16px; line-height:20px; font-weight:700; letter-spacing:.96px; }
+.about-page .expectation h3 { font-size:24px; font-weight:500; line-height:1.05; letter-spacing:-.96px; margin:24px 0 16px; }
 .about-page .expectation p { color:#f7f3f0; font-size:16px; line-height:1.35; margin:0; }
 @media(max-width:1600px) {
  .about-page .team-layout { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }

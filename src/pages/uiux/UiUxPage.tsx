@@ -9,10 +9,11 @@ import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
+import { UiUxHeroCubes } from "./UiUxHeroCubes";
 import "./strategy-light.css";
 import "./strategy-showcase.css";
 
-export default function StrategyPage() {
+export default function UiUxPage() {
   const deliverablesRef = useDeliverableMotion();
   const pageRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -33,10 +34,10 @@ export default function StrategyPage() {
   return <Shell>
     <main className="inner-page strategy-page" ref={pageRef}>
       <MathGrid className="strategy-hero">
-        <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Website Strategy</span><span>Triawave Studio</span></div>
-        <h1>Good websites<br /><span>start with clarity</span></h1>
-        <div className="strategy-hero-copy"><p>We help you decide what your website should achieve, which pages it needs and what each page should say — before design and development begin</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
-        <div className="strategy-signature"><img src="/assets/strategy-signature.svg" alt="" width="90.1028" height="90.5542" /><span>Good thinking<br />Made tangible</span></div>
+        <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / UI/UX &amp; Web Design</span><span>Triawave Studio</span></div>
+        <h1>CLEAR TO USE<br /><span>DISTINCTLY YOURS</span></h1>
+        <div className="strategy-hero-copy"><p>We design websites and digital interfaces around the people who use them and the brand behind them. From user flows and wireframes to responsive layouts, reusable components and a clear developer handoff</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+        <UiUxHeroCubes />
       </MathGrid>
       <section className="strategy-projects" aria-labelledby="strategy-projects-title">
         <div className="strategy-projects-heading">
@@ -49,10 +50,10 @@ export default function StrategyPage() {
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">
-        <InnerSectionLabel number="02" title="The right start" axis="Audience" />
+        <InnerSectionLabel number="02" title="WHO IT’S FOR" axis="Audience" />
         <div className="strategy-start-copy">
-          <h2>Know what you need <br />before you invest</h2>
-          <p>Strategy is useful when the next step is unclear. We turn business goals and scattered ideas into a practical plan for the website</p>
+          <h2>WHEN YOUR WEBSITE <br />NEEDS BETTER DESIGN</h2>
+          <p>Whether you’re starting from scratch, improving an existing website or working from a ready brief, we turn your requirements into a clear, cohesive interface</p>
         </div>
         <div className="strategy-audiences">{STRATEGY_AUDIENCES.map((item, index) => <article key={item.title}>
           <span className="strategy-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.copy}</p>
@@ -60,7 +61,7 @@ export default function StrategyPage() {
       </section>
       <section className="strategy-deliverables">
         <InnerSectionLabel number="03" title="What you get" axis="Deliverables" />
-        <div className="strategy-deliverables-heading"><h2>A plan your team<br />can work from</h2><p className="strategy-scope">Strategy does not automatically include visual design, development, full copywriting or ongoing SEO. Scope and timing are agreed before work begins</p></div>
+        <div className="strategy-deliverables-heading"><h2>THOUGHTFUL DESIGN<br />READY TO BUILD</h2><p className="strategy-scope">This service covers UX structure, visual design and developer handoff. Pages, responsive layouts, scope, fee and timeline are agreed before work begins. Development, copywriting and user testing are scoped separately</p></div>
         <div className="strategy-deliverable-list" ref={deliverablesRef}>{DELIVERABLES.map((item, index) => <article className={`strategy-deliverable${index % 2 ? " strategy-deliverable-dark" : ""}`} key={item.title}>
           <span className="strategy-deliverable-label">Chapter 0{index + 1} / 04</span>
           <div className="strategy-deliverable-copy"><h3>{item.title}</h3><p>{item.copy}</p><p className="strategy-result"><span>You get</span>{item.result}</p></div>

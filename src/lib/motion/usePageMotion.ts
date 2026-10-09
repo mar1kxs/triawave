@@ -11,21 +11,28 @@ export function usePageMotion(path: string) {
     const animations = new Set<Animation>();
     const revealed = new Set<Element>();
     let observer: IntersectionObserver | null = null;
-    const selector = "h1, h2, p, .eyebrow, .section-head, .inner-section-label, .reveal, .inner-cubes, .work-page-placeholder, .strategy-deliverable, .strategy-project-strip > div, .strategy-step-grid > article, .strategy-faq details, .strategy-signature, .strategy-useful, .strategy-breadcrumb, .strategy-hero-meta, .inner-cta-copy, .button";
+    const selector = "h1, h2, p, .eyebrow, .section-head, .inner-section-label, .reveal, .inner-cubes, .work-page-placeholder, .strategy-project-placeholder, .strategy-deliverable, .strategy-project-strip > div, .strategy-step-grid > article, .strategy-faq details, .strategy-signature, .strategy-useful, .strategy-breadcrumb, .strategy-hero-meta, .inner-cta-copy, .button";
     // Animate a card as one unit instead of animating it and its text together.
     const targets = Array.from(root.querySelectorAll<HTMLElement>(selector)).filter(
       // Sticky deliverables must remain visible, including their nested text.
       (element) => !element.closest(".strategy-deliverable, .work-projects-expansion") && !element.parentElement?.closest(selector),
     );
 
+    const projectCards = targets.filter((element) => element.matches(".strategy-project-placeholder"));
+
     const reset = () => {
       observer?.disconnect();
       animations.forEach((animation) => animation.cancel());
       animations.clear();
+      projectCards.forEach((card) => card.style.removeProperty("opacity"));
     };
     const start = () => {
       reset();
       if (isMotionDisabled()) return;
+      // Hide before intersection, not after the card has already become visible.
+      projectCards.forEach((card) => {
+        if (!revealed.has(card)) card.style.opacity = "0";
+      });
       observer = new IntersectionObserver((entries) => {
         let stagger = 0;
         entries.forEach((entry) => {
@@ -35,12 +42,17 @@ export function usePageMotion(path: string) {
           observer?.unobserve(element);
           // Do not animate a control while the user is interacting with it.
           if (element.contains(document.activeElement)) return;
-          const animation = element.animate([
+          const isProject = element.matches(".strategy-project-placeholder");
+          if (isProject) element.style.removeProperty("opacity");
+          const animation = element.animate(isProject ? [
+            { opacity: 0 },
+            { opacity: 1 },
+          ] : [
             { opacity: 0, transform: "translateY(18px)" },
             { opacity: 1, transform: "translateY(0)" },
           ], {
             duration: element.matches("h1, h2") ? 950 : 800,
-            delay: Math.min(stagger++ * 70, 210),
+            delay: isProject ? 0 : Math.min(stagger++ * 70, 210),
             easing: "cubic-bezier(0.25, 0.8, 0.3, 1)",
             fill: "backwards",
           });

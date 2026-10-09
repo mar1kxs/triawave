@@ -1,8 +1,8 @@
 export const DELIVERABLES = [
-  { title: "Goals and priorities", copy: "We talk through your business, audience and competitors, then agree what the website needs to achieve and which parts of the project matter most in the first version", result: "Agreed design & development brief" },
-  { title: "Structure and key journeys", copy: "We define the pages you need and map how visitors move between them towards an enquiry, booking or purchase, so nothing important is buried", result: "A sitemap and key user journeys" },
-  { title: "The role of each page", copy: "We outline each page’s purpose, main message and supporting content, noting what people are likely to be searching for when they arrive", result: "Page content outlines and initial search-intent guidance" },
-  { title: "A clear handoff", copy: "We bring the decisions together in one practical document that a designer and developer can work from — whether that’s us or another team", result: "An agreed design and development brief" },
+  { title: "Goals and priorities", copy: "We discuss your business, audience and competitors to define what the website needs to achieve. Together, we agree what matters most for launch and what can come later", result: "Agreed website goals, target audiences and launch priorities" },
+  { title: "Structure and key journeys", copy: "We organise your pages and map the main routes through the website, helping visitors move from an initial question to an enquiry, booking or purchase", result: "A sitemap and key user journeys" },
+  { title: "The role of each page", copy: "We define each key page’s purpose, main message and supporting content, including the questions it should answer and the action it should encourage", result: "Page-by-page content outlines and initial search-intent guidance" },
+  { title: "A BRIEF TO BUILD ON", copy: "We bring the agreed goals, sitemap and content direction into one practical brief. Your design and development team can use it as a shared starting point — whether you work with us or someone else", result: "A consolidated website brief for design and development" },
 ] as const;
 
 export const STRATEGY_AUDIENCES = [
@@ -19,9 +19,9 @@ export const STRATEGY_STEPS = [
 
 // The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need strategy before a small website?", answer: "A clear plan helps even a small website. We focus on its goals, essential pages and the next step visitors should take, keeping the scope proportionate to the project." },
-  { question: "Can you review our existing website?", answer: "Yes. We can use your existing website as the starting point to review its structure, content and user journeys, then define what needs to change." },
-  { question: "Does this include design, SEO or advertising?", answer: "This service defines the website strategy and brief, including initial SEO recommendations. Design, development, full copywriting and ongoing SEO are quoted separately. Advertising is outside this scope." },
-  { question: "How much does it cost, and how long does it take?", answer: "Scope, timeline and pricing are agreed before we begin. Tell us about your website and we can discuss the work required." },
-  { question: "Do we need strategy before a small website?", answer: "The depth of the strategy depends on your website. The aim is a practical foundation: clear enough to move into design and detailed enough to keep everyone aligned." },
+  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made." },
+  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention." },
+  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope." },
+  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit." },
+  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave." },
 ] as const;

@@ -3,6 +3,7 @@ import AboutPage from "../pages/about/AboutPage";
 import HomePage from "../pages/home/HomePage";
 import WorkPage from "../pages/work/WorkPage";
 import StrategyPage from "../pages/strategy/StrategyPage";
+import UiUxPage from "../pages/uiux/UiUxPage";
 import { PlaceholderPage } from "../pages/placeholder/PlaceholderPage";
 import { normalizePath, screenTitleForPath } from "../config/routes";
 import { applySeo } from "./seo";
@@ -41,5 +42,6 @@ export default function App({ initialPath }: { initialPath?: string }) {
   if (path === "/about") return <AboutPage />;
   if (path === "/work") return <WorkPage />;
   if (path === "/services/website-strategy") return <StrategyPage />;
+  if (path === "/services/ui-ux-web-design") return <UiUxPage />;
   return <PlaceholderPage title={screenTitleForPath(path)} />;
 }

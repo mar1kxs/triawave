@@ -1,0 +1,36 @@
+.uiux-hero-cubes {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  width: 43.333333%;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+}
+.uiux-hero-cubes__labels rect {
+  fill: #24121f;
+  stroke: #59404f;
+  stroke-width: 1;
+}
+.uiux-hero-cubes__labels text {
+  fill: #f7f3f0;
+  font: 400 13px var(--display);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+@media (max-width: 1100px) {
+  .uiux-hero-cubes {
+    position: relative;
+    top: auto;
+    right: auto;
+    align-self: flex-end;
+    width: min(100%, 580px);
+    margin-top: 40px;
+  }
+}
+/* Overlap antialiased edges so the dark background cannot show at seams. */
+.uiux-hero-cubes__faces path {
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
