@@ -1,0 +1,32 @@
+.custom-editor { container-type:inline-size; aspect-ratio:665 / 497; }
+.custom-editor-window { position:relative; height:67.52cqw; overflow:hidden; border:1px solid #29292c; border-radius:1.4cqw; background:#0d0e10; font-family:"Inter",Arial,sans-serif; }
+.custom-editor-toolbar { position:absolute; inset:0 0 auto; height:4.5cqw; display:flex; align-items:center; gap:2cqw; padding:0 1.65cqw; color:#f5f5f6; font-size:1.55cqw; }
+.custom-editor-dots { display:flex; gap:.6cqw; }
+.custom-editor-dots i { width:1.25cqw; height:1.25cqw; border-radius:50%; background:#fa2497; }
+.custom-editor-dots i:nth-child(2) { background:#e9d847; }
+.custom-editor-dots i:nth-child(3) { background:#7bda2b; }
+.custom-editor-deploy { margin-left:auto; padding:.65cqw 1.8cqw; border-radius:99px; background:#fa2497; color:white; text-transform:uppercase; font-size:1.4cqw; font-weight:600; }
+.custom-editor-sidebar { position:absolute; top:4.5cqw; bottom:0; left:0; width:20.9cqw; display:flex; flex-direction:column; gap:2.6cqw; padding:3.2cqw 2.6cqw; color:#cdd0d8; font-size:1.8cqw; line-height:1.2; }
+.custom-editor-sidebar .is-selected { color:#ff1994; font-weight:600; }
+.custom-editor-workspace { position:absolute; top:4.5cqw; bottom:0; left:20.9cqw; right:0; background:#fcfcfa; color:#282b32; font-family:monospace; }
+.custom-editor-placeholder { position:absolute; top:3.4cqw; left:3.5cqw; right:3.5cqw; height:4.7cqw; background:#f6f6f3; border-radius:.4cqw; }
+.custom-editor-file { position:absolute; top:10.3cqw; left:6.5cqw; font-size:1.3cqw; color:#777d87; }
+.custom-editor-code { position:absolute; top:14.8cqw; left:6.8cqw; font-size:1.5cqw; line-height:3cqw; }
+.custom-editor-code > div { display:flex; gap:2.8cqw; }
+.custom-editor-code > div > span { color:#737984; }
+.custom-editor-code code { font:inherit; white-space:pre; }
+.custom-code-purple { color:#7138d5; }
+.custom-code-blue { color:#00879c; }
+.custom-editor-cursor { position:absolute; top:32cqw; left:21.7cqw; width:3cqw; height:4cqw; }
+.custom-editor-cube { position:absolute; top:12.3cqw; right:10.7cqw; width:15cqw; height:16.7cqw; }
+.custom-editor-cube span { position:absolute; inset:0; }
+.custom-editor-cube span:nth-child(1) { background:#ff2497; clip-path:polygon(50% 0,100% 25%,50% 50%,0 25%); }
+.custom-editor-cube span:nth-child(2) { background:#d60b7b; clip-path:polygon(0 25%,50% 50%,50% 100%,0 75%); }
+.custom-editor-cube span:nth-child(3) { background:#a70a5c; clip-path:polygon(50% 50%,100% 25%,100% 75%,50% 100%); }
+.custom-editor-terminal { position:absolute; left:3.5cqw; right:3.5cqw; bottom:5.9cqw; border-top:1px solid #d8d8da; padding:2.2cqw 2.7cqw 0; }
+.custom-editor-terminal-tabs { display:flex; gap:3.8cqw; color:#737984; text-transform:uppercase; font-size:1.2cqw; }
+.custom-editor-command { margin-top:2.3cqw; font-size:1.5cqw; }
+.custom-editor-success { margin-top:1.2cqw; font-size:1.35cqw; color:#138633; white-space:nowrap; }
+.custom-editor-tags { display:flex; gap:2.4cqw; padding-top:3cqw; text-transform:uppercase; }
+.custom-editor-tags span { border:1px solid #27272a; border-radius:99px; padding:.8cqw 2.1cqw; font-size:1.7cqw; line-height:1.2; color:#777; white-space:nowrap; }
+.custom-editor-tags span:first-child { color:#ff1994; border-color:#ff1994; }

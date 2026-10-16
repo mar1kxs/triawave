@@ -19,9 +19,9 @@ export const STRATEGY_STEPS = [
 
 // The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need a finished brief before we start?", answer: "No. We can help clarify your requirements before design begins, or work from your existing brief and wireframes. A separate Website Strategy service is optional." },
-  { question: "Can you redesign our existing website?", answer: "Yes. We review your current website and agree on what to keep and what to improve — from individual pages to a full redesign." },
-  { question: "What will our developers receive?", answer: "An organised Figma file with agreed page layouts, responsive designs, reusable components and a UI kit. We also provide a prototype of key interactions and handoff notes." },
-  { question: "Does this service include development?", answer: "Development is quoted separately. You can use your own developers or ask us to include design and development in one proposal." },
-  { question: "How are pricing, timing and revisions agreed?", answer: "They depend on the pages, responsive layouts, interactions and materials needed. We agree on the scope, fee, schedule and feedback rounds before work begins." },
+  { question: "Do we need a finished brief before we start?", answer: "No. We can help clarify your requirements before design begins, or work from your existing brief and wireframes. A separate Website Strategy service is optional" },
+  { question: "Can you redesign our existing website?", answer: "Yes. We review your current website and agree on what to keep and what to improve — from individual pages to a full redesign" },
+  { question: "What will our developers receive?", answer: "An organised Figma file with agreed page layouts, responsive designs, reusable components and a UI kit. We also provide a prototype of key interactions and handoff notes" },
+  { question: "Does this service include development?", answer: "Development is quoted separately. You can use your own developers or ask us to include design and development in one proposal" },
+  { question: "How are pricing, timing and revisions agreed?", answer: "They depend on the pages, responsive layouts, interactions and materials needed. We agree on the scope, fee, schedule and feedback rounds before work begins" },
 ] as const;

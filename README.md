@@ -101,9 +101,15 @@ Production build создаёт отдельный готовый HTML для к
 
 При смене production-домена достаточно обновить `SITE.url` в `src/config/site.ts`, затем пересобрать проект. Также синхронизируйте fallback-файлы в `public/robots.txt` и `public/sitemap.xml`, которые обслуживаются Vite во время разработки.
 
+## Копии Website Strategy
+
+Custom Web Development, E-commerce Development, Landing Page Design & Development и Website Support & Optimization — отдельные копии Website Strategy в `src/pages/custom`, `src/pages/commerce`, `src/pages/landing` и `src/pages/support`. Каждая папка содержит собственные тексты, компонент страницы, стили и анимации для дальнейшего редактирования. Содержимое и оформление пока повторяют Website Strategy; URL и metadata соответствуют услугам.
+
+Эти страницы пока сохраняют `noindex`.
+
 ## Что пока является заглушкой
 
-- Service pages (кроме Website Strategy) и legal pages имеют только экран-заглушку и поэтому закрыты от индексации.
+- Wix & Wix Studio Development использует отдельную копию Website Strategy в `src/pages/wix` с hero по предоставленному скриншоту. Webflow Development и legal pages пока имеют только экран-заглушку. Website Strategy, UI/UX & Web Design и четыре страницы услуг выше реализованы.
 - Страница Contact удалена. Кнопки связи открывают письмо на email из `src/config/site.ts`.
 - Our Work (`/work`) и Website Strategy (`/services/website-strategy`) используют отдельные компоненты в `src/pages/work`, `src/pages/strategy` и изолированные стили в `src/pages/shared/inner-pages.css`. Home, About, Our Work и Website Strategy используют общий CTA `src/pages/shared/InnerPageCTA.tsx`.
 - Карточки проектов на новых страницах пустые, как в Figma. Show more пока неактивна: дополнительных проектов в макете нет. Индексация этих двух страниц пока выключена.

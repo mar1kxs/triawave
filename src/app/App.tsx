@@ -3,7 +3,12 @@ import AboutPage from "../pages/about/AboutPage";
 import HomePage from "../pages/home/HomePage";
 import WorkPage from "../pages/work/WorkPage";
 import StrategyPage from "../pages/strategy/StrategyPage";
+import WixPage from "../pages/wix/WixPage";
 import UiUxPage from "../pages/uiux/UiUxPage";
+import CustomWebDevelopmentPage from "../pages/custom/CustomWebDevelopmentPage";
+import EcommerceDevelopmentPage from "../pages/commerce/EcommerceDevelopmentPage";
+import LandingPage from "../pages/landing/LandingPage";
+import WebsiteSupportPage from "../pages/support/WebsiteSupportPage";
 import { PlaceholderPage } from "../pages/placeholder/PlaceholderPage";
 import { normalizePath, screenTitleForPath } from "../config/routes";
 import { applySeo } from "./seo";
@@ -42,6 +47,11 @@ export default function App({ initialPath }: { initialPath?: string }) {
   if (path === "/about") return <AboutPage />;
   if (path === "/work") return <WorkPage />;
   if (path === "/services/website-strategy") return <StrategyPage />;
+  if (path === "/services/wix-studio-development") return <WixPage />;
   if (path === "/services/ui-ux-web-design") return <UiUxPage />;
+  if (path === "/services/custom-web-development") return <CustomWebDevelopmentPage />;
+  if (path === "/services/e-commerce-development") return <EcommerceDevelopmentPage />;
+  if (path === "/services/landing-page-design-development") return <LandingPage />;
+  if (path === "/services/website-support-optimization") return <WebsiteSupportPage />;
   return <PlaceholderPage title={screenTitleForPath(path)} />;
 }

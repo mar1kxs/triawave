@@ -19,9 +19,9 @@ export const STRATEGY_STEPS = [
 
 // The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made." },
-  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention." },
-  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope." },
-  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit." },
-  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave." },
+  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made" },
+  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention" },
+  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope" },
+  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit" },
+  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave" },
 ] as const;

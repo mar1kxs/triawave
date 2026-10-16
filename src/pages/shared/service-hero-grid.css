@@ -1,0 +1,14 @@
+/* Match Website Strategy's MathGrid treatment without changing hero layout. */
+.strategy-page .service-hero-grid.math-grid {
+  position: relative;
+  background: #050506;
+}
+.service-hero-grid .math-grid__canvas {
+  mask-image: radial-gradient(ellipse 62% 95% at 50% 50%, #000 0%, #000 100%, transparent 100%);
+}
+.service-hero-grid .math-grid__gradient {
+  background: linear-gradient(#00000080, #00000080), radial-gradient(
+    ellipse 62% 95% at 50% 50%,
+    #f82b930a 0%, #05050600 35%, #050506 100%
+  );
+}

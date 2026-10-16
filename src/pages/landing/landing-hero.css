@@ -1,0 +1,28 @@
+/* Hero from the supplied 1920 × 914 reference; remaining sections copy Strategy. */
+.landing-page .landing-hero { background:#0e0e11; padding:60px var(--page-pad) 170px; }
+.landing-page .landing-hero .strategy-breadcrumb { margin:0 0 100px; font-size:11px; line-height:14px; }
+.landing-hero-layout { display:flex; justify-content:space-between; align-items:center; gap:60px; }
+.landing-hero-text { flex:0 1 824px; min-width:0; }
+.landing-page .landing-hero h1 { font-size:clamp(40px,5vw,96px); line-height:1.15; letter-spacing:-.03em; }
+.landing-page .landing-hero h1 span { color:#868686; font-weight:500; text-decoration:none; }
+.landing-hero-copy { margin-top:48px; max-width:716px; }
+.landing-hero-copy p { margin:0 0 24px; color:#c5c5c5; font-size:16px; line-height:19px; }
+.landing-hero-copy .button { width:284px; max-width:100%; min-height:47px; padding:16px 27px; letter-spacing:.04em; }
+.landing-hero-editor { flex:0 1 708px; width:40%; height:auto; object-fit:contain; }
+@media(max-width:1100px) {
+  .landing-page .landing-hero { padding-block:40px 90px; }
+  .landing-page .landing-hero .strategy-breadcrumb { margin-bottom:70px; }
+  .landing-hero-layout { gap:32px; align-items:center; }
+  .landing-hero-copy { margin-top:32px; }
+}
+@media(max-width:700px) {
+  .landing-page .landing-hero { padding-block:32px 48px; }
+  .landing-page .landing-hero .strategy-breadcrumb { margin-bottom:48px; font-size:9px; }
+  .landing-page .landing-hero .strategy-breadcrumb > :last-child { display:none; }
+  .landing-hero-layout { flex-direction:column; align-items:stretch; gap:40px; }
+  .landing-hero-text { flex:auto; }
+  .landing-page .landing-hero h1 { font-size:clamp(30px,7.9vw,55px); }
+  .landing-page .landing-hero h1 span { text-decoration-thickness:2px; }
+  .landing-hero-copy p { line-height:1.4; }
+  .landing-hero-editor { flex:auto; width:100%; max-width:708px; align-self:center; }
+}
