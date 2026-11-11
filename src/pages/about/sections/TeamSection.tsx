@@ -9,8 +9,10 @@ export function TeamSection() {
         <div className="team-grid">
           {TEAM.map((person, index) => (
             <Reveal className="person" key={`${person.name}-${index}`}>
-              <div className="portrait-placeholder"><i>01</i><span>Portrait placeholder</span><b>{person.name.startsWith("Arti") ? "Artem" : person.name.split(" ")[0]}</b></div>
-              <h3>{person.name}</h3><small>{person.role}</small><p>{person.copy}</p>
+              <div className={`portrait-placeholder${"photo" in person ? " portrait-photo" : ""}`}>
+                {"photo" in person ? <img src={person.photo} alt={person.name} /> : <><i>01</i><span>Portrait placeholder</span><b>{person.name.split(" ")[0]}</b></>}
+              </div>
+              <h3>{person.name}</h3>{person.role && <small>{person.role}</small>}
             </Reveal>
           ))}
         </div>

@@ -3,7 +3,7 @@ import AboutPage from "../pages/about/AboutPage";
 import HomePage from "../pages/home/HomePage";
 import WorkPage from "../pages/work/WorkPage";
 import StrategyPage from "../pages/strategy/StrategyPage";
-import WixPage from "../pages/wix/WixPage";
+import WixPage, { WebflowPage } from "../pages/wix/WixPage";
 import UiUxPage from "../pages/uiux/UiUxPage";
 import CustomWebDevelopmentPage from "../pages/custom/CustomWebDevelopmentPage";
 import EcommerceDevelopmentPage from "../pages/commerce/EcommerceDevelopmentPage";
@@ -48,6 +48,7 @@ export default function App({ initialPath }: { initialPath?: string }) {
   if (path === "/work") return <WorkPage />;
   if (path === "/services/website-strategy") return <StrategyPage />;
   if (path === "/services/wix-studio-development") return <WixPage />;
+  if (path === "/services/webflow-development") return <WebflowPage />;
   if (path === "/services/ui-ux-web-design") return <UiUxPage />;
   if (path === "/services/custom-web-development") return <CustomWebDevelopmentPage />;
   if (path === "/services/e-commerce-development") return <EcommerceDevelopmentPage />;

@@ -6,7 +6,6 @@ import { TESTIMONIALS } from "../content";
 export function TestimonialsSection() {
   const track = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
-  const [expanded, setExpanded] = useState<number | null>(null);
   const move = (direction: number) => {
     const next = Math.max(0, Math.min(TESTIMONIALS.length - 1, current + direction));
     const card = track.current?.children[next] as HTMLElement | undefined;
@@ -24,13 +23,30 @@ export function TestimonialsSection() {
           <button type="button" aria-label="Next review" disabled={current === TESTIMONIALS.length - 1} onClick={() => move(1)}><img src="/assets/review-arrow-right.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
         </div>
       </div>
-      <div className="testimonials-track" ref={track}>
+      <div
+        className="testimonials-track"
+        ref={track}
+        onScroll={() => {
+          const container = track.current;
+          if (!container) return;
+          const center = container.getBoundingClientRect().left + container.clientWidth / 2;
+          let closestIndex = 0;
+          let closestDistance = Number.POSITIVE_INFINITY;
+          Array.from(container.children).forEach((child, index) => {
+            const card = child.getBoundingClientRect();
+            const distance = Math.abs(card.left + card.width / 2 - center);
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          });
+          setCurrent((currentIndex) => currentIndex === closestIndex ? currentIndex : closestIndex);
+        }}
+      >
         {TESTIMONIALS.map((testimonial, index) => (
           <article className="testimonial" key={`${testimonial.title}-${index}`}>
             <h3>{testimonial.title}</h3>
             <p>{testimonial.quote}</p>
-            <button type="button" className="text-link" aria-expanded={expanded === index} onClick={() => setExpanded(expanded === index ? null : index)}>Read more <span /></button>
-            {expanded === index && <p className="review-note">This review is placeholder text in the design. The full client review has not been supplied.</p>}
             <div className="stars" aria-label={`${testimonial.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, star) => <img key={star} src={`/assets/review-star${star >= testimonial.rating ? "-muted" : ""}.svg`} alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async" />)}</div>
           </article>
         ))}

@@ -13,14 +13,14 @@ export function HomeHero() {
         <p>We combine strategy, design and development to create distinctive websites that clarify your offer, build trust and support growth</p>
         <div className="hero-actions">
           <StartProjectButton />
-          <AppLink href="/work" className="text-link">View our work <span aria-hidden="true" /></AppLink>
+          <AppLink href="/work" className="text-link">View our work <span aria-hidden="true">↗</span></AppLink>
         </div>
       </div>
       <HeroArt />
       <div className="hero-meta">
         <span>Independent digital studio</span>
         <span>Europe / Worldwide</span>
-        <span>Scroll to explore</span>
+        <span>Scroll to explore ↓</span>
       </div>
     </section>
   );

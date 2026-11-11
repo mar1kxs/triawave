@@ -66,6 +66,7 @@
   position: relative;
   isolation: isolate;
   background: var(--carbon);
+  padding-bottom: 110px;
   /* Figma's heading sticks while the staggered squares scroll over it. */
 }
 .strategy-projects-heading {
@@ -100,12 +101,13 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: 29.4791667vw 29.375vw 28.9583333vw 30.5208333vw;
-  column-gap: 1.5625vw;
-  width: 62.6041667%;
-  margin: -3.1770833vw auto 0;
-  padding-bottom: 3.125vw;
+  grid-template-columns: repeat(2, minmax(0, 743px));
+  grid-template-rows: repeat(4, auto);
+  column-gap: 16px;
+  row-gap: 0;
+  width: min(1502px, calc(100% - var(--page-pad) * 2));
+  margin: calc(250px - 3.1770833vw) auto 0;
+  padding-bottom: 0;
   pointer-events: none;
 }
 .strategy-project-placeholder {
@@ -143,11 +145,11 @@
   .strategy-projects-heading > :last-child { grid-column: 2; grid-row: 1; }
   .strategy-projects-grid {
     width: calc(100% - var(--page-pad) * 2);
-    margin-top: -20px;
+    margin-top: 230px;
     column-gap: 12px;
     grid-template-rows: repeat(4, auto);
-    row-gap: 32px;
-    padding-bottom: 40px;
+    row-gap: 0;
+    padding-bottom: 0;
   }
   .strategy-projects-grid .strategy-project-placeholder { grid-column: 1 / -1; width: 80%; }
   .strategy-project-placeholder:nth-child(even) { justify-self: end; }

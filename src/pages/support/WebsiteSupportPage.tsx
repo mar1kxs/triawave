@@ -39,8 +39,8 @@ export default function WebsiteSupportPage() {
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Website Support &amp; Optimization</span><span>Triawave Studio</span></div>
         <div className="support-hero-layout">
           <div className="support-hero-text">
-            <h1 id="support-title">Built to keep<br /><span>Your site moving</span></h1>
-            <div className="support-hero-copy"><p>We maintain and improve existing websites through agreed tasks, careful checks and clear reporting — from fixes and updates to measured improvements</p><AppLink className="button" href={`mailto:${SITE.email}`}>Review your site</AppLink></div>
+            <h1 id="support-title">Keep your website<br /><span>working and improving</span></h1>
+            <div className="support-hero-copy"><p>We fix issues, update content and improve usability and performance on existing websites—including those built by other teams. We review your setup, agree on priorities and provide one-off help or ongoing support with clear reporting</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
           </div>
           <SupportDashboard />
         </div>

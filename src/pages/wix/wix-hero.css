@@ -9,6 +9,10 @@
 .wix-hero-copy p { margin:0 0 24px; color:#c5c5c5; font-size:16px; line-height:19px; }
 .wix-hero-copy .button { width:284px; max-width:100%; min-height:47px; padding:16px 27px; letter-spacing:.04em; }
 .wix-hero-editor { flex:0 1 665px; width:37%; height:auto; object-fit:contain; }
+.webflow-page .wix-hero-layout { align-items:start; }
+.webflow-page .wix-hero-text { margin-top:68px; }
+.webflow-page .webflow-editor { flex-basis:708px; width:40%; margin-top:-30px; }
+.webflow-page .wix-hero-copy { margin-top:48px; }
 @media(max-width:1100px) {
   .wix-page .wix-hero { padding-block:40px 90px; }
   .wix-page .wix-hero .strategy-breadcrumb { margin-bottom:70px; }

@@ -45,3 +45,8 @@
 .commerce-store-tags { display:flex; gap:2.4cqw; padding-top:3cqw; text-transform:uppercase; }
 .commerce-store-tags span { border:1px solid #27272a; border-radius:99px; padding:.8cqw 2.1cqw; font-size:1.7cqw; line-height:1.2; color:#777; white-space:nowrap; }
 .commerce-store-tags span:first-child { color:#ff1994; border-color:#ff1994; }
+.commerce-store { container-type:inline-size; position:relative; display:flex; flex-direction:column; aspect-ratio:auto; }
+.commerce-store-art { display:block; width:100%; height:auto; }
+.commerce-store-tags { display:flex; gap:2.8cqw; margin-top:3.4cqw; padding-top:0; text-transform:uppercase; }
+.commerce-store-tags span { display:inline-flex; align-items:center; justify-content:center; min-height:4.4cqw; border:1px solid #303034; border-radius:0; background:#111114; padding:.8cqw 2.1cqw; font-size:1.7cqw; line-height:1.2; font-weight:600; color:#777; white-space:nowrap; }
+.commerce-store-tags span:first-child { color:#ff1994; border-color:#ff1994; }

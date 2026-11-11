@@ -129,7 +129,6 @@ img {
   position: sticky;
   top: 0;
   z-index: 35;
-  transform: translateZ(0);
   padding: 17px var(--page-pad);
 }
 
@@ -2101,4 +2100,10 @@ img {
 
 .mobile-nav {
   top: 100%;
+}
+
+@media (max-width: 700px) {
+  html body #root main :is(.eyebrow, .section-head, .strategy-breadcrumb, .inner-section-label, .work-hero-meta) {
+    font-size: 10px;
+  }
 }

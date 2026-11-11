@@ -15,7 +15,7 @@ import "./strategy-showcase.css";
 import "./wix-hero.css";
 import { WixEditor } from "./WixEditor";
 
-export default function WixPage() {
+export default function WixPage({ platform = "Wix Studio" }: { platform?: "Wix Studio" | "Webflow" }) {
   const deliverablesRef = useDeliverableMotion();
   const pageRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -34,15 +34,15 @@ export default function WixPage() {
     return () => observer.disconnect();
   }, []);
   return <Shell showReferral={false}>
-    <main className="inner-page strategy-page wix-page" ref={pageRef}>
+    <main className={`inner-page strategy-page wix-page${platform === "Webflow" ? " webflow-page" : ""}`} ref={pageRef}>
       <MathGrid className="wix-hero service-hero-grid">
-        <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Wix &amp; Wix Studio Development</span><span>Triawave Studio</span></div>
+        <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / {platform === "Webflow" ? "Webflow Development" : "Wix & Wix Studio Development"}</span><span>Triawave Studio</span></div>
         <div className="wix-hero-layout">
           <div className="wix-hero-text">
-            <h1 id="wix-title">Built for your<br />business<br /><span>Easy to manage</span></h1>
-            <div className="wix-hero-copy"><p>We design and build websites on Wix or Wix Studio, or bring your existing design to life. From responsive pages to launch and handover, we prepare your website for everyday use and show your team how to update it</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+            <h1 id="wix-title">Your brand<br /><span>built in {platform}</span></h1>
+            <div className="wix-hero-copy"><p>We design your website from scratch and build it in {platform}—or work from your existing designs. We create responsive pages, set up CMS and interactions, launch the site and show your team how to update its content</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
           </div>
-          <WixEditor />
+          <WixEditor platform={platform} />
         </div>
       </MathGrid>
       <section className="strategy-projects" aria-labelledby="strategy-projects-title">
@@ -87,3 +87,5 @@ export default function WixPage() {
     <Footer />
   </Shell>;
 }
+
+export function WebflowPage() { return <WixPage platform="Webflow" />; }

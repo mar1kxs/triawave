@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Shell } from "../../components/layout/Shell";
 import { Footer } from "../../components/layout/Footer";
 import { AppLink } from "../../components/ui/AppLink";
 import { SITE } from "../../config/site";
-import { Cubes, InnerPageCTA } from "../shared/InnerPageCTA";
+import { InnerPageCTA } from "../shared/InnerPageCTA";
 import "./work-page.css";
 
 function CubeEdges() {
@@ -15,6 +15,24 @@ function CubeEdges() {
 export default function WorkPage() {
   const [expanded, setExpanded] = useState(false);
   const firstNewProject = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const page = document.querySelector<HTMLElement>(".work-page");
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const referral = document.querySelector<HTMLElement>(".referral-bar");
+    if (!page || !header) return;
+
+    const measure = () => {
+      const chromeHeight = header.offsetHeight + (referral?.isConnected ? referral.offsetHeight : 0);
+      page.style.setProperty("--work-top-chrome", `${chromeHeight}px`);
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    if (referral) observer.observe(referral);
+    measure();
+
+    return () => observer.disconnect();
+  }, []);
 
   function showMore() {
     setExpanded(true);
@@ -36,7 +54,6 @@ export default function WorkPage() {
           <span className="work-hero-cross" /><span className="work-hero-cross" />
           <span className="work-hero-cross" /><span className="work-hero-cross" />
         </div>
-        <div className="work-hero-mobile-art"><Cubes /></div>
         <div className="work-hero-meta"><span>Strategy / Design / Development</span><AppLink href="#work-projects">View projects ↓</AppLink></div>
       </section>
       <section className="work-page-projects" id="work-projects" aria-label="Projects">

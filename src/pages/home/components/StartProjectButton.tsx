@@ -32,7 +32,7 @@ export function StartProjectButton() {
       onPointerCancel={resetPosition}
       onBlur={resetPosition}
     >
-      <AppLink href={`mailto:${SITE.email}`} className="button start-project-button__link">Start a project</AppLink>
+      <AppLink href={`mailto:${SITE.email}`} className="button start-project-button__link">Start a project <span aria-hidden="true">↗</span></AppLink>
     </span>
   );
 }

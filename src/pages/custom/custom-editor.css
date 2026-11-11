@@ -30,3 +30,8 @@
 .custom-editor-tags { display:flex; gap:2.4cqw; padding-top:3cqw; text-transform:uppercase; }
 .custom-editor-tags span { border:1px solid #27272a; border-radius:99px; padding:.8cqw 2.1cqw; font-size:1.7cqw; line-height:1.2; color:#777; white-space:nowrap; }
 .custom-editor-tags span:first-child { color:#ff1994; border-color:#ff1994; }
+.custom-editor-art { container-type:inline-size; position:relative; display:flex; flex-direction:column; aspect-ratio:auto; }
+.custom-editor-art>img { display:block; width:100%; height:auto; }
+.custom-editor-art .custom-editor-tags { display:flex; gap:2.8cqw; padding:0; margin-top:3.4cqw; }
+.custom-editor-art .custom-editor-tags span { display:inline-flex; align-items:center; justify-content:center; min-height:4.4cqw; border:1px solid #303034; border-radius:0; background:#111114; padding:.8cqw 2.1cqw; font-size:1.7cqw; line-height:1.2; font-weight:600; color:#777; white-space:nowrap; }
+.custom-editor-art .custom-editor-tags span:first-child { color:#ff1994; border-color:#ff1994; }

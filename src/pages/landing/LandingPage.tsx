@@ -40,7 +40,7 @@ export default function LandingPage() {
         <div className="landing-hero-layout">
           <div className="landing-hero-text">
             <h1 id="landing-title">Built for<br /><span>One clear action</span></h1>
-            <div className="landing-hero-copy"><p>We design and launch landing pages around one offer, one audience and one next step — lead, booking, registration or purchase</p><AppLink className="button" href={`mailto:${SITE.email}`}>Plan your landing page</AppLink></div>
+            <div className="landing-hero-copy"><p>We design and build landing pages that explain your offer and guide visitors towards an enquiry, booking, registration or purchase. From page structure to launch, we create the design or work from your approved layouts</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your landing page</AppLink></div>
           </div>
           <LandingFlow />
         </div>

@@ -1,11 +1,10 @@
 export const TEAM = [
-  { name: "Arti Boboshko", role: "Co-founder & Business Development Lead", copy: "Shapes the studio’s direction, develops partnerships and explores new business opportunities" },
-  { name: "Dima Kurlov", role: "UI&UX & Web Designer", copy: "Combines UI/UX design and website development to bring complete digital experiences to life" },
-  { name: "Max Marans", role: "Web Developer", copy: "Turns designs into working websites, with a focus on functionality, animation and technical performance" },
-  { name: "Oleg Lastname", role: "Web Designer & Developer", copy: "Designs interfaces and builds responsive websites, connecting visual detail with usability" },
-  { name: "Liza Lastname", role: "Co-founder & Business Development Lead", copy: "Shapes the studio’s direction, develops partnerships and explores new business opportunities" },
-  // The current Figma frame has two matching Liza placeholder cards.
-  { name: "Liza Lastname", role: "Co-founder & Business Development Lead", copy: "Shapes the studio’s direction, develops partnerships and explores new business opportunities" },
+  { name: "Arti Boboshko", role: "Designer & Co-Founder", photo: "/arti-boboshko.jpg" },
+  { name: "Dima Kurlov", role: "UI&UX & Web Designer", photo: "/dima-kurlov.jpg" },
+  { name: "Max Marans", role: "Web Developer", photo: "/max-marans.jpg" },
+  { name: "Oleh Yaitsov", role: "Web Designer & Developer", photo: "/oleh-yaitsov.jpg" },
+  { name: "Nikita Plotnykov", role: "Back-End Developer", photo: "/nikita-plotnykov.jpg" },
+  { name: "Elizaveta Beleevskaya", role: "Marketing Specialist & Photographer", photo: "/elizaveta-beleevskaya.jpg" },
 ] as const;
 
 export const APPROACH = [
