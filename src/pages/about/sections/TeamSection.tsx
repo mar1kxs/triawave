@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { Reveal } from "../../../components/ui/Reveal";
 import { TEAM } from "../content";
 
@@ -10,7 +11,7 @@ export function TeamSection() {
           {TEAM.map((person, index) => (
             <Reveal className="person" key={`${person.name}-${index}`}>
               <div className={`portrait-placeholder${"photo" in person ? " portrait-photo" : ""}`}>
-                {"photo" in person ? <img src={person.photo} alt={person.name} /> : <><i>01</i><span>Portrait placeholder</span><b>{person.name.split(" ")[0]}</b></>}
+                {"photo" in person ? <SiteImage src={person.photo} sizes="(max-width: 700px) 45vw, 25vw" loading="lazy" alt={person.name} /> : <><i>01</i><span>Portrait placeholder</span><b>{person.name.split(" ")[0]}</b></>}
               </div>
               <h3>{person.name}</h3>{person.role && <small>{person.role}</small>}
             </Reveal>

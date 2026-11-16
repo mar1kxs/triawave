@@ -1,13 +1,14 @@
+import { SiteImage } from "../../components/ui/SiteImage";
 import "./wix-editor.css";
 
 export function WixEditor({ platform = "Wix Studio" }: { platform?: "Wix Studio" | "Webflow" }) {
   if (platform === "Webflow") return <div className="wix-hero-editor wix-editor webflow-editor">
-    <img src="/webflow-designer.svg" alt="Webflow Designer interface with selected hero heading, responsive breakpoints, style controls and publish action" />
+    <SiteImage fetchPriority="high" src="/webflow-designer.svg" alt="Webflow Designer interface with selected hero heading, responsive breakpoints, style controls and publish action" />
     <div className="wix-editor-tags"><span>Design &amp; development</span><span>CMS &amp; interactions</span></div>
   </div>;
   if (platform === "Wix Studio") return <div className="wix-hero-editor wix-editor wix-studio-art">
-    <img src="/wix-studio-editor.svg" alt="Wix Studio editor preview with selected page heading, editable layout and publish controls" />
-    <div className="wix-editor-tags" aria-hidden="true"><span>Design &amp; development</span><span>CMS &amp; interactions</span></div>
+    <SiteImage fetchPriority="high" src="/wix-studio-editor.svg" alt="Wix Studio editor preview with selected page heading, editable layout and publish controls" />
+    <div className="wix-editor-tags" aria-hidden="true"><span>Easy content updates</span><span>Built on Wix &amp; Wix Studio</span><span>Custom code with Velo</span></div>
   </div>;
   return <div className="wix-hero-editor wix-editor" role="img" aria-label={`${platform} visual editor: editable website sections, selected hero text and a pink cube.`}>
     <div className="wix-editor-window" aria-hidden="true">

@@ -115,6 +115,76 @@
   aspect-ratio: 1;
   background: #1e1e23;
 }
+.custom-project-card {
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.custom-project-card > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: opacity .35s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.custom-project-card-hover-image {
+  z-index: 1;
+  opacity: 0;
+  transform: scale(1.025);
+}
+.custom-project-card:hover .custom-project-card-image {
+  opacity: 0;
+}
+.custom-project-card:hover .custom-project-card-hover-image {
+  opacity: 1;
+  transform: scale(1);
+}
+.custom-project-card:hover .custom-project-card-label,
+.custom-project-card:hover .custom-project-card-tags {
+  opacity: 0;
+}
+.custom-project-card-label,
+.custom-project-card-tags {
+  transition: opacity .2s ease;
+}
+.custom-project-card-label {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  z-index: 2;
+  color: #fff;
+  font: 500 32px/1 var(--display);
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+}
+.custom-project-card-tags {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.custom-project-card-tags span {
+  display: inline-flex;
+  min-height: 39px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.32);
+  background: rgba(226,226,226,.15);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  font: 400 15px/1 var(--display);
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
 .strategy-project-placeholder:nth-child(odd) { grid-column: 1; }
 .strategy-project-placeholder:nth-child(even) { grid-column: 2; }
 .strategy-project-placeholder:nth-child(2) { grid-row: 2; }
@@ -153,6 +223,9 @@
   }
   .strategy-projects-grid .strategy-project-placeholder { grid-column: 1 / -1; width: 80%; }
   .strategy-project-placeholder:nth-child(even) { justify-self: end; }
+  .custom-project-card-label { top: 14px; left: 14px; right: 14px; font-size: 20px; }
+  .custom-project-card-tags { left: 10px; right: 10px; bottom: 10px; gap: 4px; flex-wrap: wrap; }
+  .custom-project-card-tags span { min-height: 32px; padding: 8px 6px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .strategy-projects-heading { position: relative; }

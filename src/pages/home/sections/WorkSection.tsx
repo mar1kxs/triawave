@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { AppLink } from "../../../components/ui/AppLink";
 import { SectionHead } from "../../../components/ui/SectionHead";
@@ -15,13 +16,17 @@ export function WorkSection() {
       <div className="work-grid">
         {WORK_PROJECTS.map((project, index) => (
           <Reveal className={`work-card work-${index + 1}`} key={project.id}>
-            <div className="work-image" aria-label="Case study image placeholder">CASE</div>
+            <div className="work-image">
+              <SiteImage src={project.image} alt={project.imageAlt} loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <span className="home-project-title" aria-hidden="true">{project.imageTitle}</span>
+              <div className="home-project-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+            </div>
             <div className="work-copy">
               <span>{project.type}</span>
               <h3>{project.title}</h3>
-              <p>Triawave creates distinctive digital experiences for growing companies, professional services, e-commerce brands and ambitious startups</p>
-              <small>Strategy · Content structure · Visual design · Build</small>
-              <AppLink href="/work" className="text-link">View case study <span aria-hidden="true" /></AppLink>
+              <p>{project.description}</p>
+              <small>{project.services}</small>
+              <AppLink href="/work" className="text-link">Explore the project <span aria-hidden="true" /></AppLink>
             </div>
           </Reveal>
         ))}

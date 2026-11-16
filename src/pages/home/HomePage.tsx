@@ -8,7 +8,6 @@ import { AudienceSection } from "./sections/AudienceSection";
 import { OutcomesSection } from "./sections/OutcomesSection";
 import { ServicesSection } from "./sections/ServicesSection";
 import { ProcessSection } from "./sections/ProcessSection";
-import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { FAQSection } from "./sections/FAQSection";
 import { ProcessStrip } from "./sections/ProcessStrip";
 import { useHomeMotion } from "./hooks/useHomeMotion";
@@ -40,7 +39,6 @@ export default function HomePage() {
         <OutcomesSection />
         <ServicesSection />
         <ProcessSection />
-        <TestimonialsSection />
         <InnerPageCTA />
       </main>
       <Footer />

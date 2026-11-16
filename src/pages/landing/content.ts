@@ -1,27 +1,28 @@
 export const DELIVERABLES = [
-  { title: "Goals and priorities", copy: "We discuss your business, audience and competitors to define what the website needs to achieve. Together, we agree what matters most for launch and what can come later", result: "Agreed website goals, target audiences and launch priorities" },
-  { title: "Structure and key journeys", copy: "We organise your pages and map the main routes through the website, helping visitors move from an initial question to an enquiry, booking or purchase", result: "A sitemap and key user journeys" },
-  { title: "The role of each page", copy: "We define each key page’s purpose, main message and supporting content, including the questions it should answer and the action it should encourage", result: "Page-by-page content outlines and initial search-intent guidance" },
-  { title: "A BRIEF TO BUILD ON", copy: "We bring the agreed goals, sitemap and content direction into one practical brief. Your design and development team can use it as a shared starting point — whether you work with us or someone else", result: "A consolidated website brief for design and development" },
+  { title: "A clear page structure", copy: "We clarify your offer, audience and main action, then organise the page around what visitors need to know. Using your materials, we plan the key messages, supporting proof and calls to action", result: "An agreed page structure, key messages and a list of content needed" },
+  { title: "Design around your offer", copy: "We create a landing page design that fits your brand and makes the offer easy to follow on desktop and mobile. If you already have approved layouts, we review them and flag any adjustments needed before development", result: "Responsive page designs, or your existing layouts reviewed for development" },
+  { title: "A clear way to take action", copy: "We build the responsive page and connect the form, booking, registration or purchase option your offer needs. We also configure the confirmations, notifications and integrations included in your project", result: "A working, responsive landing page with the agreed forms and connections" },
+  { title: "Tested, launched & handed over", copy: "We test the page and its main action, complete the agreed basic SEO setup and check any included tracking events. After approval, we publish the page, hand over access and explain how to make routine updates", result: "A published page, a launch checklist, access and editing instructions" },
 ] as const;
 
 export const STRATEGY_AUDIENCES = [
-  { title: "Launching a business", copy: "You need to decide what the first version of your website should include — and what can wait" },
-  { title: "Planning a redesign", copy: "Your business has changed, but your website structure and message have not kept up" },
-  { title: "Making a complex offer clear", copy: "You have several services or audiences and need a simpler way to explain what you do" },
+  { title: "Launching a new offer", copy: "You need a dedicated page for a product, service or event—with clear benefits, relevant proof and a straightforward way to enquire, book or sign up" },
+  { title: "Testing an offer", copy: "You want to see how a specific audience responds to your offer. A dedicated page gives your campaign a clear destination and a defined action to measure" },
+  { title: "Improving an existing page", copy: "Your current page is hard to follow or use. You need clearer messaging, a better mobile experience or a simpler path to completing the main action" },
 ] as const;
 
 export const STRATEGY_STEPS = [
-  { title: "Understand", copy: "We learn about your business, your customers and what needs to change" },
-  { title: "Plan", copy: "We turn that insight into a page structure, content direction and priorities" },
-  { title: "Agree", copy: "We review the plan together and confirm the brief before design begins" },
+  { title: "Plan & align", copy: "Together, we define the offer, audience and main action, then agree on the materials needed, scope, budget and launch date" },
+  { title: "Build & review", copy: "You review the structure and design before development, then see the working page. We refine it with your feedback at agreed stages" },
+  { title: "Approve & launch", copy: "We walk you through the finished page and checks for approval before publishing, then show you how to make routine updates" },
 ] as const;
 
-// The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made" },
-  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention" },
-  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope" },
-  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit" },
-  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave" },
+  { question: "Do we need a landing page or a full website?", answer: "A landing page suits a focused offer or campaign with one main action, such as an enquiry, booking or registration. A full website is usually better when visitors need to explore several services, products or topics. We help you choose based on what your audience needs to understand and do" },
+  { question: "Do we need to provide the copy and content?", answer: "We help organise the page and define what each section needs to communicate. You provide the facts about your offer, brand materials and any existing content. We agree upfront whether we’ll use your approved text, edit supplied material or include copywriting as additional work" },
+  { question: "Can you work from our design or add a page to our existing site?", answer: "Yes. We can create the design or develop from your approved layouts. We can also build within your existing website where the platform allows it. Before starting, we review the design and setup and explain any adjustments needed" },
+  { question: "Can you connect forms, bookings, payments or our CRM?", answer: "Yes. We review the tools you use and connect the enquiry, booking, registration or purchase flow your page needs. We confirm the integrations, account access and any paid services required before development, then test the complete flow before launch" },
+  { question: "Are analytics, advertising and A/B testing included?", answer: "We can include analytics setup and tracking for agreed actions, such as form submissions or completed bookings. Advertising and ongoing A/B testing are separate from the page build and are not included by default. Before work starts, we confirm what will be measured and who will manage the campaigns or tests" },
+  { question: "How much does a landing page cost, and how long does it take?", answer: "This depends on the page length, design, content readiness and required connections. After reviewing your brief, we provide a quote and schedule. We identify any platform or service costs separately and agree on what needs to be ready for launch" },
+  { question: "Can we update the page after launch?", answer: "Yes. We explain which content your team can edit on the chosen platform and provide access and guidance. Larger layout changes or new functionality may need our help. Any included post-launch support is defined in your proposal, and further updates can be arranged separately" },
 ] as const;

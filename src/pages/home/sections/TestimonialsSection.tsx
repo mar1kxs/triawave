@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { useRef, useState } from "react";
 import { SectionHead } from "../../../components/ui/SectionHead";
@@ -18,9 +19,9 @@ export function TestimonialsSection() {
       <div className="testimonial-title-row">
         <MotionHeading>What clients say</MotionHeading>
         <div className="testimonial-controls" aria-label="Review navigation">
-          <button type="button" aria-label="Previous review" disabled={current === 0} onClick={() => move(-1)}><img src="/assets/review-arrow-left.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
+          <button type="button" aria-label="Previous review" disabled={current === 0} onClick={() => move(-1)}><SiteImage src="/assets/review-arrow-left.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
           <span aria-live="polite">{current + 1}/{TESTIMONIALS.length}</span>
-          <button type="button" aria-label="Next review" disabled={current === TESTIMONIALS.length - 1} onClick={() => move(1)}><img src="/assets/review-arrow-right.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
+          <button type="button" aria-label="Next review" disabled={current === TESTIMONIALS.length - 1} onClick={() => move(1)}><SiteImage src="/assets/review-arrow-right.svg" alt="" aria-hidden="true" width="35" height="35" loading="lazy" decoding="async" /></button>
         </div>
       </div>
       <div
@@ -47,7 +48,7 @@ export function TestimonialsSection() {
           <article className="testimonial" key={`${testimonial.title}-${index}`}>
             <h3>{testimonial.title}</h3>
             <p>{testimonial.quote}</p>
-            <div className="stars" aria-label={`${testimonial.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, star) => <img key={star} src={`/assets/review-star${star >= testimonial.rating ? "-muted" : ""}.svg`} alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async" />)}</div>
+            <div className="stars" aria-label={`${testimonial.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, star) => <SiteImage key={star} src={`/assets/review-star${star >= testimonial.rating ? "-muted" : ""}.svg`} alt="" aria-hidden="true" width="20" height="20" loading="lazy" decoding="async" />)}</div>
           </article>
         ))}
       </div>

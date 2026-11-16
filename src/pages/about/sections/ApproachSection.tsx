@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { SectionHead } from "../../../components/ui/SectionHead";
 import { Reveal } from "../../../components/ui/Reveal";
 import { APPROACH } from "../content";
@@ -10,7 +11,7 @@ export function ApproachSection() {
         <Reveal className="approach-intro">
           <h2>Design connected<br />to the bigger picture</h2>
           <p>A website is more than a visual concept. We connect business goals, thoughtful design and development so the final result works as a whole.</p>
-          <img className="about-approach-cubes" src="/assets/about-approach-cubes.svg" alt="" aria-hidden="true" width="176" height="177" loading="lazy" decoding="async" />
+          <SiteImage className="about-approach-cubes" src="/assets/about-approach-cubes.svg" alt="" aria-hidden="true" width="176" height="177" loading="lazy" decoding="async" />
         </Reveal>
         <div className="approach-list">
           {APPROACH.map((item, index) => (

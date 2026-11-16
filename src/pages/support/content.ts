@@ -1,27 +1,26 @@
 export const DELIVERABLES = [
-  { title: "Goals and priorities", copy: "We discuss your business, audience and competitors to define what the website needs to achieve. Together, we agree what matters most for launch and what can come later", result: "Agreed website goals, target audiences and launch priorities" },
-  { title: "Structure and key journeys", copy: "We organise your pages and map the main routes through the website, helping visitors move from an initial question to an enquiry, booking or purchase", result: "A sitemap and key user journeys" },
-  { title: "The role of each page", copy: "We define each key page’s purpose, main message and supporting content, including the questions it should answer and the action it should encourage", result: "Page-by-page content outlines and initial search-intent guidance" },
-  { title: "A BRIEF TO BUILD ON", copy: "We bring the agreed goals, sitemap and content direction into one practical brief. Your design and development team can use it as a shared starting point — whether you work with us or someone else", result: "A consolidated website brief for design and development" },
+  { title: "Understand what needs fixing", copy: "We investigate the reported issues and review the relevant parts of your site. You get a clear explanation of our findings and recommended fixes, with any further investigation identified before additional work begins", result: "Findings and recommended fixes, prioritised by their impact on your site" },
+  { title: "A plan you can approve", copy: "We turn the findings and your business priorities into a clear task list. Before work starts, we agree on what to change, the cost, timing and how each task will be checked", result: "An agreed work plan with priorities, estimates and completion criteria" },
+  { title: "Fixes & practical improvements", copy: "We carry out the agreed fixes, content updates and improvements to usability or speed. We check affected features before and after release, and agree on backup or rollback arrangements for changes that carry risk", result: "Completed changes, check results and a record of what was updated" },
+  { title: "See what changed", copy: "You receive a clear summary of completed work, check results and any instructions your team needs. For performance improvements, we compare relevant before-and-after measurements where reliable data is available", result: "A completed-work summary, check results and practical guidance for your team" },
 ] as const;
 
 export const STRATEGY_AUDIENCES = [
-  { title: "Launching a business", copy: "You need to decide what the first version of your website should include — and what can wait" },
-  { title: "Planning a redesign", copy: "Your business has changed, but your website structure and message have not kept up" },
-  { title: "Making a complex offer clear", copy: "You have several services or audiences and need a simpler way to explain what you do" },
+  { title: "Fixing what isn’t working", copy: "Your forms fail, layouts break or integrations stop working. You need someone to investigate the cause, agree on a fix and check that it works" },
+  { title: "Keeping your site up to date", copy: "Your team needs help updating content and maintaining the site. You want ongoing support with clear priorities, agreed response times and a record of completed work" },
+  { title: "Finding what to improve", copy: "Visitors struggle to find information or complete key actions. You need a review of usability, speed and available analytics to prioritise changes worth making" },
 ] as const;
 
 export const STRATEGY_STEPS = [
-  { title: "Understand", copy: "We learn about your business, your customers and what needs to change" },
-  { title: "Plan", copy: "We turn that insight into a page structure, content direction and priorities" },
-  { title: "Agree", copy: "We review the plan together and confirm the brief before design begins" },
+  { title: "Share your request", copy: "Tell us what needs fixing or improving. We review your request and confirm what we need to get started" },
+  { title: "Agree & proceed", copy: "We agree on tasks, cost and timing, then get to work and keep you updated" },
+  { title: "Review the result", copy: "We show you the completed changes, explain the check results and share any instructions needed" },
 ] as const;
 
-// The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made" },
-  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention" },
-  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope" },
-  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit" },
-  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave" },
+  { question: "Can you support a website you didn’t build?", answer: "Yes. We review the platform, setup and available access to confirm how we can help. You don’t need to rebuild your website just to work with us" },
+  { question: "Do we need ongoing support, or can we book a one-off task?", answer: "Both options are available. We can handle an individual fix or update, or arrange regular support for maintenance and improvements. We agree on the tasks, budget and reporting before starting" },
+  { question: "How quickly can you help?", answer: "We confirm availability and expected timing after reviewing your request. For ongoing support, we agree on response times in advance. The time needed to resolve an issue depends on its complexity and any third-party involvement" },
+  { question: "What if the issue is bigger than expected?", answer: "We explain what we’ve found and how it affects the work, cost or timing. Any additional work is agreed with you before we proceed, so you stay in control of the budget" },
+  { question: "How will we know what has improved?", answer: "You receive a summary of completed changes and check results. Where reliable data is available, we compare relevant measures before and after the work. Traffic and sales also depend on factors beyond website support, so we don’t guarantee increases" },
 ] as const;

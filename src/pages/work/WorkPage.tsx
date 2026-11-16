@@ -1,3 +1,4 @@
+import { SiteImage } from "../../components/ui/SiteImage";
 import { useEffect, useRef, useState } from "react";
 import { Shell } from "../../components/layout/Shell";
 import { Footer } from "../../components/layout/Footer";
@@ -11,6 +12,19 @@ function CubeEdges() {
     <path d="M0 22 44 0 100 17 100 78 56 100 0 83Z M0 22 56 39 100 17 M56 39V100" />
   </svg>;
 }
+
+const PROJECTS = [
+  { src: "/projects/work-project-08.png", title: "Tuscany Photo Tours", tags: ["Travel Platform", "UX/UI", "Web Development"], alt: "Tuscany photo tours website displayed on a laptop" },
+  { src: "/projects/work-project-07.png", title: "LIVA-BEAUTY", tags: ["Beauty Salon", "UX/UI", "Web Development"], alt: "Beauty and ritual website displayed on a laptop" },
+  { src: "/projects/work-project-06.png", title: "deftechcluster", tags: ["Defense Tech", "UX/UI", "Web Development"], alt: "Innovation Bridges website displayed on a smartphone" },
+  { src: "/projects/work-project-05.png", title: "SCHOOLTOGO.ONLINE", tags: ["Online School", "UX/UI", "Web Development"], alt: "Online school website displayed on a smartphone" },
+  { src: "/projects/work-project-04.png", title: "KUBERG APP", tags: ["Electric Motorcycles", "UX/UI", "App Development"], alt: "Kuberg electric bike website displayed on a smartphone" },
+  { src: "/projects/work-project-03.png", title: "KYIV ENERGY", tags: ["Energy Solutions", "UX/UI", "App Development"], alt: "Kyiv Energy website displayed on a tablet" },
+  { src: "/projects/work-project-02.png", title: "BML-LAB", tags: ["Digital Pathology", "UX/UI", "App Development"], alt: "Medical laboratory website displayed on a desktop computer" },
+  { src: "/projects/work-project-01.png", title: "Panegrip.dev", tags: ["AI Developer Tools", "UX/UI", "App Development"], alt: "AI coding assistant website shown on a desktop monitor" },
+  { src: "/projects/work-project-10.png", title: "CAPYCASINO", tags: ["Sweepstakes Casino", "UX/UI", "App Development"], alt: "Sweepstakes casino mobile app displayed on a smartphone" },
+  { src: "/projects/work-project-09.png", title: "COSMOVAR", tags: ["Beauty & Aesthetics", "UX/UI", "App Development"], alt: "Beauty and aesthetics website displayed on a laptop" },
+] as const;
 
 export default function WorkPage() {
   const [expanded, setExpanded] = useState(false);
@@ -58,27 +72,30 @@ export default function WorkPage() {
       </section>
       <section className="work-page-projects" id="work-projects" aria-label="Projects">
         <div className="work-page-grid" id="work-project-grid">
-          {Array.from({ length: 6 }, (_, index) =>
-            <div className="work-page-placeholder" role="img" aria-label={`Project image placeholder ${index + 1}`} key={index}
-              >
-              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+          {PROJECTS.slice(0, 6).map((project, index) =>
+            <div className="work-page-placeholder" role="img" aria-label={`${project.title}. ${project.tags.join(", ")}. ${project.alt}`} key={project.src}>
+              <SiteImage src={project.src} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <span className="work-project-title" aria-hidden="true">{project.title}</span>
+              <div className="work-project-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
             </div>
           )}
         </div>
         <div className="work-projects-expansion" id="work-extra-projects" data-open={expanded} aria-hidden={!expanded} inert={!expanded}>
           <div className="work-projects-expansion-inner">
             <div className="work-page-grid work-extra-grid">
-              {[7, 8].map((number) => <div className="work-page-placeholder" role="img"
-                aria-label={`Project image placeholder ${number}`} key={number}
-                ref={number === 7 ? firstNewProject : undefined} tabIndex={number === 7 ? -1 : undefined}>
-                <span aria-hidden="true">{String(number).padStart(2, "0")}</span>
+              {PROJECTS.slice(6).map((project, index) => <div className="work-page-placeholder" role="img"
+                aria-label={`${project.title}. ${project.tags.join(", ")}. ${project.alt}`} key={project.src}
+                ref={index === 0 ? firstNewProject : undefined} tabIndex={index === 0 ? -1 : undefined}>
+                <SiteImage src={project.src} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                <span className="work-project-title" aria-hidden="true">{project.title}</span>
+                <div className="work-project-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
               </div>)}
             </div>
           </div>
         </div>
         <button className="work-page-more" type="button" onClick={showMore} aria-controls="work-extra-projects"
           aria-expanded={expanded} disabled={expanded} style={expanded ? { visibility: "hidden" } : undefined}>+ Show more</button>
-        <span className="work-project-status" role="status">{expanded ? "2 more projects shown. 8 projects in total." : ""}</span>
+        <span className="work-project-status" role="status">{expanded ? "4 more projects shown. 10 projects in total." : ""}</span>
       </section>
       <InnerPageCTA />
     </main>

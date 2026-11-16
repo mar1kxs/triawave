@@ -1,27 +1,30 @@
 export const DELIVERABLES = [
-  { title: "Goals and priorities", copy: "We discuss your business, audience and competitors to define what the website needs to achieve. Together, we agree what matters most for launch and what can come later", result: "Agreed website goals, target audiences and launch priorities" },
-  { title: "Structure and key journeys", copy: "We organise your pages and map the main routes through the website, helping visitors move from an initial question to an enquiry, booking or purchase", result: "A sitemap and key user journeys" },
-  { title: "The role of each page", copy: "We define each key page’s purpose, main message and supporting content, including the questions it should answer and the action it should encourage", result: "Page-by-page content outlines and initial search-intent guidance" },
-  { title: "A BRIEF TO BUILD ON", copy: "We bring the agreed goals, sitemap and content direction into one practical brief. Your design and development team can use it as a shared starting point — whether you work with us or someone else", result: "A consolidated website brief for design and development" },
+  { title: "Platform & design for your store", copy: "We recommend a platform based on your products, markets and day-to-day needs. We create a store design around your brand or review your existing layouts for implementation on the chosen platform", result: "A selected platform and approved store layouts ready for development" },
+  { title: "Your products, clearly presented", copy: "We build your catalogue, categories and product pages around what you sell. Navigation and responsive layouts help customers browse the store and understand your products on desktop and mobile", result: "Store pages, catalogue structure and product layouts built for your range" },
+  { title: "Payments & delivery, set up", copy: "We set up payment methods, delivery options and order notifications around your products and the regions you serve. We also connect the services included in your project so your team can manage orders across the tools it uses", result: "Configured payment, delivery and notification settings, plus the agreed integrations" },
+  { title: "A tested path to purchase", copy: "We test the journey from selecting a product to placing an order. Checks cover the cart, agreed payment flows, delivery options and order confirmations before launch", result: "Test order results and a summary of checks and known limitations" },
+  { title: "A store your team can run", copy: "We launch the store, hand over access and show your team how to update products and manage orders. We document the key settings, recurring service costs and any agreed support arrangements", result: "A purchase flow checked through test orders, with documented results" },
 ] as const;
 
 export const STRATEGY_AUDIENCES = [
-  { title: "Launching a business", copy: "You need to decide what the first version of your website should include — and what can wait" },
-  { title: "Planning a redesign", copy: "Your business has changed, but your website structure and message have not kept up" },
-  { title: "Making a complex offer clear", copy: "You have several services or audiences and need a simpler way to explain what you do" },
+  { title: "Launching a new store", copy: "You need an online store with a clear catalogue, product pages and checkout, plus payment and delivery options that fit your products and customers" },
+  { title: "Changing your platform", copy: "Your current platform limits the features you need or makes everyday work difficult. We assess your requirements and what can be transferred before planning the move" },
+  { title: "Improving your current store", copy: "Customers struggle to find products or complete an order, or your team relies on manual work. You need improvements to navigation, checkout or connections with other tools" },
 ] as const;
 
 export const STRATEGY_STEPS = [
-  { title: "Understand", copy: "We learn about your business, your customers and what needs to change" },
-  { title: "Plan", copy: "We turn that insight into a page structure, content direction and priorities" },
-  { title: "Agree", copy: "We review the plan together and confirm the brief before design begins" },
+  { title: "Plan & align", copy: "Together, we review your products, customers and day-to-day needs, then agree on the platform, priorities, budget and timeline" },
+  { title: "Build & review", copy: "You review the design and store as they take shape, with feedback at agreed stages. Any changes to scope, cost or timing are discussed before we proceed" },
+  { title: "Approve & launch", copy: "We walk you through the finished store and test results for approval before launch. Your team then gets hands-on guidance for everyday management" },
 ] as const;
 
-// The reference shows collapsed questions only. Answer copy follows the service scope above.
 export const STRATEGY_FAQ = [
-  { question: "Do we need strategy before a small website?", answer: "Not every small website needs a separate strategy phase. If your goals, pages and content are already clear, a focused brief may be enough. Strategy is useful when those decisions still need to be made" },
-  { question: "Can you review our existing website?", answer: "Yes. We can use your current website as a starting point to review its structure, messaging and main user journeys. Together, we decide what to keep, what to change and what needs closer attention" },
-  { question: "Does this include design, SEO or advertising?", answer: "The core service covers website goals, structure and content direction, with initial guidance on search intent. Finished designs, full page copy, development, ongoing SEO and advertising are not included in the strategy scope" },
-  { question: "How much does it cost, and how long does it take?", answer: "The fee and timeline depend on the website’s size, the material you already have and the decisions we need to work through. We confirm the scope, fee and schedule before you commit" },
-  { question: "Can another team use the strategy?", answer: "Yes. The brief brings together the agreed goals, structure and content direction so another design or development team can use it as a starting point. You can also continue with Triawave" },
+  { question: "Which platform is right for our store?", answer: "We recommend a platform based on your products, catalogue size, sales regions, required features and how your team works. We explain the trade-offs and recurring costs so you can make an informed choice. If you already have a store, we first check whether your current platform can meet your needs" },
+  { question: "Do you create the design or work from existing layouts?", answer: "Both. We can design the store around your brand or develop from your approved layouts. If you already have a design, we review the product pages, navigation and checkout requirements against the chosen platform before development begins" },
+  { question: "Can you migrate our existing store?", answer: "Yes, after reviewing your current store and the new platform. We confirm which products, customer records, order history and other content can be transferred, then plan redirects and launch timing. Any data or features that cannot transfer directly are discussed before work begins" },
+  { question: "What do we need to provide, and will you add the products?", answer: "You provide product details, prices, images, variants and business rules, along with any existing brand materials. We agree on how many products we will upload or import, what needs preparing and who handles each part. You do not need to have everything ready to start the conversation" },
+  { question: "What is needed to set up payments and delivery?", answer: "We help identify suitable options and configure them using your business accounts and delivery rules. You provide the required business information and complete any provider verification. Available payment methods and delivery services depend on your sales regions, platform and providers" },
+  { question: "How much will it cost, and how long will it take?", answer: "This depends on the design, catalogue, features, integrations and any migration work. After reviewing your requirements, we provide a proposal with the scope, budget and schedule. We also identify recurring costs such as platform subscriptions, paid apps and payment-processing fees" },
+  { question: "Will our team be able to manage the store?", answer: "Yes. We set up access and show your team how to update products, prices and stock, and manage orders using the tools included in your project. You receive practical guidance for routine tasks. New features or substantial design changes may need our help" },
+  { question: "What happens after launch?", answer: "You receive a launched, tested store with access and management guidance. We confirm any included post-launch support and how issues with the delivered work will be handled. Ongoing maintenance, new features and further improvements can be arranged separately" },
 ] as const;

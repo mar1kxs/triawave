@@ -1,0 +1,381 @@
+{
+  "/arti-boboshko.jpg": {
+    "src": "/optimized/1297f6df04ce5a9e-434.webp",
+    "srcSet": "/optimized/1297f6df04ce5a9e-434.webp 434w",
+    "width": 434,
+    "height": 450,
+    "color": "rgb(88, 88, 88)"
+  },
+  "/assets/about-approach-cubes.svg": {
+    "src": "/optimized/b88655e64f21cd7c.svg"
+  },
+  "/assets/about-arrow-down.svg": {
+    "src": "/optimized/06c7e7c631cf1330.svg"
+  },
+  "/assets/about-orbit.svg": {
+    "src": "/optimized/74f579cf4d6c0ddf.svg"
+  },
+  "/assets/audience-ecommerce.svg": {
+    "src": "/optimized/8ae70dd0e34de5cf.svg"
+  },
+  "/assets/audience-growing.svg": {
+    "src": "/optimized/55b46cc375bb16bc.svg"
+  },
+  "/assets/audience-services.svg": {
+    "src": "/optimized/c89c2adf7772ba34.svg"
+  },
+  "/assets/audience-startups.svg": {
+    "src": "/optimized/74d31177517fa752.svg"
+  },
+  "/assets/commerce-hero-store.png": {
+    "src": "/optimized/383db9f5c74b4d31-708.webp",
+    "srcSet": "/optimized/383db9f5c74b4d31-480.webp 480w, /optimized/383db9f5c74b4d31-708.webp 708w",
+    "width": 708,
+    "height": 523,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/assets/custom-hero-editor.png": {
+    "src": "/optimized/6f9656a132c6500a-665.webp",
+    "srcSet": "/optimized/6f9656a132c6500a-480.webp 480w, /optimized/6f9656a132c6500a-665.webp 665w",
+    "width": 665,
+    "height": 497,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/assets/favicon.svg": {
+    "src": "/optimized/c934887c191c7cb7.svg"
+  },
+  "/assets/header-arrow-down.svg": {
+    "src": "/optimized/c3a2aef61d783558.svg"
+  },
+  "/assets/hero-art.svg": {
+    "src": "/optimized/7a93d059ba04f1c6.svg"
+  },
+  "/assets/hero-shade-left.svg": {
+    "src": "/optimized/01947f54103b3d21.svg"
+  },
+  "/assets/landing-hero-flow.png": {
+    "src": "/optimized/7ec8eed6d7195d3b-708.webp",
+    "srcSet": "/optimized/7ec8eed6d7195d3b-480.webp 480w, /optimized/7ec8eed6d7195d3b-708.webp 708w",
+    "width": 708,
+    "height": 500,
+    "color": "rgb(24, 24, 24)"
+  },
+  "/assets/logo.svg": {
+    "src": "/optimized/71666baa9a3373b7.svg"
+  },
+  "/assets/mobile-service-arrow.svg": {
+    "src": "/optimized/02b3b2124f1fdc8f.svg"
+  },
+  "/assets/review-arrow-left.svg": {
+    "src": "/optimized/a09b44e0b86bcd44.svg"
+  },
+  "/assets/review-arrow-right.svg": {
+    "src": "/optimized/5aa9a02b0f96b2ad.svg"
+  },
+  "/assets/review-star-muted.svg": {
+    "src": "/optimized/c92ca53c704dc39d.svg"
+  },
+  "/assets/review-star.svg": {
+    "src": "/optimized/7e15fe90f2d6cefa.svg"
+  },
+  "/assets/service-arrow.svg": {
+    "src": "/optimized/ef0d837119e68395.svg"
+  },
+  "/assets/strategy-signature.svg": {
+    "src": "/optimized/778c3b05a7a51428.svg"
+  },
+  "/assets/support-hero-dashboard.png": {
+    "src": "/optimized/6fa3dc746a52790a-708.webp",
+    "srcSet": "/optimized/6fa3dc746a52790a-480.webp 480w, /optimized/6fa3dc746a52790a-708.webp 708w",
+    "width": 708,
+    "height": 500,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/assets/wix-hero-editor.png": {
+    "src": "/optimized/6370b639a0cc1716-665.webp",
+    "srcSet": "/optimized/6370b639a0cc1716-480.webp 480w, /optimized/6370b639a0cc1716-665.webp 665w",
+    "width": 665,
+    "height": 497,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/custom-app-editor.svg": {
+    "src": "/optimized/16700c77ee1224df.svg"
+  },
+  "/dima-kurlov.jpg": {
+    "src": "/optimized/96f1685edc0c2c66-436.webp",
+    "srcSet": "/optimized/96f1685edc0c2c66-436.webp 436w",
+    "width": 436,
+    "height": 451,
+    "color": "rgb(120, 120, 120)"
+  },
+  "/ecommerce-storefront.svg": {
+    "src": "/optimized/86331cd69dc5f56d.svg"
+  },
+  "/elizaveta-beleevskaya.jpg": {
+    "src": "/optimized/44639c8ac0b5dd92-434.webp",
+    "srcSet": "/optimized/44639c8ac0b5dd92-434.webp 434w",
+    "width": 434,
+    "height": 450,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/faq-open-arrow.svg": {
+    "src": "/optimized/ea858a548a5949e9.svg"
+  },
+  "/landing-live-leads.svg": {
+    "src": "/optimized/4485ed8d04663a1d.svg"
+  },
+  "/max-marans.jpg": {
+    "src": "/optimized/22f6c3746beab353-435.webp",
+    "srcSet": "/optimized/22f6c3746beab353-435.webp 435w",
+    "width": 435,
+    "height": 450,
+    "color": "rgb(24, 24, 24)"
+  },
+  "/nikita-plotnykov.jpg": {
+    "src": "/optimized/c35a7d7160e4191c-435.webp",
+    "srcSet": "/optimized/c35a7d7160e4191c-435.webp 435w",
+    "width": 435,
+    "height": 450,
+    "color": "rgb(168, 168, 168)"
+  },
+  "/oleh-yaitsov.jpg": {
+    "src": "/optimized/b43944f93d0b178d-435.webp",
+    "srcSet": "/optimized/b43944f93d0b178d-435.webp 435w",
+    "width": 435,
+    "height": 449,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/custom-tuscany-hover.png": {
+    "src": "/optimized/2a80ed831944be41-743.webp",
+    "srcSet": "/optimized/2a80ed831944be41-480.webp 480w, /optimized/2a80ed831944be41-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(120, 56, 40)"
+  },
+  "/projects/custom-tuscany.png": {
+    "src": "/optimized/5b38adad6983c623-743.webp",
+    "srcSet": "/optimized/5b38adad6983c623-480.webp 480w, /optimized/5b38adad6983c623-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/projects/ecommerce-kuberg-hover.png": {
+    "src": "/optimized/250cb8483456b221-743.webp",
+    "srcSet": "/optimized/250cb8483456b221-480.webp 480w, /optimized/250cb8483456b221-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/ecommerce-kuberg.png": {
+    "src": "/optimized/24f56e73d4b95162-743.webp",
+    "srcSet": "/optimized/24f56e73d4b95162-480.webp 480w, /optimized/24f56e73d4b95162-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(248, 136, 56)"
+  },
+  "/projects/kuberg-home.png": {
+    "src": "/optimized/58e536b937705c35-1600.webp",
+    "srcSet": "/optimized/58e536b937705c35-480.webp 480w, /optimized/58e536b937705c35-800.webp 800w, /optimized/58e536b937705c35-1200.webp 1200w, /optimized/58e536b937705c35-1600.webp 1600w",
+    "width": 1800,
+    "height": 800,
+    "color": "rgb(248, 152, 56)"
+  },
+  "/projects/strategy-capycasino.png": {
+    "src": "/optimized/2a23bd4cf6f56969-743.webp",
+    "srcSet": "/optimized/2a23bd4cf6f56969-480.webp 480w, /optimized/2a23bd4cf6f56969-743.webp 743w",
+    "width": 743,
+    "height": 742,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/strategy-hover-01.png": {
+    "src": "/optimized/89ba65153fe7e4d6-743.webp",
+    "srcSet": "/optimized/89ba65153fe7e4d6-480.webp 480w, /optimized/89ba65153fe7e4d6-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(72, 88, 88)"
+  },
+  "/projects/strategy-hover-02.png": {
+    "src": "/optimized/0a2403c1accddf9c-743.webp",
+    "srcSet": "/optimized/0a2403c1accddf9c-480.webp 480w, /optimized/0a2403c1accddf9c-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(24, 24, 24)"
+  },
+  "/projects/strategy-hover-03.png": {
+    "src": "/optimized/9dd9fd3fec0469dc-743.webp",
+    "srcSet": "/optimized/9dd9fd3fec0469dc-480.webp 480w, /optimized/9dd9fd3fec0469dc-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(24, 24, 24)"
+  },
+  "/projects/strategy-hover-04.png": {
+    "src": "/optimized/c81fdd24b88d24dc-743.webp",
+    "srcSet": "/optimized/c81fdd24b88d24dc-480.webp 480w, /optimized/c81fdd24b88d24dc-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/strategy-project-01.png": {
+    "src": "/optimized/2a23bd4cf6f56969-743.webp",
+    "srcSet": "/optimized/2a23bd4cf6f56969-480.webp 480w, /optimized/2a23bd4cf6f56969-743.webp 743w",
+    "width": 743,
+    "height": 742,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/strategy-project-02.png": {
+    "src": "/optimized/584a620ff9452147-743.webp",
+    "srcSet": "/optimized/584a620ff9452147-480.webp 480w, /optimized/584a620ff9452147-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/strategy-project-03.png": {
+    "src": "/optimized/01b0b43fb999de85-743.webp",
+    "srcSet": "/optimized/01b0b43fb999de85-480.webp 480w, /optimized/01b0b43fb999de85-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(168, 168, 168)"
+  },
+  "/projects/strategy-project-04.png": {
+    "src": "/optimized/0a91ea7172a0ae85-743.webp",
+    "srcSet": "/optimized/0a91ea7172a0ae85-480.webp 480w, /optimized/0a91ea7172a0ae85-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(232, 232, 232)"
+  },
+  "/projects/uiux-hover-liva-beauty.png": {
+    "src": "/optimized/0c1f29cdfd742a5e-743.webp",
+    "srcSet": "/optimized/0c1f29cdfd742a5e-480.webp 480w, /optimized/0c1f29cdfd742a5e-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(104, 104, 88)"
+  },
+  "/projects/uiux-hover-schooltogo.png": {
+    "src": "/optimized/471c59d9ba872bdd-743.webp",
+    "srcSet": "/optimized/471c59d9ba872bdd-480.webp 480w, /optimized/471c59d9ba872bdd-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(120, 120, 120)"
+  },
+  "/projects/uiux-liva-beauty.png": {
+    "src": "/optimized/de44729a6d227276-742.webp",
+    "srcSet": "/optimized/de44729a6d227276-480.webp 480w, /optimized/de44729a6d227276-742.webp 742w",
+    "width": 742,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/uiux-schooltogo.png": {
+    "src": "/optimized/5ce50c8feb636c07-743.webp",
+    "srcSet": "/optimized/5ce50c8feb636c07-480.webp 480w, /optimized/5ce50c8feb636c07-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(136, 136, 136)"
+  },
+  "/projects/wix-kyiv-energy-hover.png": {
+    "src": "/optimized/695d9a4f17b3652c-743.webp",
+    "srcSet": "/optimized/695d9a4f17b3652c-480.webp 480w, /optimized/695d9a4f17b3652c-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/wix-kyiv-energy.png": {
+    "src": "/optimized/fba432c9a9c83145-743.webp",
+    "srcSet": "/optimized/fba432c9a9c83145-480.webp 480w, /optimized/fba432c9a9c83145-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/wix-panegrip-hover.png": {
+    "src": "/optimized/7759d295f29fd609-743.webp",
+    "srcSet": "/optimized/7759d295f29fd609-480.webp 480w, /optimized/7759d295f29fd609-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/wix-panegrip.png": {
+    "src": "/optimized/0a2006b9fe8e4850-743.webp",
+    "srcSet": "/optimized/0a2006b9fe8e4850-480.webp 480w, /optimized/0a2006b9fe8e4850-743.webp 743w",
+    "width": 743,
+    "height": 743,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-01.png": {
+    "src": "/optimized/230d31a354384993-895.webp",
+    "srcSet": "/optimized/230d31a354384993-480.webp 480w, /optimized/230d31a354384993-800.webp 800w, /optimized/230d31a354384993-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-02.png": {
+    "src": "/optimized/d6b5c6f028f11069-895.webp",
+    "srcSet": "/optimized/d6b5c6f028f11069-480.webp 480w, /optimized/d6b5c6f028f11069-800.webp 800w, /optimized/d6b5c6f028f11069-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/projects/work-project-03.png": {
+    "src": "/optimized/32918fae30fa9a72-895.webp",
+    "srcSet": "/optimized/32918fae30fa9a72-480.webp 480w, /optimized/32918fae30fa9a72-800.webp 800w, /optimized/32918fae30fa9a72-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-04.png": {
+    "src": "/optimized/0306a9c51b195015-895.webp",
+    "srcSet": "/optimized/0306a9c51b195015-480.webp 480w, /optimized/0306a9c51b195015-800.webp 800w, /optimized/0306a9c51b195015-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(248, 152, 56)"
+  },
+  "/projects/work-project-05.png": {
+    "src": "/optimized/06816c772a5ae184-895.webp",
+    "srcSet": "/optimized/06816c772a5ae184-480.webp 480w, /optimized/06816c772a5ae184-800.webp 800w, /optimized/06816c772a5ae184-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(152, 152, 152)"
+  },
+  "/projects/work-project-06.png": {
+    "src": "/optimized/0bcf4db483f3cdd3-895.webp",
+    "srcSet": "/optimized/0bcf4db483f3cdd3-480.webp 480w, /optimized/0bcf4db483f3cdd3-800.webp 800w, /optimized/0bcf4db483f3cdd3-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-07.png": {
+    "src": "/optimized/c2d04c0e8d2baf89-895.webp",
+    "srcSet": "/optimized/c2d04c0e8d2baf89-480.webp 480w, /optimized/c2d04c0e8d2baf89-800.webp 800w, /optimized/c2d04c0e8d2baf89-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-08.png": {
+    "src": "/optimized/1f16e72d89bd7160-895.webp",
+    "srcSet": "/optimized/1f16e72d89bd7160-480.webp 480w, /optimized/1f16e72d89bd7160-800.webp 800w, /optimized/1f16e72d89bd7160-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(120, 56, 40)"
+  },
+  "/projects/work-project-09.png": {
+    "src": "/optimized/c5480f143580f518-895.webp",
+    "srcSet": "/optimized/c5480f143580f518-480.webp 480w, /optimized/c5480f143580f518-800.webp 800w, /optimized/c5480f143580f518-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-10.png": {
+    "src": "/optimized/9c3496fa74609c8e-895.webp",
+    "srcSet": "/optimized/9c3496fa74609c8e-480.webp 480w, /optimized/9c3496fa74609c8e-800.webp 800w, /optimized/9c3496fa74609c8e-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/site-monitor.svg": {
+    "src": "/optimized/3545a17a0d1925a8.svg"
+  },
+  "/webflow-designer.svg": {
+    "src": "/optimized/c125c7e7c6a243a2.svg"
+  },
+  "/wix-studio-editor.svg": {
+    "src": "/optimized/5a8213553e9539f0.svg"
+  }
+}

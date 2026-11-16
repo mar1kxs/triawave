@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { SectionHead } from "../../../components/ui/SectionHead";
 import { Reveal } from "../../../components/ui/Reveal";
@@ -12,7 +13,7 @@ export function AudienceSection() {
         {AUDIENCES.map((audience) => (
           <Reveal className="audience-card" key={audience.title}>
             <span>{audience.number}</span>
-            <img
+            <SiteImage
               className="audience-icon"
               src={audience.icon}
               alt=""

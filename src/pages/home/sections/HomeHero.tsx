@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { AppLink } from "../../../components/ui/AppLink";
 import { HeroArt } from "../components/HeroArt";
@@ -6,7 +7,7 @@ import { StartProjectButton } from "../components/StartProjectButton";
 export function HomeHero() {
   return (
     <section className="home-hero grid-field">
-      <img className="hero-shade" src="/assets/hero-shade-left.svg" alt="" aria-hidden="true" width="1457" height="1455" />
+      <SiteImage className="hero-shade" src="/assets/hero-shade-left.svg" alt="" aria-hidden="true" width="1457" height="1455" />
       <div className="hero-copy">
         <div className="eyebrow">01 / Hero — Three minds / one direction</div>
         <MotionHeading as="h1">Websites that<br />move businesses<br />forward</MotionHeading>

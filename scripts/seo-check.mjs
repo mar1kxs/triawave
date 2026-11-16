@@ -93,7 +93,8 @@ for (const route of checkedRoutes) {
     }
   }
 
-  for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
+  // Validate navigation targets; resource hints such as image preloads are not routes.
+  for (const [, href] of html.matchAll(/<a\b[^>]*?\shref="([^"]+)"/gi)) {
     if (!href.startsWith("/") || href.startsWith("//")) continue;
     const internalPath = href.split(/[?#]/, 1)[0] || "/";
     if (internalPath.startsWith("/assets/")) continue;

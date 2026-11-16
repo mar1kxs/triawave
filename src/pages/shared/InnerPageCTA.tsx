@@ -28,12 +28,12 @@ export function Cubes({ pair = false }: { pair?: boolean }) {
   </div>;
 }
 
-export function InnerPageCTA() {
+export function InnerPageCTA({ description = "Planning a new website or rethinking your current one? Tell us what you have in mind. We’ll help you explore the next steps", buttonLabel = "Tell us your idea" }: { description?: string; buttonLabel?: string }) {
   return <section className="inner-cta">
     <div className="inner-cta-copy">
       <h2>Let’s talk<br />about <span>your website</span></h2>
-      <p>Tell us what you have in mind. We’ll help you explore the next steps</p>
-      <AppLink href={`mailto:${SITE.email}`} className="button">Tell us your idea</AppLink>
+      <p>{description}</p>
+      <AppLink href={`mailto:${SITE.email}`} className="button">{buttonLabel}</AppLink>
     </div>
     <Cubes />
   </section>;

@@ -2,6 +2,12 @@ export type WorkProject = {
   id: number;
   title: string;
   type: string;
+  image: string;
+  imageTitle: string;
+  imageAlt: string;
+  tags: readonly string[];
+  description: string;
+  services: string;
 };
 
 export type Audience = {
@@ -26,11 +32,52 @@ export type Testimonial = {
   placeholder: true;
 };
 
-export const WORK_PROJECTS: WorkProject[] = Array.from({ length: 4 }, (_, id) => ({
-  id,
-  title: "Meridian Counsel",
-  type: "Professional services",
-}));
+export const WORK_PROJECTS: WorkProject[] = [
+  {
+    id: 1,
+    title: "Kuberg in Motion",
+    type: "Electric motorcycles",
+    image: "/projects/kuberg-home.png",
+    imageTitle: "Kuberg App",
+    imageAlt: "Kuberg electric motorcycle app shown on a smartphone",
+    tags: ["Electric Motorcycles", "UX/UI", "App Development"],
+    description: "UI/UX design for the Kuberg app, translating the electric motorcycle brand’s bold character into a focused mobile experience",
+    services: "UX/UI Design · UI Design",
+  },
+  {
+    id: 2,
+    title: "AI Developer Tools",
+    type: "Panegrip. Your agents, anywhere",
+    image: "/projects/work-project-01.png",
+    imageTitle: "Panegrip.dev",
+    imageAlt: "Panegrip AI coding agent website displayed on a desktop monitor",
+    tags: ["AI Developer Tools", "UX/UI", "Web Development"],
+    description: "A website for Panegrip, bringing mobile access to AI coding agents into focus through bold visuals, clear product storytelling and responsive development",
+    services: "UI/UX Design · Web Development",
+  },
+  {
+    id: 3,
+    title: "Tuscany Photo Tours",
+    type: "Photography & travel",
+    image: "/projects/work-project-08.png",
+    imageTitle: "Tuscany Photo Tours",
+    imageAlt: "Tuscany photo tour website displayed on a laptop",
+    tags: ["Travel Platform", "UX/UI", "Web Development"],
+    description: "Website design and development for a photography tour company, pairing immersive imagery with clear tour information to help travellers find their next adventure",
+    services: "UI/UX Design · Web Development · CRM Setup",
+  },
+  {
+    id: 4,
+    title: "Kyiv Energy",
+    type: "Energy solutions",
+    image: "/projects/work-project-03.png",
+    imageTitle: "Kyiv Energy",
+    imageAlt: "Kyiv Energy backup power and solar website displayed on a tablet",
+    tags: ["Energy Solutions", "UX/UI", "App Development"],
+    description: "Designed and built KyivEnergy’s website for backup power and solar solutions. Customers can browse equipment, review technical specifications, place orders, and request a quote for delivery and installation",
+    services: "UI/UX Design · Web Development · CRM Setup · Ad Creatives · Marketing Support",
+  },
+];
 
 export const AUDIENCES: Audience[] = [
   {

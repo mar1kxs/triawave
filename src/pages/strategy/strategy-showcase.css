@@ -115,6 +115,81 @@
   aspect-ratio: 1;
   background: #1e1e23;
 }
+.strategy-project-card {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 743 / 743;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.strategy-project-card > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: opacity .35s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.strategy-project-card-hover-image {
+  z-index: 1;
+  opacity: 0;
+  transform: scale(1.025);
+}
+.strategy-project-card:hover .strategy-project-card-image {
+  opacity: 0;
+}
+.strategy-project-card:hover .strategy-project-card-hover-image {
+  opacity: 1;
+  transform: scale(1);
+}
+.strategy-project-card:hover .strategy-project-card-label,
+.strategy-project-card:hover .strategy-project-card-tags {
+  opacity: 0;
+}
+.strategy-project-card-label,
+.strategy-project-card-tags {
+  transition: opacity .2s ease;
+}
+.strategy-project-card-label {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  z-index: 1;
+  color: #fff;
+  font: 500 32px/1 var(--display);
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+}
+.strategy-project-card-tags {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.strategy-project-card-tags span {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-height: 39px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.32);
+  background: rgba(226,226,226,.15);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  font: 400 15px/1 var(--display);
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
 .strategy-project-placeholder:nth-child(odd) { grid-column: 1; }
 .strategy-project-placeholder:nth-child(even) { grid-column: 2; }
 .strategy-project-placeholder:nth-child(2) { grid-row: 2; }
@@ -153,6 +228,10 @@
   }
   .strategy-projects-grid .strategy-project-placeholder { grid-column: 1 / -1; width: 80%; }
   .strategy-project-placeholder:nth-child(even) { justify-self: end; }
+  .strategy-project-card { width: 100%; }
+  .strategy-project-card-label { top: 14px; left: 14px; right: 14px; font-size: 20px; }
+  .strategy-project-card-tags { left: 10px; right: 10px; bottom: 10px; gap: 4px; flex-wrap: wrap; }
+  .strategy-project-card-tags span { min-height: 32px; padding: 8px 6px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .strategy-projects-heading { position: relative; }

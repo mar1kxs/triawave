@@ -1,3 +1,4 @@
+import { SiteImage } from "../../components/ui/SiteImage";
 import { useEffect, useRef } from "react";
 import { SITE } from "../../config/site";
 import { Shell } from "../../components/layout/Shell";
@@ -10,8 +11,16 @@ import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
 import { UiUxHeroCubes } from "./UiUxHeroCubes";
+import { ServiceProcessSection } from "../shared/ServiceProcessSection";
 import "./strategy-light.css";
 import "./strategy-showcase.css";
+
+const UIUX_PROJECTS = [
+  { image: "/projects/strategy-project-02.png", hoverImage: "/projects/strategy-hover-03.png", title: "deftechcluster", alt: "Defense technology platform displayed on a smartphone", tags: ["Defense Tech", "UX/UI", "Web Development"] },
+  { image: "/projects/strategy-project-01.png", hoverImage: "/projects/strategy-hover-04.png", title: "CAPYCASINO", alt: "Sweepstakes casino app displayed on a smartphone", tags: ["Sweepstakes Casino", "UX/UI", "Web Development"] },
+  { image: "/projects/uiux-schooltogo.png", hoverImage: "/projects/uiux-hover-schooltogo.png", title: "SCHOOLTOGO.ONLINE", alt: "Online school website displayed on a smartphone", tags: ["Online School", "UX/UI", "Web Development"] },
+  { image: "/projects/uiux-liva-beauty.png", hoverImage: "/projects/uiux-hover-liva-beauty.png", title: "LIVA-BEAUTY", alt: "Beauty and ritual website displayed on a laptop", tags: ["Beauty Salon", "UX/UI", "Web Development"] },
+] as const;
 
 export default function UiUxPage() {
   const deliverablesRef = useDeliverableMotion();
@@ -35,8 +44,8 @@ export default function UiUxPage() {
     <main className="inner-page strategy-page" ref={pageRef}>
       <MathGrid className="strategy-hero">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / UI/UX &amp; Web Design</span><span>Triawave Studio</span></div>
-        <h1>CLEAR TO USE<br /><span>DISTINCTLY YOURS</span></h1>
-        <div className="strategy-hero-copy"><p>We design websites and digital interfaces around the people who use them and the brand behind them. From user flows and wireframes to responsive layouts, reusable components and a clear developer handoff</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+        <h1>EASY TO USE<br /><span>DISTINCTLY YOURS</span></h1>
+        <div className="strategy-hero-copy"><p>We design websites and web interfaces that reflect your brand, explain your offer and make the next step clear. You get responsive designs ready for development by your team or ours</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
         <UiUxHeroCubes />
       </MathGrid>
       <section className="strategy-projects" aria-labelledby="strategy-projects-title">
@@ -45,15 +54,19 @@ export default function UiUxPage() {
           <h2 id="strategy-projects-title">Projects</h2>
           <span>X:01 / Y:Work</span>
         </div>
-        <div className="strategy-projects-grid" aria-hidden="true">
-          {[0, 1, 2, 3].map((index) => <div className="strategy-project-placeholder" key={index} />)}
+        <div className="strategy-projects-grid">
+          {UIUX_PROJECTS.map((project, index) => <div className="strategy-project-placeholder uiux-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="uiux-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="uiux-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="uiux-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="uiux-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          </div>)}
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">
         <InnerSectionLabel number="02" title="WHO IT’S FOR" axis="Audience" />
         <div className="strategy-start-copy">
-          <h2>WHEN YOUR WEBSITE <br />NEEDS BETTER DESIGN</h2>
-          <p>Whether you’re starting from scratch, improving an existing website or working from a ready brief, we turn your requirements into a clear, cohesive interface</p>
+          <h2>DESIGN FOR YOUR<br />NEXT WEBSITE</h2>
         </div>
         <div className="strategy-audiences">{STRATEGY_AUDIENCES.map((item, index) => <article key={item.title}>
           <span className="strategy-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.copy}</p>
@@ -68,15 +81,12 @@ export default function UiUxPage() {
           <StrategyCubes variant={index} />
         </article>)}</div>
       </section>
-      <section className="strategy-process">
-        <InnerSectionLabel number="04" title="Working with us" axis="Process" />
-        <div className="strategy-process-grid"><h2><span>A</span> conversation<br /><span>A</span> direction<br /><span>A</span> plan</h2><div className="strategy-step-grid">{STRATEGY_STEPS.map((step,index)=><article key={step.title}><span className="strategy-number">0{index+1}</span><h3>{step.title}</h3><p>{step.copy}</p></article>)}</div></div>
-      </section>
+      <ServiceProcessSection steps={STRATEGY_STEPS} headingNouns={["brief", "design", "handover"]} />
       <section className="strategy-faq">
         <InnerSectionLabel number="05" title="A little more clarity" axis="FAQ" />
         <div className="strategy-faq-grid"><h2>Good questions<br />straight answers</h2><div>{STRATEGY_FAQ.map((item,index)=><StrategyFaqItem key={index} question={item.question} answer={item.answer} />)}</div></div>
       </section>
-      <InnerPageCTA />
+      <InnerPageCTA description="Planning a new website or rethinking your current one? Share your goals, references or brief. We’ll help define the design direction" buttonLabel="Discuss your design project" />
     </main>
     <Footer />
   </Shell>;

@@ -1,4 +1,10 @@
-export const TEAM = [
+type TeamMember = {
+  name: string;
+  role: string;
+  photo?: string;
+};
+
+export const TEAM: readonly TeamMember[] = [
   { name: "Arti Boboshko", role: "Designer & Co-Founder", photo: "/arti-boboshko.jpg" },
   { name: "Dima Kurlov", role: "UI&UX & Web Designer", photo: "/dima-kurlov.jpg" },
   { name: "Max Marans", role: "Web Developer", photo: "/max-marans.jpg" },

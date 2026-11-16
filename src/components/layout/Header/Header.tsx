@@ -1,3 +1,4 @@
+import { SiteImage } from "../../ui/SiteImage";
 import { SITE } from "../../../config/site";
 import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "../../../content/services";
@@ -84,7 +85,7 @@ export function Header() {
   return (
     <header ref={headerRef} className={headerVisible ? "site-header" : "site-header site-header-hidden"} onMouseLeave={() => { if (!menuPinned) setMenuOpen(false); }}>
       <AppLink href="/" className="brand" aria-label="Triawave home">
-        <img src="/assets/logo.svg" alt="Triawave" width="209" height="40" />
+        <SiteImage src="/assets/logo.svg" alt="Triawave" width="209" height="40" />
       </AppLink>
       <nav className="desktop-nav" aria-label="Main navigation">
         <AppLink href="/work">Work</AppLink>
@@ -96,7 +97,7 @@ export function Header() {
           onMouseEnter={() => setMenuOpen(true)}
           onClick={() => { setMenuOpen(!menuPinned); setMenuPinned(!menuPinned); }}
         >
-          Services <span aria-hidden="true"><img src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>
+          Services <span aria-hidden="true"><SiteImage src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>
         </button>
         <AppLink href="/about">About</AppLink>
         <AppLink href={`mailto:${SITE.email}`}>Contact</AppLink>
@@ -137,7 +138,7 @@ export function Header() {
                         <span className="mobile-service-link-title">
                           {service.number === "01" ? "Website Design & Redesign" : service.number === "02" ? "UI/UX Design" : service.title}
                         </span>
-                        <span aria-hidden="true"><img src="/assets/mobile-service-arrow.svg" alt="" width="16" height="15" /></span>
+                        <span aria-hidden="true"><SiteImage src="/assets/mobile-service-arrow.svg" alt="" width="16" height="15" /></span>
                       </AppLink>
                     ))}
                   </section>

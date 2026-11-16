@@ -1,3 +1,4 @@
+import { SiteImage } from "../../../components/ui/SiteImage";
 import { AppLink } from "../../../components/ui/AppLink";
 import { AboutHeroPhysics } from "../components/AboutHeroPhysics";
 
@@ -7,9 +8,9 @@ export function AboutHero() {
       <div className="eyebrow">01 / About Triawave</div>
       <h1>Different minds<br />one direction</h1>
       <p>We bring design, development and business thinking together to create websites with a clear purpose</p>
-      <AppLink className="button" href="/about#team">Meet the team <img src="/assets/about-arrow-down.svg" alt="" aria-hidden="true" width="16" height="14" /></AppLink>
+      <AppLink className="button" href="/about#team">Meet the team <SiteImage src="/assets/about-arrow-down.svg" alt="" aria-hidden="true" width="16" height="14" /></AppLink>
       <div className="about-hero-art" aria-hidden="true">
-        <img className="about-orbit" src="/assets/about-orbit.svg" alt="" width="603" height="603" />
+        <SiteImage className="about-orbit" src="/assets/about-orbit.svg" alt="" width="603" height="603" />
         <AboutHeroPhysics />
       </div>
     </section>
