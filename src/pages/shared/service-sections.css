@@ -424,7 +424,4 @@
   .strategy-deliverable p { font-size: 14px; line-height: 21px; }
   .strategy-deliverable p { margin-top: 20px; }
   .strategy-deliverables .strategy-scope { font-size: 11px; line-height: 1.35; }
-  .strategy-deliverable-list[data-stack="true"] .strategy-deliverable {
-    position: relative; top: auto; transform: none; will-change: auto; box-shadow: none;
-  }
 }

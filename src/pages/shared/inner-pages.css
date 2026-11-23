@@ -695,6 +695,10 @@
   }
   .strategy-faq .inner-section-label { margin-bottom: 24px; }
   .strategy-faq h2 { font-size: 40px; line-height: 42px; }
+  .strategy-faq-item[data-open="true"] {
+    margin-inline: calc(-1 * var(--page-pad));
+    padding-inline: var(--page-pad);
+  }
   .strategy-faq-trigger {
     font-size: var(--text-body-size);
     min-height: 0;
