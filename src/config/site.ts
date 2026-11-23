@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Triawave",
-  url: "https://triawave-studio.vercel.app",
+  url: "https://triawave.com",
   email: "hello@triawave.studio",
   contactUrl: "https://tally.so/r/kbGzqe",
   locale: "en_US",

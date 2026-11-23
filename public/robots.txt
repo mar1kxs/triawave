@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://triawave-studio.vercel.app/sitemap.xml
+Sitemap: https://triawave.com/sitemap.xml

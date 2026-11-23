@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://triawave-studio.vercel.app/</loc></url>
-  <url><loc>https://triawave-studio.vercel.app/about</loc></url>
+  <url><loc>https://triawave.com/</loc></url>
+  <url><loc>https://triawave.com/about</loc></url>
+  <url><loc>https://triawave.com/work</loc></url>
+  <url><loc>https://triawave.com/services/website-strategy</loc></url>
+  <url><loc>https://triawave.com/services/ui-ux-web-design</loc></url>
+  <url><loc>https://triawave.com/services/wix-studio-development</loc></url>
+  <url><loc>https://triawave.com/services/webflow-development</loc></url>
+  <url><loc>https://triawave.com/services/custom-web-development</loc></url>
+  <url><loc>https://triawave.com/services/e-commerce-development</loc></url>
+  <url><loc>https://triawave.com/services/landing-page-design-development</loc></url>
+  <url><loc>https://triawave.com/services/website-support-optimization</loc></url>
 </urlset>

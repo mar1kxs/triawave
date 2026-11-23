@@ -28,7 +28,7 @@ const STATIC_ROUTES: RouteConfig[] = [
     screenTitle: "PORTFOLIO",
     seoTitle: "Selected Web Design Work | Triawave",
     seoDescription: "Selected work from Triawave, an independent studio focused on website strategy, design and development.",
-    indexable: false,
+    indexable: true,
   },
   {
     path: "/privacy-policy",
@@ -58,7 +58,7 @@ const SERVICE_ROUTES: RouteConfig[] = SERVICES.map((service) => ({
   screenTitle: service.title.toUpperCase(),
   seoTitle: `${service.title} | Triawave`,
   seoDescription: `${service.description}. Learn how Triawave approaches ${service.title.toLowerCase()}.`,
-  indexable: false,
+  indexable: true,
 }));
 
 export const APP_ROUTES: RouteConfig[] = [

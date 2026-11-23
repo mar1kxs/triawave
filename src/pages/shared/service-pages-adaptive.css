@@ -127,8 +127,13 @@
     grid-column: 1 / -1;
     grid-row: 2;
     text-align: left;
+    font-family: var(--display);
+    font-weight: 700;
+    font-style: normal;
     font-size: 40px;
     line-height: 43px;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
   }
 
   .strategy-page .strategy-projects-heading > :last-child {

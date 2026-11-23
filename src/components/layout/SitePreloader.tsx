@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { isMotionDisabled } from "../../lib/motion/preferences";
 import "../../styles/site-preloader.css";
 
 const SEEN_KEY = "twpSeen-v3";
 
 export function SitePreloader() {
-  const [visible, setVisible] = useState(true);
+  // Server HTML stays usable even when the client bundle never loads.
+  const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [hold, setHold] = useState(false);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    if (isMotionDisabled()) return;
     const root = document.documentElement;
     const always = (window as Window & { TW_PRELOADER_ALWAYS?: boolean }).TW_PRELOADER_ALWAYS;
 
@@ -21,6 +24,8 @@ export function SitePreloader() {
     } catch {
       // Play the preloader when session storage is unavailable.
     }
+
+    setVisible(true);
 
     const previousOverflow = root.style.overflow;
     root.style.overflow = "hidden";

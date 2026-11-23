@@ -27,6 +27,8 @@ const checkedRoutes = [...SEO_ROUTES, seoForPath("/404")];
 for (const route of checkedRoutes) {
   const path = route.path;
   const html = await readFile(outputPath(path), "utf8");
+  if (/class="twp(?:\s|\")/.test(html))
+    failures.push(`${path}: server HTML contains a blocking preloader`);
   const title = get(html, /<title>([\s\S]*?)<\/title>/i);
   const description = get(
     html,
@@ -105,6 +107,23 @@ for (const route of checkedRoutes) {
 }
 
 const sitemap = await readFile(join(distDir, "sitemap.xml"), "utf8");
+const hosting = JSON.parse(await readFile(join(projectRoot, "vercel.json"), "utf8"));
+if (hosting.framework !== null || hosting.buildCommand !== "npm run build" || hosting.outputDirectory !== "dist")
+  failures.push("Hosting must serve the complete prerendered static build");
+if (hosting.rewrites?.length)
+  failures.push("Review hosting rewrites: unknown URLs must not fall back to the home page");
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const expectedUrls = new Set(SEO_ROUTES.filter((route) => route.indexable).map((route) => canonicalForPath(route.path)));
+if (SITE.url !== "https://triawave.com") failures.push("Production domain must be https://triawave.com");
+if (sitemapUrls.length !== expectedUrls.size || new Set(sitemapUrls).size !== sitemapUrls.length)
+  failures.push("Sitemap has missing or duplicate URLs");
+for (const url of sitemapUrls) {
+  if (!expectedUrls.has(url)) failures.push(`Unexpected sitemap URL: ${url}`);
+}
+for (const name of ["sitemap.xml", "robots.txt"]) {
+  if (await readFile(join(projectRoot, "public", name), "utf8") !== await readFile(join(distDir, name), "utf8"))
+    failures.push(`${name}: public and production files differ`);
+}
 for (const route of SEO_ROUTES) {
   const isListed = sitemap.includes(
     `<loc>${canonicalForPath(route.path)}</loc>`,

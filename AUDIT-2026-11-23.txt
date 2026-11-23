@@ -1,0 +1,171 @@
+TRIAWAVE PROJECT AUDIT — 23 NOVEMBER 2026
+
+Scope: current workspace, production build, browser checks against the local
+production preview, and read-only checks against https://triawave.com.
+No application fixes or deployments were performed during this audit.
+
+CONFIRMED FINDINGS, IN PRIORITY ORDER
+
+1. HIGH — Production SEO still serves the old configuration.
+   Live /sitemap.xml contains only two URLs on triawave-studio.vercel.app.
+   Live /robots.txt also references that domain. Initial HTML for /, /about,
+   /work, Website Strategy, Webflow, and Website Support all returned the
+   same canonical: https://triawave-studio.vercel.app/.
+   The local build passes SEO checks and contains 11 indexable URLs on
+   triawave.com. The local correction has not reached production.
+   Action: deploy the complete npm run build output, then verify initial
+   HTML, robots.txt, and sitemap again. Check hosting build/routing settings
+   if inner pages still return the generic home HTML.
+   Sources: src/config/site.ts; src/config/routes.ts; scripts/prerender.mjs.
+
+2. HIGH — Unknown production URLs return HTTP 200.
+   GET /audit-missing-page-20261123 returned 200 with the old home canonical
+   and an index,follow directive in initial HTML. This is a soft-404 risk.
+   Local generation already produces dist/404.html, but its existence alone
+   does not prove correct production routing or HTTP status.
+   Action: ensure unknown paths return the generated error page with HTTP
+   404, rather than a generic SPA fallback with HTTP 200.
+   Sources: vercel.json; scripts/prerender.mjs; src/app/App.tsx.
+
+3. HIGH — A JavaScript failure leaves the site behind the preloader.
+   Reproduced using generated home HTML with scripts omitted and the real
+   built stylesheet. Main content exists, but .twp remains fixed over the
+   whole viewport at z-index 99999. Only React's effect removes it.
+   This also affects users with scripts disabled; SSR content is not a
+   usable visual fallback in this condition.
+   Action: default to an unobstructed page before JavaScript initializes,
+   and provide a fail-safe for a failed client bundle.
+   Sources: src/components/layout/SitePreloader.tsx:7;
+   src/styles/site-preloader.css:1.
+   Evidence: C:/Temp/triawave-audit-20261123/script-failure.jpg.
+
+4. HIGH (development tooling) — npm audit reports two vulnerable packages.
+   Installed Vite 7.3.6 and source-map-js 1.2.1 have high-severity advisory
+   classifications. npm reports fixes available. Vite advisories include
+   launch-editor command execution issues on Windows; source-map-js has a
+   denial-of-service advisory. This is a development/build-tool finding,
+   not evidence that the deployed static site is compromised.
+   npm audit --omit=dev reports ZERO runtime dependency vulnerabilities.
+   Action: update the affected packages/lockfile, then rerun validation.
+   Sources: package-lock.json:2563 and :2669.
+   Advisory examples:
+   https://github.com/advisories/GHSA-587h-7wmj-h5pm
+   https://github.com/advisories/GHSA-68fv-2mgg-jv7q
+
+5. MEDIUM — Service project tags are clipped at tablet width.
+   At 768px, cards measure about 309px wide; tag rows on Website Strategy
+   extend about 50–98px beyond their cards. The last tag is visibly cut off.
+   Equivalent tag overflow was detected on all eight service routes.
+   The tag row only starts wrapping below the 700px mobile breakpoint;
+   its desktop layout lacks a right constraint. Card overflow:hidden clips it.
+   Action: constrain and wrap tags at the widths where cards need it.
+   Source: src/pages/shared/service-showcase.css:197.
+   Evidence: C:/Temp/triawave-audit-20261123/tablet-tags.jpg.
+   Note: small overflow readings at other widths came from the scaled,
+   transparent hover image and were not counted as visible clipping bugs.
+
+6. MEDIUM — Keyboard focus escapes the open mobile menu.
+   Reproduction: open menu; focus its final Discuss your project link;
+   press Tab. Focus moves to the underlying Start a project link while
+   the full-screen menu remains open. Background content is not inert.
+   Escape closes the menu, but focus is not explicitly restored to its toggle.
+   Action: manage focus on open/close, contain navigation within the overlay,
+   and prevent background controls from receiving focus while it is open.
+   Source: src/components/layout/Header/Header.tsx:131.
+
+7. MEDIUM — Small light text on pink fails minimum text contrast.
+   Computed foreground rgb(247,243,240) on rgb(248,43,147) is 3.305:1.
+   Observed on 10px header CTA/referral text and 13px Start a project text.
+   These sizes need 4.5:1 under WCAG AA, not the 3:1 large-text exception.
+   Action: adjust foreground/background colors for these small labels.
+   Source: src/styles/base.css:98 and :217.
+   Standard: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+
+8. MEDIUM — Footer legal destinations contain placeholders only.
+   /privacy-policy, /terms, and /cookie-policy render PlaceholderPage with
+   a heading and minimal header, but no substantive policy content.
+   They are correctly noindex locally, but the visible footer suggests
+   complete pages. This is a content-completeness finding, not a legal review.
+   Action: supply approved content or remove misleading links until ready.
+   Sources: src/app/App.tsx; src/pages/placeholder/PlaceholderPage.tsx;
+   src/components/layout/Footer.tsx:38.
+
+9. LOW — Four social labels do not link anywhere.
+   Instagram, Telegram, WhatsApp, and LinkedIn are spans, not anchors.
+   Only Upwork has a working destination in that group.
+   Action: provide the intended URLs and render links, or clearly treat
+   the labels as unavailable rather than styling them like navigation.
+   Source: src/components/layout/Footer.tsx:20.
+
+10. LOW — About section contains repeated, mismatched copy.
+    SEO foundations, Analytics & lead tracking, and Launch & handover reuse
+    the Development description verbatim. Their descriptions do not explain
+    the respective services. Dima's role also reads 'UI&UX & Web Designer'.
+    Source: src/pages/about/content.ts:10 and :20.
+
+11. LOW — Social preview images are missing.
+    No generated page has og:image or twitter:image. Titles/descriptions
+    exist, but shared links have no explicitly configured preview image.
+    Action: add a suitable public image and include its absolute URL in
+    both prerendered and client-updated metadata.
+    Sources: scripts/prerender.mjs:51; src/app/seo.ts:121.
+
+12. LOW — Test coverage and maintenance gaps.
+    No unit, component, or end-to-end test suite or lint script is configured.
+    Existing build/SEO checks do not catch tablet clipping, focus escape,
+    contrast, or the script-failure overlay demonstrated in this audit.
+    Strict unused-symbol checking fails on the unused FAQSection import in
+    src/pages/home/HomePage.tsx:11; standard project type checking passes.
+    StrategyCubes, StrategyFaqItem, and useDeliverableMotion each have seven
+    byte-identical copies in service directories. Future fixes can drift.
+    npm ls also lists three extraneous packages in the local installation:
+    @emnapi/runtime, @img/sharp-wasm32, tslib. No dependency cleanup was run.
+
+CHECKS COMPLETED
+
+PASS — npm run validate: TypeScript, Vite client build, Vite server build,
+       15 prerendered HTML documents, and SEO validation for all 15 routes.
+PASS — Local sitemap: 11 indexable URLs on triawave.com, no duplicate URLs;
+       public and production sitemap/robots files agree.
+PASS — Generated-page checks: unique titles/descriptions, one H1 per page,
+       heading-level order, canonical and robots directives, valid JSON-LD,
+       internal navigation route targets, and image alt attributes.
+PASS — 105 unique rendered asset references resolve to local build files;
+       CSS resource paths checked; no duplicate HTML IDs found.
+PASS — 106 optimized assets from the image manifest decode via Sharp.
+PASS — 66 responsive page/viewport combinations: 11 main/service routes at
+       320, 390, 700, 768, 1024, and 1440px. No page-wide horizontal overflow,
+       no broken loaded images, and service project cards remain square.
+       Tablet tag clipping is separately reported above.
+PASS — All eight service FAQs: first/last question interaction, exactly one
+       open answer, and open background reaches both mobile viewport edges.
+PASS — Work Show more: four extra projects appear, status reports ten total,
+       and focus moves to the first added project.
+PASS — About Meet the team anchor: final target sits below the header.
+PASS — Mobile services menu contains eight links; route navigation closes
+       it and updates canonical metadata. Browser Back returns correctly.
+PASS — Escape closes mobile menu and releases its scroll lock.
+PASS — Explicit ?motion=off disables deliverable stacking/static motion mode.
+PASS — No browser error/warning logs captured during the tested preview flows.
+PASS — npm audit --omit=dev: zero vulnerabilities.
+PASS — git diff --check.
+FAIL — Full npm audit: two high-severity vulnerable development packages.
+FAIL — Additional tsc --noUnusedLocals --noUnusedParameters: one unused import.
+FAIL — Mobile-menu keyboard containment, tablet tags, selected text contrast,
+       and script-failure resilience, as detailed above.
+FAIL — Live sitemap/canonical configuration and unknown-route HTTP status.
+
+LIMITATIONS
+
+Browser tests used the available Chromium-based browser at specified viewport
+sizes, not physical iPhones, Safari/WebKit, or Firefox. No Lighthouse score,
+field Core Web Vitals measurement, automated axe scan, or Search Console crawl
+was performed. No contact form was submitted, and external accounts were not
+accessed. The explicit motion-off path was tested; an operating-system reduced-
+motion toggle was not exercised. Asset existence/decoding checks are broader
+than the visible-image checks, which do not force every lazy image to load.
+This is a broad practical audit, not a claim of exhaustive testing.
+
+Recommended order: publish and verify SEO/routing; fix the preloader fallback
+and development advisories; fix menu focus, contrast, and tablet tags; complete
+content/social metadata; then add regression tests and consolidate shared code.

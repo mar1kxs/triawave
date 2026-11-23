@@ -99,8 +99,10 @@ Allow: /
 Sitemap: ${SITE.url}/sitemap.xml
 `;
 
-await writeFile(join(distDir, "sitemap.xml"), sitemap);
-
-await writeFile(join(distDir, "robots.txt"), robots);
+// Keep Vite's public fallback files identical to the production output.
+for (const directory of [distDir, join(projectRoot, "public")]) {
+  await writeFile(join(directory, "sitemap.xml"), sitemap);
+  await writeFile(join(directory, "robots.txt"), robots);
+}
 
 console.log(`Prerendered ${SEO_ROUTES.length + 1} HTML documents.`);
