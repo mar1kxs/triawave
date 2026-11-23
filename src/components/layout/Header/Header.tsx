@@ -115,7 +115,7 @@ export function Header() {
           className={menuOpen ? "nav-services active" : "nav-services"}
           aria-expanded={menuOpen}
           aria-controls="services-menu"
-          onMouseEnter={() => setMenuOpen(true)}
+          onMouseEnter={() => { if (window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) setMenuOpen(true); }}
           onClick={() => { setMenuOpen(!menuPinned); setMenuPinned(!menuPinned); }}
         >
           Services <span aria-hidden="true"><SiteImage src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>

@@ -160,6 +160,8 @@
   transform: scale(1.025);
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .service-project-card:hover .service-project-card-image {
   opacity: 0;
 }
@@ -172,6 +174,7 @@
 .service-project-card:hover .service-project-card-label,
 .service-project-card:hover .service-project-card-tags {
   opacity: 0;
+}
 }
 
 .service-project-card-label,

@@ -48,9 +48,11 @@ html.lenis {
   .home-page .button {
     transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
   }
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
   .home-page .button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px #f82b9326;
+  }
   }
   .home-page .button:active {
     transform: translateY(0);
@@ -58,15 +60,19 @@ html.lenis {
   .home-page .start-project-button__link {
     transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
   }
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
   .home-page .start-project-button:hover .start-project-button__link {
     transition-duration: 160ms, 220ms, 220ms, 220ms;
+  }
   }
   .home-page .service-arrow {
     translate: 0 0;
     transition: background-color 200ms ease, translate 250ms ease;
   }
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
   .home-page .service-row:hover .service-arrow {
     translate: 3px -3px;
+  }
   }
 }
 
@@ -88,14 +94,19 @@ html.lenis {
   transform: none;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .home-motion-static .home-page .button:hover {
   transform: none;
   box-shadow: none;
 }
+}
 
 @media (prefers-reduced-motion: reduce) {
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
   .home-page .button:hover {
     transform: none;
     box-shadow: none;
+  }
   }
 }

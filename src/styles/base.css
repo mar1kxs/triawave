@@ -180,13 +180,20 @@ img {
   transition: transform 0.25s ease;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .desktop-nav a:hover::after,
-.desktop-nav a:focus-visible::after,
 .footer-primary > div:first-child a:hover::after,
-.footer-primary > div:first-child a:focus-visible::after,
 .footer-social:hover::after,
+.nav-services:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+}
+
+.desktop-nav a:focus-visible::after,
+.footer-primary > div:first-child a:focus-visible::after,
 .footer-social:focus-visible::after,
-.nav-services:hover::after,
 .nav-services.active::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -227,7 +234,13 @@ img {
   text-align: center;
 }
 
-.button:hover,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.button:hover {
+  background: #ff4ca2;
+}
+}
+
 .button:focus-visible {
   background: #ff4ca2;
 }
@@ -287,7 +300,13 @@ img {
   transition: color 0.2s ease;
 }
 
-.mega-column a:hover,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.mega-column a:hover {
+  color: var(--pink);
+}
+}
+
 .mega-column a:focus-visible {
   color: var(--pink);
 }
@@ -410,9 +429,12 @@ img {
   width: 40px;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .text-link:hover span,
 .text-link:hover i {
   width: 55px;
+}
 }
 
 .hero-meta {
@@ -583,8 +605,11 @@ img {
   width: 100%;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .work-card:hover .work-image img {
   transform: scale(1.025);
+}
 }
 
 .work-copy {
@@ -896,12 +921,15 @@ img {
   border-bottom: 1px solid rgba(5, 5, 6, 0.18);
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .service-row:hover {
   background: transparent;
 }
 
 .service-row:hover::before {
   transform: scaleX(1);
+}
 }
 
 .service-row > * {
@@ -938,8 +966,11 @@ img {
   transition: color 0.2s ease;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .service-row:hover h3 {
   color: #ffffff;
+}
 }
 
 .service-row p {
@@ -948,12 +979,15 @@ img {
   margin: 0;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .service-row:hover p {
   color: #c8c2c9;
 }
 
 .service-row:hover .service-arrow {
   background-color: #c8c2c9;
+}
 }
 
 .service-row b {
@@ -1027,12 +1061,24 @@ img {
   left: -51px;
 }
 
-.process-step:hover,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.process-step:hover {
+  color: var(--white);
+}
+}
+
 .process-step.active {
   color: var(--white);
 }
 
-.process-step:hover::before,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.process-step:hover::before {
+  background: var(--pink);
+}
+}
+
 .process-step.active::before {
   background: var(--pink);
 }
@@ -1308,7 +1354,13 @@ img {
   transition: background-color 200ms ease;
 }
 
-.footer-services a:hover,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.footer-services a:hover {
+  background-color: #2d2d32;
+}
+}
+
 .footer-services a:focus-visible {
   background-color: #2d2d32;
 }
@@ -1340,9 +1392,15 @@ img {
   transform: translateY(-50%) rotate(45deg);
 }
 
-.footer-services a:hover .footer-service-arrow,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
+.footer-services a:hover .footer-service-arrow {
+  width: 28px;
+}
+}
+
 .footer-services a:focus-visible .footer-service-arrow {
-  width: 28px; 
+  width: 28px;
 }
 
 .legal-strip {

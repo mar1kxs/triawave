@@ -6,7 +6,7 @@ import { AppLink } from "../../../components/ui/AppLink";
 import "./StartProjectButton.css";
 
 function followPointer(event: PointerEvent<HTMLSpanElement>) {
-  if (isMotionDisabled() || event.pointerType !== "mouse" || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  if (isMotionDisabled() || event.pointerType !== "mouse" || !window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) return;
 
   // Measure the stationary wrapper so the movement never feeds back into itself.
   const target = event.currentTarget;

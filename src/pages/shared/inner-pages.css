@@ -396,7 +396,11 @@
   padding: 40px;
   min-width: 0;
 }
-.strategy-project-strip:hover .strategy-project-track,
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+.strategy-project-strip:hover .strategy-project-track {
+  animation-play-state: paused;
+}
+}
 .strategy-project-strip:focus-within .strategy-project-track {
   animation-play-state: paused;
 }

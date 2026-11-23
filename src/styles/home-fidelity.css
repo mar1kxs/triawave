@@ -145,8 +145,11 @@
   object-fit: contain;
 }
 
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
 .audience-card:hover {
   background: #ebe7e4;
+}
 }
 
 .service-arrow {

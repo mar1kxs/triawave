@@ -30,6 +30,8 @@ export default function MathGrid({ children, className = "" }: MathGridProps) {
     let motionDisabled = isMotionDisabled();
     let previousTime = 0;
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const cursorInput = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)");
+    const driftPhase = Math.random() * Math.PI * 2;
     const pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
     // Group nearby opacity values so hundreds of dots need only 16 fills.
     const dots = Array.from({ length: 16 }, () => [] as number[]);
@@ -61,6 +63,13 @@ export default function MathGrid({ children, className = "" }: MathGridProps) {
       if (!ctx) return;
       const elapsed = previousTime ? Math.min((timestamp - previousTime) / 1000, 0.05) : 1 / 60;
       previousTime = timestamp;
+      // Uneven, smooth wandering on phones; touching or scrolling never steers it.
+      if (!cursorInput.matches && !motionDisabled) {
+        pointer.targetX = width * (0.5 + 0.28 * Math.sin(time * 0.43 + driftPhase)
+          + 0.12 * Math.sin(time * 0.97 + driftPhase * 2));
+        pointer.targetY = height * (0.5 + 0.27 * Math.cos(time * 0.31 + driftPhase)
+          + 0.13 * Math.sin(time * 0.79 - driftPhase));
+      }
       const follow = 1 - Math.pow(1 - 0.055, elapsed * 60);
       pointer.x += (pointer.targetX - pointer.x) * follow;
       pointer.y += (pointer.targetY - pointer.y) * follow;
@@ -133,12 +142,13 @@ export default function MathGrid({ children, className = "" }: MathGridProps) {
     }
 
     function handlePointerMove(event: PointerEvent) {
-      if (motionDisabled || !root) return;
+      if (motionDisabled || !cursorInput.matches || event.pointerType !== "mouse" || !root) return;
       const rect = root.getBoundingClientRect();
       pointer.targetX = event.clientX - rect.left;
       pointer.targetY = event.clientY - rect.top;
     }
     function handlePointerLeave() {
+      if (!cursorInput.matches) return;
       pointer.targetX = width * 0.58;
       pointer.targetY = height * 0.46;
     }
@@ -167,6 +177,7 @@ export default function MathGrid({ children, className = "" }: MathGridProps) {
     root.addEventListener("pointerleave", handlePointerLeave);
     document.addEventListener("visibilitychange", updateMotion);
     motionPreference.addEventListener("change", updateMotion);
+    cursorInput.addEventListener("change", updateMotion);
 
     return () => {
       root.removeEventListener("pointermove", handlePointerMove);
@@ -175,6 +186,7 @@ export default function MathGrid({ children, className = "" }: MathGridProps) {
       visibilityObserver.disconnect();
       document.removeEventListener("visibilitychange", updateMotion);
       motionPreference.removeEventListener("change", updateMotion);
+      cursorInput.removeEventListener("change", updateMotion);
       cancelAnimationFrame(animationFrame);
     };
   }, []);

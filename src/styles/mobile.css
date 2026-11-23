@@ -6,6 +6,7 @@
   .inner-cta h2 span { font-weight: 700; }
   .inner-cta p { line-height: 22px; }
   .home-page .start-project-button__link { min-height: 54px; }
+  .home-page .work-card:first-child .work-copy > .text-link { display: none; }
   .strategy-page :is(.strategy-start, .strategy-deliverables) .inner-section-label { margin-bottom: 30px; }
   .strategy-page .strategy-projects { padding-bottom: 60px; }
   .strategy-page .strategy-start { padding-bottom: 0; }

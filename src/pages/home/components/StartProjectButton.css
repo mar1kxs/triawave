@@ -14,7 +14,10 @@
       transform 200ms ease;
   }
 
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+
   .start-project-button:hover > .start-project-button__link {
     transition-duration: 160ms, 200ms, 200ms;
+  }
   }
 }
