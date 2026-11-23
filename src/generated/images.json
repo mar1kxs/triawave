@@ -27,20 +27,6 @@
   "/assets/audience-startups.svg": {
     "src": "/optimized/74d31177517fa752.svg"
   },
-  "/assets/commerce-hero-store.png": {
-    "src": "/optimized/383db9f5c74b4d31-708.webp",
-    "srcSet": "/optimized/383db9f5c74b4d31-480.webp 480w, /optimized/383db9f5c74b4d31-708.webp 708w",
-    "width": 708,
-    "height": 523,
-    "color": "rgb(248, 248, 248)"
-  },
-  "/assets/custom-hero-editor.png": {
-    "src": "/optimized/6f9656a132c6500a-665.webp",
-    "srcSet": "/optimized/6f9656a132c6500a-480.webp 480w, /optimized/6f9656a132c6500a-665.webp 665w",
-    "width": 665,
-    "height": 497,
-    "color": "rgb(248, 248, 248)"
-  },
   "/assets/favicon.svg": {
     "src": "/optimized/c934887c191c7cb7.svg"
   },
@@ -52,13 +38,6 @@
   },
   "/assets/hero-shade-left.svg": {
     "src": "/optimized/01947f54103b3d21.svg"
-  },
-  "/assets/landing-hero-flow.png": {
-    "src": "/optimized/7ec8eed6d7195d3b-708.webp",
-    "srcSet": "/optimized/7ec8eed6d7195d3b-480.webp 480w, /optimized/7ec8eed6d7195d3b-708.webp 708w",
-    "width": 708,
-    "height": 500,
-    "color": "rgb(24, 24, 24)"
   },
   "/assets/logo.svg": {
     "src": "/optimized/71666baa9a3373b7.svg"
@@ -83,20 +62,6 @@
   },
   "/assets/strategy-signature.svg": {
     "src": "/optimized/778c3b05a7a51428.svg"
-  },
-  "/assets/support-hero-dashboard.png": {
-    "src": "/optimized/6fa3dc746a52790a-708.webp",
-    "srcSet": "/optimized/6fa3dc746a52790a-480.webp 480w, /optimized/6fa3dc746a52790a-708.webp 708w",
-    "width": 708,
-    "height": 500,
-    "color": "rgb(8, 8, 8)"
-  },
-  "/assets/wix-hero-editor.png": {
-    "src": "/optimized/6370b639a0cc1716-665.webp",
-    "srcSet": "/optimized/6370b639a0cc1716-480.webp 480w, /optimized/6370b639a0cc1716-665.webp 665w",
-    "width": 665,
-    "height": 497,
-    "color": "rgb(8, 8, 8)"
   },
   "/custom-app-editor.svg": {
     "src": "/optimized/16700c77ee1224df.svg"
@@ -179,13 +144,6 @@
     "width": 1800,
     "height": 800,
     "color": "rgb(248, 152, 56)"
-  },
-  "/projects/strategy-capycasino.png": {
-    "src": "/optimized/2a23bd4cf6f56969-743.webp",
-    "srcSet": "/optimized/2a23bd4cf6f56969-480.webp 480w, /optimized/2a23bd4cf6f56969-743.webp 743w",
-    "width": 743,
-    "height": 742,
-    "color": "rgb(8, 8, 8)"
   },
   "/projects/strategy-hover-01.png": {
     "src": "/optimized/89ba65153fe7e4d6-743.webp",
@@ -306,44 +264,9 @@
     "height": 550,
     "color": "rgb(8, 8, 8)"
   },
-  "/projects/work-project-02.png": {
-    "src": "/optimized/d6b5c6f028f11069-895.webp",
-    "srcSet": "/optimized/d6b5c6f028f11069-480.webp 480w, /optimized/d6b5c6f028f11069-800.webp 800w, /optimized/d6b5c6f028f11069-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(248, 248, 248)"
-  },
   "/projects/work-project-03.png": {
     "src": "/optimized/32918fae30fa9a72-895.webp",
     "srcSet": "/optimized/32918fae30fa9a72-480.webp 480w, /optimized/32918fae30fa9a72-800.webp 800w, /optimized/32918fae30fa9a72-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(8, 8, 8)"
-  },
-  "/projects/work-project-04.png": {
-    "src": "/optimized/0306a9c51b195015-895.webp",
-    "srcSet": "/optimized/0306a9c51b195015-480.webp 480w, /optimized/0306a9c51b195015-800.webp 800w, /optimized/0306a9c51b195015-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(248, 152, 56)"
-  },
-  "/projects/work-project-05.png": {
-    "src": "/optimized/06816c772a5ae184-895.webp",
-    "srcSet": "/optimized/06816c772a5ae184-480.webp 480w, /optimized/06816c772a5ae184-800.webp 800w, /optimized/06816c772a5ae184-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(152, 152, 152)"
-  },
-  "/projects/work-project-06.png": {
-    "src": "/optimized/0bcf4db483f3cdd3-895.webp",
-    "srcSet": "/optimized/0bcf4db483f3cdd3-480.webp 480w, /optimized/0bcf4db483f3cdd3-800.webp 800w, /optimized/0bcf4db483f3cdd3-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(8, 8, 8)"
-  },
-  "/projects/work-project-07.png": {
-    "src": "/optimized/c2d04c0e8d2baf89-895.webp",
-    "srcSet": "/optimized/c2d04c0e8d2baf89-480.webp 480w, /optimized/c2d04c0e8d2baf89-800.webp 800w, /optimized/c2d04c0e8d2baf89-895.webp 895w",
     "width": 895,
     "height": 550,
     "color": "rgb(8, 8, 8)"
@@ -355,20 +278,6 @@
     "height": 550,
     "color": "rgb(120, 56, 40)"
   },
-  "/projects/work-project-09.png": {
-    "src": "/optimized/c5480f143580f518-895.webp",
-    "srcSet": "/optimized/c5480f143580f518-480.webp 480w, /optimized/c5480f143580f518-800.webp 800w, /optimized/c5480f143580f518-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(8, 8, 8)"
-  },
-  "/projects/work-project-10.png": {
-    "src": "/optimized/9c3496fa74609c8e-895.webp",
-    "srcSet": "/optimized/9c3496fa74609c8e-480.webp 480w, /optimized/9c3496fa74609c8e-800.webp 800w, /optimized/9c3496fa74609c8e-895.webp 895w",
-    "width": 895,
-    "height": 550,
-    "color": "rgb(8, 8, 8)"
-  },
   "/site-monitor.svg": {
     "src": "/optimized/3545a17a0d1925a8.svg"
   },
@@ -377,5 +286,54 @@
   },
   "/wix-studio-editor.svg": {
     "src": "/optimized/5a8213553e9539f0.svg"
+  },
+  "/projects/work-project-07.png": {
+    "src": "/optimized/c2d04c0e8d2baf89-895.webp",
+    "srcSet": "/optimized/c2d04c0e8d2baf89-480.webp 480w, /optimized/c2d04c0e8d2baf89-800.webp 800w, /optimized/c2d04c0e8d2baf89-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-06.png": {
+    "src": "/optimized/0bcf4db483f3cdd3-895.webp",
+    "srcSet": "/optimized/0bcf4db483f3cdd3-480.webp 480w, /optimized/0bcf4db483f3cdd3-800.webp 800w, /optimized/0bcf4db483f3cdd3-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-05.png": {
+    "src": "/optimized/06816c772a5ae184-895.webp",
+    "srcSet": "/optimized/06816c772a5ae184-480.webp 480w, /optimized/06816c772a5ae184-800.webp 800w, /optimized/06816c772a5ae184-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(152, 152, 152)"
+  },
+  "/projects/work-project-04.png": {
+    "src": "/optimized/0306a9c51b195015-895.webp",
+    "srcSet": "/optimized/0306a9c51b195015-480.webp 480w, /optimized/0306a9c51b195015-800.webp 800w, /optimized/0306a9c51b195015-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(248, 152, 56)"
+  },
+  "/projects/work-project-02.png": {
+    "src": "/optimized/d6b5c6f028f11069-895.webp",
+    "srcSet": "/optimized/d6b5c6f028f11069-480.webp 480w, /optimized/d6b5c6f028f11069-800.webp 800w, /optimized/d6b5c6f028f11069-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(248, 248, 248)"
+  },
+  "/projects/work-project-10.png": {
+    "src": "/optimized/9c3496fa74609c8e-895.webp",
+    "srcSet": "/optimized/9c3496fa74609c8e-480.webp 480w, /optimized/9c3496fa74609c8e-800.webp 800w, /optimized/9c3496fa74609c8e-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
+  },
+  "/projects/work-project-09.png": {
+    "src": "/optimized/c5480f143580f518-895.webp",
+    "srcSet": "/optimized/c5480f143580f518-480.webp 480w, /optimized/c5480f143580f518-800.webp 800w, /optimized/c5480f143580f518-895.webp 895w",
+    "width": 895,
+    "height": 550,
+    "color": "rgb(8, 8, 8)"
   }
 }

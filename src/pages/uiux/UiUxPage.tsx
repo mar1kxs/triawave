@@ -12,8 +12,6 @@ import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
 import { UiUxHeroCubes } from "./UiUxHeroCubes";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 
 const UIUX_PROJECTS = [
   { image: "/projects/strategy-project-02.png", hoverImage: "/projects/strategy-hover-03.png", title: "deftechcluster", alt: "Defense technology platform displayed on a smartphone", tags: ["Defense Tech", "UX/UI", "Web Development"] },
@@ -45,7 +43,7 @@ export default function UiUxPage() {
       <MathGrid className="strategy-hero">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / UI/UX &amp; Web Design</span><span>Triawave Studio</span></div>
         <h1>EASY TO USE<br /><span>DISTINCTLY YOURS</span></h1>
-        <div className="strategy-hero-copy"><p>We design websites and web interfaces that reflect your brand, explain your offer and make the next step clear. You get responsive designs ready for development by your team or ours</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+        <div className="strategy-hero-copy"><p>We design websites and web interfaces that reflect your brand, explain your offer and make the next step clear. You get responsive designs ready for development by your team or ours</p><AppLink className="button" href={SITE.contactUrl}>Discuss your website</AppLink></div>
         <UiUxHeroCubes />
       </MathGrid>
       <section className="strategy-projects" aria-labelledby="strategy-projects-title">
@@ -55,11 +53,11 @@ export default function UiUxPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {UIUX_PROJECTS.map((project, index) => <div className="strategy-project-placeholder uiux-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="uiux-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="uiux-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="uiux-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="uiux-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {UIUX_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

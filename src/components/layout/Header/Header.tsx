@@ -1,3 +1,4 @@
+import { setSmoothScrollPaused } from "../../../lib/motion/smoothScroll";
 import { SiteImage } from "../../ui/SiteImage";
 import { SITE } from "../../../config/site";
 import { useEffect, useRef, useState } from "react";
@@ -67,9 +68,29 @@ export function Header() {
 
   useEffect(() => {
     if (!mobileOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = previousOverflow; };
+    const body = document.body;
+    const root = document.documentElement;
+    const scrollY = window.scrollY;
+    const previous = { position: body.style.position, top: body.style.top, left: body.style.left,
+      right: body.style.right, width: body.style.width, overflow: body.style.overflow,
+      rootOverflow: root.style.overflow, scrollBehavior: root.style.scrollBehavior };
+    setSmoothScrollPaused(true);
+    Object.assign(body.style, { position: "fixed", top: `-${scrollY}px`, left: "0", right: "0", width: "100%", overflow: "hidden" });
+    root.style.overflow = "hidden";
+    setHeaderVisible(true);
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const closeOnDesktop = () => { if (desktop.matches) { setMobileOpen(false); setMobileServicesOpen(false); } };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      desktop.removeEventListener("change", closeOnDesktop);
+      Object.assign(body.style, { position: previous.position, top: previous.top, left: previous.left,
+        right: previous.right, width: previous.width, overflow: previous.overflow });
+      root.style.overflow = previous.rootOverflow;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, scrollY);
+      root.style.scrollBehavior = previous.scrollBehavior;
+      setSmoothScrollPaused(false);
+    };
   }, [mobileOpen]);
 
   const toggleMobileMenu = () => {
@@ -100,15 +121,15 @@ export function Header() {
           Services <span aria-hidden="true"><SiteImage src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>
         </button>
         <AppLink href="/about">About</AppLink>
-        <AppLink href={`mailto:${SITE.email}`}>Contact</AppLink>
+        <AppLink href={SITE.contactUrl}>Contact</AppLink>
       </nav>
-      <AppLink href={`mailto:${SITE.email}`} className="button header-cta">Let’s talk</AppLink>
+      <AppLink href={SITE.contactUrl} className="button header-cta">Let’s talk</AppLink>
       <button className="mobile-toggle" type="button" aria-expanded={mobileOpen} aria-label={mobileOpen ? "Close menu" : "Open menu"} onClick={toggleMobileMenu}>
         <span /> <span />
       </button>
       {menuOpen && <MegaMenu close={() => { setMenuOpen(false); setMenuPinned(false); }} />}
       {mobileOpen && (
-        <nav className={`mobile-nav${mobileServicesOpen ? " mobile-nav-services-open" : ""}`} aria-label="Mobile navigation">
+        <nav data-lenis-prevent className={`mobile-nav${mobileServicesOpen ? " mobile-nav-services-open" : ""}`} aria-label="Mobile navigation">
           {!mobileServicesOpen ? (
             <div className="mobile-nav-main">
               <p className="mobile-nav-eyebrow">Explore / Triawave</p>
@@ -116,7 +137,7 @@ export function Header() {
                 <AppLink href="/work" onClick={closeMobileMenu}>Work</AppLink>
                 <button type="button" onClick={() => setMobileServicesOpen(true)}>Services <span aria-hidden="true">›</span></button>
                 <AppLink href="/about" onClick={closeMobileMenu}>About</AppLink>
-                <AppLink href={`mailto:${SITE.email}`} onClick={closeMobileMenu}>Contact</AppLink>
+                <AppLink href={SITE.contactUrl} onClick={closeMobileMenu}>Contact</AppLink>
               </div>
               <div className="mobile-nav-footer">
                 <AppLink className="mobile-nav-email" href={`mailto:${SITE.email}`} onClick={closeMobileMenu}>{SITE.email}</AppLink>
@@ -158,7 +179,7 @@ function MobileMenuHelp({ close }: { close: () => void }) {
     <div className="mobile-menu-help">
       <h3>Need a hand choosing?</h3>
       <p>Tell us what you need your website to do. We’ll help you choose the right approach.</p>
-      <AppLink href={`mailto:${SITE.email}`} className="button" onClick={close}>Discuss your project</AppLink>
+      <AppLink href={SITE.contactUrl} className="button" onClick={close}>Discuss your project</AppLink>
     </div>
   );
 }

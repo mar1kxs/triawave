@@ -1,3 +1,4 @@
+import { DiagonalArrow } from "../../ui/DiagonalArrow";
 import { SITE } from "../../../config/site";
 import { SERVICES } from "../../../content/services";
 import { AppLink } from "../../ui/AppLink";
@@ -20,7 +21,7 @@ export function MegaMenu({ close }: { close: () => void }) {
       <div className="mega-help">
         <h3>Need a hand choosing?</h3>
         <p>Tell us what you need your website to do. We’ll help you choose the right approach.</p>
-        <AppLink href={`mailto:${SITE.email}`} className="button button-small" onClick={close}>Discuss your project ↗</AppLink>
+        <AppLink href={SITE.contactUrl} className="button button-small" onClick={close}>Discuss your project <DiagonalArrow /></AppLink>
       </div>
     </div>
   );

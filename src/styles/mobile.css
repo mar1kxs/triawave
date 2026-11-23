@@ -1,0 +1,33 @@
+/* Shared mobile measurements from the 390px Figma frames; content stays fluid. */
+@media (max-width: 700px) {
+  :root { --page-pad: 20px; }
+  .section-head, .inner-section-label { line-height: 14px; padding-top: 12px; }
+  .inner-cta h2 { font-size: clamp(38px, 11.28vw, 44px); line-height: 1.09; }
+  .inner-cta h2 span { font-weight: 700; }
+  .inner-cta p { line-height: 22px; }
+  .home-page .start-project-button__link { min-height: 54px; }
+  .strategy-page :is(.strategy-start, .strategy-deliverables) .inner-section-label { margin-bottom: 30px; }
+  .strategy-page .strategy-projects { padding-bottom: 60px; }
+  .strategy-page .strategy-start { padding-bottom: 0; }
+  .site-footer { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding: 40px 20px 32px; }
+  .footer-primary { display: contents; }
+  .footer-primary > div, .footer-services { grid-column: 1; min-width: 0; }
+  .footer-contact { order: -1; }
+  .footer-primary > div:first-child { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 16px 12px; }
+  .site-footer h3 { font-size: 10px; line-height: 14px; letter-spacing: .07em; margin: 0 0 16px; }
+  .footer-primary > div:first-child h3 { flex-basis: 100%; margin: 0; }
+  .footer-primary > div:first-child a { margin: 0; font-size: 14px; line-height: 20px; }
+  .site-footer .footer-email { font-size: clamp(20px, 6.6vw, 28px); line-height: 34px; margin-bottom: 20px; overflow-wrap: anywhere; }
+  .footer-contact p { gap: 20px; flex-wrap: wrap; margin: 0 0 12px; font-size: 14px; line-height: 20px; }
+  .footer-contact p:last-child { margin-bottom: 0; }
+  .footer-contact i { display: none; }
+  .footer-services { margin: 0; }
+  .footer-services > div { grid-template-columns: minmax(0, 1fr); }
+  .footer-services a { grid-template-columns: 20px minmax(0, 1fr) 16px; gap: 12px; padding: 14px 0; font-size: 14px; line-height: 18px; }
+  .legal-strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px 8px; padding: 21px 20px 32px; font-size: 10px; line-height: 14px; }
+  .legal-strip > span { grid-column: span 3; }
+  .legal-strip > span:nth-child(2) { text-align: right; }
+  .legal-strip > a { grid-column: span 2; }
+  .legal-strip > a:nth-child(4) { text-align: center; }
+  .legal-strip > :last-child { grid-column: span 2; text-align: right; justify-self: end; }
+}

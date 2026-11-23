@@ -388,7 +388,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .about-page .section-head,
   .about-page .about-approach .section-head,
   .about-page .working-section .section-head,
@@ -404,11 +404,11 @@
     font-size: 14px;
   }
   .about-page h3 {
-    font-size: 22px;
+    font-size: 23px;
   }
   .about-page .approach-row > span,
   .about-page .expectation > span {
-    font-size: 10px;
+    font-size: 11px;
   }
   .about-page .about-approach-cubes,
   .about-page .approach-row .shape {
@@ -418,7 +418,7 @@
   .about-page .approach-row:nth-child(1),
   .about-page .approach-row:nth-child(2) {
     grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
+    gap: 16px;
   }
   .about-page .approach-row > span,
   .about-page .approach-row > div {
@@ -431,76 +431,69 @@
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - var(--home-top-chrome, 106px));
-    height: calc(100svh - var(--home-top-chrome, 106px));
-    min-height: 0;
-    padding: 34px var(--page-pad) 20px;
+    height: auto;
+    min-height: calc(100vh - var(--home-top-chrome, 106px));
+    min-height: calc(100svh - var(--home-top-chrome, 106px));
+    padding: 98px var(--page-pad) 20px;
   }
-  .about-page .about-hero .eyebrow { margin-bottom: 14px; }
+  .about-page .about-hero .eyebrow { margin-bottom: 18px; }
   .about-page .about-hero h1 {
-    font-size: 48px;
-    line-height: .96;
-    letter-spacing: -.04em;
+    font-size: clamp(38px, 11.8vw, 46px);
+    line-height: 1.087;
+    letter-spacing: -.03em;
   }
   .about-page .about-hero > p {
     width: 100%;
-    margin: 20px 0 26px;
+    max-width: 100%;
+    margin: 18px 0 26px;
     font-size: 15px;
     line-height: 1.45;
   }
   .about-page .about-hero .button {
     align-self: stretch;
     justify-content: space-between;
-    min-height: 50px;
+    min-height: 54px;
     width: 100%;
   }
   .about-page .about-hero-art {
-    flex: 0 0 190px;
+    flex: none;
+    aspect-ratio: 350 / 251;
     inset: auto;
-    margin-top: auto;
+    margin-top: 12px;
     position: relative;
     width: 100%;
   }
   .about-page .about-hero-art .about-orbit {
-    height: 260px;
+    height: auto;
+    aspect-ratio: 1;
     left: 50%;
     max-width: none;
     opacity: .35;
     right: auto;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 260px;
+    width: 75%;
   }
   .about-page .about-hero-art .about-hero-physics {
-    height: 190px;
+    height: auto;
+    aspect-ratio: 1;
     left: 50%;
     opacity: .8;
     right: auto;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 190px;
+    width: 60%;
   }
-}
-@media (max-width: 540px) {
-  .about-page .team-grid,
-  .about-page .expectations-grid {
-    grid-template-columns: 1fr;
-  }
-  .about-page .team-intro h2,
-  .about-page .approach-intro h2,
-  .about-page .working-section h2 {
-    font-size: 40px;
-  }
-  .about-page .approach-row h3 {
-    font-size: 20px;
-  }
-  .about-page .approach-row p {
-    font-size: 14px;
-  }
-}
-@media (max-width: 900px) {
-  .about-page .team-layout,
-  .about-page .approach-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  .about-page :is(.team-section, .about-approach, .working-section) { padding-block: 48px 64px; }
+  .about-page :is(.team-grid, .expectations-grid) { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .about-page :is(.team-layout, .approach-layout) { gap: 40px; }
+  .about-page :is(.team-intro, .approach-intro) p { font-size: 15px; line-height: 22px; }
+  .about-page :is(.team-intro h2, .approach-intro h2, .working-section h2) { line-height: 1.075; letter-spacing: -.03em; }
+  .about-page .person .portrait-placeholder { width: 100%; aspect-ratio: 35 / 39; }
+  .about-page .person h3 { font-size: 21px; line-height: 25px; }
+  .about-page .person small { font-size: 11px; line-height: 16px; }
+  .about-page :is(.approach-row, .expectation) { padding: 16px 0 28px; }
+  .about-page .expectation { background: none; }
+  .about-page .expectation h3 { margin: 16px 0 12px; }
+  .about-page :is(.approach-row, .expectation) p { line-height: 21px; }
 }

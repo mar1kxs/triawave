@@ -11,7 +11,7 @@ export function usePageMotion(path: string) {
     const animations = new Set<Animation>();
     const revealed = new Set<Element>();
     let observer: IntersectionObserver | null = null;
-    const selector = "h1, h2, p, .eyebrow, .section-head, .inner-section-label, .reveal, .inner-cubes, .work-page-placeholder, .strategy-project-placeholder, .strategy-deliverable, .strategy-project-strip > div, .strategy-step-grid > article, .strategy-faq details, .strategy-signature, .strategy-useful, .strategy-breadcrumb, .strategy-hero-meta, .inner-cta-copy, .button";
+    const selector = "h1, h2, p, .eyebrow, .section-head, .inner-section-label, .reveal, .inner-cubes, .work-page-placeholder, .strategy-project-placeholder, .strategy-deliverable, .strategy-project-strip > div, .strategy-faq details, .strategy-signature, .strategy-useful, .strategy-breadcrumb, .strategy-hero-meta, .inner-cta-copy, .button";
     // Animate a card as one unit instead of animating it and its text together.
     const targets = Array.from(root.querySelectorAll<HTMLElement>(selector)).filter(
       // Sticky deliverables must remain visible, including their nested text.

@@ -1,3 +1,4 @@
+import { DiagonalArrow } from "../../../components/ui/DiagonalArrow";
 import { SITE } from "../../../config/site";
 import type { PointerEvent } from "react";
 import { isMotionDisabled } from "../../../lib/motion/preferences";
@@ -32,7 +33,7 @@ export function StartProjectButton() {
       onPointerCancel={resetPosition}
       onBlur={resetPosition}
     >
-      <AppLink href={`mailto:${SITE.email}`} className="button start-project-button__link">Start a project <span aria-hidden="true">↗</span></AppLink>
+      <AppLink href={SITE.contactUrl} className="button start-project-button__link">Start a project <span aria-hidden="true"><DiagonalArrow /></span></AppLink>
     </span>
   );
 }

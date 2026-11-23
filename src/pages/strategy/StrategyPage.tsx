@@ -11,8 +11,6 @@ import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 
 const STRATEGY_PROJECTS = [
   {
@@ -68,7 +66,7 @@ export default function StrategyPage() {
       <MathGrid className="strategy-hero">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Website Strategy</span><span>Triawave Studio</span></div>
         <h1>Good websites<br /><span>start with clarity</span></h1>
-        <div className="strategy-hero-copy"><p>We turn your business goals into a clear website plan: what to build, what each page needs to communicate and what to prioritise. You leave with a practical brief your team can use to scope, design and develop the site</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+        <div className="strategy-hero-copy"><p>We turn your business goals into a clear website plan: what to build, what each page needs to communicate and what to prioritise. You leave with a practical brief your team can use to scope, design and develop the site</p><AppLink className="button" href={SITE.contactUrl}>Discuss your website</AppLink></div>
         <div className="strategy-signature"><SiteImage src="/assets/strategy-signature.svg" alt="" width="90.1028" height="90.5542" /><span>Good thinking<br />Made tangible</span></div>
       </MathGrid>
       <section className="strategy-projects" aria-labelledby="strategy-projects-title">
@@ -78,11 +76,11 @@ export default function StrategyPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {STRATEGY_PROJECTS.map((project, index) => <div className="strategy-project-placeholder strategy-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-              <SiteImage className="strategy-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-              <SiteImage className="strategy-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="strategy-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="strategy-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {STRATEGY_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+              <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+              <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

@@ -11,8 +11,6 @@ import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 import "./landing-hero.css";
 import { LandingFlow } from "./LandingFlow";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
@@ -44,12 +42,12 @@ export default function LandingPage() {
   }, []);
   return <Shell showReferral={false}>
     <main className="inner-page strategy-page landing-page" ref={pageRef}>
-      <MathGrid className="landing-hero service-hero-grid">
+      <MathGrid className="service-hero service-hero-grid">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Landing Page Design &amp; Development</span><span>Triawave Studio</span></div>
-        <div className="landing-hero-layout">
-          <div className="landing-hero-text">
+        <div className="service-hero-layout">
+          <div className="service-hero-text">
             <h1 id="landing-title">Built for<br /><span>One clear action</span></h1>
-            <div className="landing-hero-copy"><p>We design and build landing pages that explain your offer and guide visitors towards an enquiry, booking, registration or purchase. From page structure to launch, we create the design or work from your approved layouts</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your landing page</AppLink></div>
+            <div className="service-hero-copy"><p>We design and build landing pages that explain your offer and guide visitors towards an enquiry, booking, registration or purchase. From page structure to launch, we create the design or work from your approved layouts</p><AppLink className="button" href={SITE.contactUrl}>Discuss your landing page</AppLink></div>
           </div>
           <LandingFlow />
         </div>
@@ -61,11 +59,11 @@ export default function LandingPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {LANDING_PROJECTS.map((project, index) => <div className="strategy-project-placeholder landing-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="landing-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="landing-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="landing-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="landing-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {LANDING_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

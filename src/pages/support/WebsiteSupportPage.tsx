@@ -11,8 +11,6 @@ import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 import "./support-hero.css";
 import { SupportDashboard } from "./SupportDashboard";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
@@ -44,12 +42,12 @@ export default function WebsiteSupportPage() {
   }, []);
   return <Shell showReferral={false}>
     <main className="inner-page strategy-page support-page" ref={pageRef}>
-      <MathGrid className="support-hero service-hero-grid">
+      <MathGrid className="service-hero service-hero-grid">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Website Support &amp; Optimization</span><span>Triawave Studio</span></div>
-        <div className="support-hero-layout">
-          <div className="support-hero-text">
-            <h1 id="support-title">Keep your website<br /><span>working and improving</span></h1>
-            <div className="support-hero-copy"><p>We fix issues, update content and improve usability and performance on existing websites—including those built by other teams. We review your setup, agree on priorities and provide one-off help or ongoing support with clear reporting</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+        <div className="service-hero-layout">
+          <div className="service-hero-text">
+            <h1 id="support-title"><span className="support-title-first-line">Keep your website</span><br /><span className="support-title-accent">working and improving</span></h1>
+            <div className="service-hero-copy"><p>We fix issues, update content and improve usability and performance on existing websites—including those built by other teams. We review your setup, agree on priorities and provide one-off help or ongoing support with clear reporting</p><AppLink className="button" href={SITE.contactUrl}>Discuss your website</AppLink></div>
           </div>
           <SupportDashboard />
         </div>
@@ -61,11 +59,11 @@ export default function WebsiteSupportPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {SUPPORT_PROJECTS.map((project, index) => <div className="strategy-project-placeholder support-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="support-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="support-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="support-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="support-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {SUPPORT_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

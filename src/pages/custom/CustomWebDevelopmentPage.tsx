@@ -11,8 +11,6 @@ import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 import "./custom-hero.css";
 import { CustomEditor } from "./CustomEditor";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
@@ -44,12 +42,12 @@ export default function CustomWebDevelopmentPage() {
   }, []);
   return <Shell showReferral={false}>
     <main className="inner-page strategy-page custom-page" ref={pageRef}>
-      <MathGrid className="custom-hero service-hero-grid">
+      <MathGrid className="service-hero service-hero-grid">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / Custom Web Development</span><span>Triawave Studio</span></div>
-        <div className="custom-hero-layout">
-          <div className="custom-hero-text">
+        <div className="service-hero-layout">
+          <div className="service-hero-text">
             <h1 id="custom-title">Built around<br />how your<br /><span>Business works</span></h1>
-            <div className="custom-hero-copy"><p>We design and build custom websites and web applications—or work from your approved layouts. We develop the features and integrations your business needs, test and launch the project, then hand over the source code and documentation</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your project</AppLink></div>
+            <div className="service-hero-copy"><p>We design and build custom websites and web applications—or work from your approved layouts. We develop the features and integrations your business needs, test and launch the project, then hand over the source code and documentation</p><AppLink className="button" href={SITE.contactUrl}>Discuss your project</AppLink></div>
           </div>
           <CustomEditor />
         </div>
@@ -61,11 +59,11 @@ export default function CustomWebDevelopmentPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {CUSTOM_PROJECTS.map((project, index) => <div className="strategy-project-placeholder custom-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="custom-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="custom-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="custom-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="custom-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {CUSTOM_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

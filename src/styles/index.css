@@ -1,9 +1,14 @@
 /* Preserve cascade order: base styles followed by measured design overrides. */
 @import "lenis/dist/lenis.css";
 @import "./base.css";
+@import "../pages/shared/inner-pages.css";
+@import "../pages/shared/service-sections.css";
+@import "../pages/shared/service-showcase.css";
+@import "../pages/shared/service-hero.css";
+@import "../pages/shared/service-process-section.css";
 @import "./home-fidelity.css";
 @import "./shared-fidelity.css";
 @import "./about-fidelity.css";
-@import "../components/sections/CTASection.css";
 @import "./home-motion.css";
 @import "../pages/shared/service-pages-adaptive.css";
+@import "./mobile.css";

@@ -1,3 +1,8 @@
+.strategy-page .strategy-audiences article p {
+  width: max-content;
+  max-width: 100%;
+}
+
 .strategy-page .strategy-projects-grid .strategy-project-placeholder {
   box-sizing: border-box;
   border: 1.5px solid rgba(255, 255, 255, 0.15);
@@ -17,18 +22,18 @@
     margin-bottom: 64px;
   }
 
-  .strategy-page .service-hero-grid :is(.wix-hero-layout, .support-hero-layout, .landing-hero-layout, .commerce-hero-layout, .custom-hero-layout) {
+  .strategy-page .service-hero-grid .service-hero-layout {
     flex-direction: column;
     align-items: stretch;
     gap: 32px;
   }
 
-  .strategy-page .service-hero-grid :is(.wix-hero-text, .support-hero-text, .landing-hero-text, .commerce-hero-text, .custom-hero-text) {
+  .strategy-page .service-hero-grid .service-hero-text {
     flex: none;
     width: 100%;
   }
 
-  .strategy-page .service-hero-grid :is(.wix-hero-copy, .support-hero-copy, .landing-hero-copy, .commerce-hero-copy, .custom-hero-copy) {
+  .strategy-page .service-hero-grid .service-hero-copy {
     margin-top: 28px;
   }
 
@@ -40,17 +45,12 @@
     align-self: center;
   }
 
-  .strategy-page.webflow-page .service-hero-grid :is(.wix-hero-text, .webflow-editor) {
+  .strategy-page.webflow-page .service-hero-grid :is(.service-hero-text, .webflow-editor) {
     margin-top: 0;
   }
 }
 
 @media (max-width: 700px) {
-  .strategy-page .strategy-projects-heading {
-    position: static;
-    top: auto;
-  }
-
   .strategy-page .strategy-faq-icon {
     width: 18px;
     height: 18px;
@@ -58,7 +58,7 @@
   }
 
   .strategy-page :is(.service-hero-grid, .strategy-hero) {
-    padding-block: 32px 48px;
+    padding-block: 100px 60px;
   }
 
   .strategy-page :is(.service-hero-grid, .strategy-hero) .strategy-breadcrumb {
@@ -71,36 +71,33 @@
   }
 
   .strategy-page :is(.service-hero-grid, .strategy-hero) h1 {
-    font-size: clamp(30px, 7.5vw, 52px);
-    line-height: 1.08;
+    font-size: clamp(38px, 11.8vw, 46px);
+    line-height: 1.15;
   }
 
   .strategy-page :is(.service-hero-grid, .strategy-hero) h1 span {
     text-decoration-thickness: 2px;
   }
 
-  .strategy-page .service-hero-grid :is(.wix-hero-layout, .support-hero-layout, .landing-hero-layout, .commerce-hero-layout, .custom-hero-layout) {
-    gap: 28px;
+  .strategy-page .service-hero-grid .service-hero-layout {
+    gap: 40px;
   }
 
-  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.wix-hero-copy, .support-hero-copy, .landing-hero-copy, .commerce-hero-copy, .custom-hero-copy, .strategy-hero-copy) {
+  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.service-hero-copy, .strategy-hero-copy) {
     width: 100%;
     max-width: none;
-    margin: 24px 0 0;
+    margin: 16px 0 0;
   }
 
-  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.wix-hero-copy p, .support-hero-copy p, .landing-hero-copy p, .commerce-hero-copy p, .custom-hero-copy p, .strategy-hero-copy p) {
+  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.service-hero-copy p, .strategy-hero-copy p) {
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 22px;
   }
 
-  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.wix-hero-copy .button, .support-hero-copy .button, .landing-hero-copy .button, .commerce-hero-copy .button, .custom-hero-copy .button, .strategy-hero-copy .button) {
+  .strategy-page :is(.service-hero-grid, .strategy-hero) :is(.service-hero-copy .button, .strategy-hero-copy .button) {
     width: 100%;
     min-width: 0;
-  }
-
-  .strategy-page .strategy-hero .strategy-breadcrumb {
-    margin-bottom: 48px;
+    min-height: 54px;
   }
 
   .strategy-page .strategy-signature {
@@ -117,19 +114,21 @@
   .strategy-page .strategy-projects-heading {
     position: static;
     top: auto;
-    height: 90px;
-    padding-top: 16px;
+    height: auto;
+    min-height: 0;
+    padding-top: 12px;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
     align-content: start;
-    gap: 6px 8px;
+    gap: 24px 8px;
   }
 
   .strategy-page .strategy-projects-heading h2 {
     grid-column: 1 / -1;
     grid-row: 2;
     text-align: left;
-    font-size: 28px;
+    font-size: 40px;
+    line-height: 43px;
   }
 
   .strategy-page .strategy-projects-heading > :last-child {
@@ -139,7 +138,7 @@
 
   .strategy-page .strategy-projects-grid {
     width: calc(100% - var(--page-pad) * 2);
-    margin-top: 16px;
+    margin-top: 40px;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: none;
     row-gap: 20px;
@@ -150,38 +149,13 @@
     grid-row: auto;
     justify-self: stretch;
     width: 100%;
-    aspect-ratio: 1.22;
   }
 
-  .strategy-page .strategy-projects-grid .strategy-project-card {
-    aspect-ratio: 1;
-  }
+}
 
-  .strategy-page .strategy-projects-grid .uiux-project-card {
-    aspect-ratio: 1;
-  }
-
-  .wix-page:not(.webflow-page) .strategy-projects-grid .wix-project-card {
-    aspect-ratio: 1;
-  }
-
-  .wix-page.webflow-page .strategy-projects-grid .wix-project-card {
-    aspect-ratio: 1;
-  }
-
-  .custom-page .strategy-projects-grid .custom-project-card {
-    aspect-ratio: 1;
-  }
-
-  .commerce-page .strategy-projects-grid .commerce-project-card {
-    aspect-ratio: 1;
-  }
-
-  .landing-page .strategy-projects-grid .landing-project-card {
-    aspect-ratio: 1;
-  }
-
-  .support-page .strategy-projects-grid .support-project-card {
-    aspect-ratio: 1;
+/* Slightly smaller service project cards on compact desktop screens. */
+@media (min-width: 701px) and (max-width: 1600px) {
+  .strategy-page .strategy-projects-grid {
+    width: min(1352px, calc(90% - var(--page-pad) * 1.8));
   }
 }

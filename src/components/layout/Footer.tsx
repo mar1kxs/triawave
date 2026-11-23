@@ -12,13 +12,13 @@ export function Footer() {
             <AppLink href="/work">Work</AppLink>
             <AppLink href="/#services">Services</AppLink>
             <AppLink href="/about">About</AppLink>
-            <AppLink href={`mailto:${SITE.email}`}>Contact</AppLink>
+            <AppLink href={SITE.contactUrl}>Contact</AppLink>
           </div>
           <div className="footer-contact">
             <h3>Get in touch</h3>
             <a className="footer-email" href={`mailto:${SITE.email}`}>{SITE.email}</a>
             <p><span className="footer-social">Instagram</span><i /> <span className="footer-social">Telegram</span><i /> <span className="footer-social">WhatsApp</span></p>
-            <p><span className="footer-social">Upwork</span><i /> <span className="footer-social">LinkedIn</span></p>
+            <p><a className="footer-social" href="https://www.upwork.com/agencies/2113366076931703146/" target="_blank" rel="noopener noreferrer">Upwork</a><i /> <span className="footer-social">LinkedIn</span></p>
           </div>
         </div>
         <div className="footer-services">

@@ -11,8 +11,6 @@ import { DELIVERABLES, STRATEGY_AUDIENCES, STRATEGY_FAQ, STRATEGY_STEPS } from "
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 import "./commerce-hero.css";
 import { CommerceStore } from "./CommerceStore";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
@@ -44,12 +42,12 @@ export default function EcommerceDevelopmentPage() {
   }, []);
   return <Shell showReferral={false}>
     <main className="inner-page strategy-page commerce-page" ref={pageRef}>
-      <MathGrid className="commerce-hero service-hero-grid">
+      <MathGrid className="service-hero service-hero-grid">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / E-commerce Development</span><span>Triawave Studio</span></div>
-        <div className="commerce-hero-layout">
-          <div className="commerce-hero-text">
+        <div className="service-hero-layout">
+          <div className="service-hero-text">
             <h1 id="commerce-title">Built around<br />the way<br /><span>You sell</span></h1>
-            <div className="commerce-hero-copy"><p>We help you choose a platform that fits your business, then design and build your store—from product pages to checkout. We set up the agreed payment and delivery options and show your team how to manage products and orders</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your store</AppLink></div>
+            <div className="service-hero-copy"><p>We help you choose a platform that fits your business, then design and build your store—from product pages to checkout. We set up the agreed payment and delivery options and show your team how to manage products and orders</p><AppLink className="button" href={SITE.contactUrl}>Discuss your store</AppLink></div>
           </div>
           <CommerceStore />
         </div>
@@ -61,11 +59,11 @@ export default function EcommerceDevelopmentPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {COMMERCE_PROJECTS.map((project, index) => <div className="strategy-project-placeholder commerce-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="commerce-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="commerce-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="commerce-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="commerce-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {COMMERCE_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

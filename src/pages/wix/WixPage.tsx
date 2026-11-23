@@ -11,8 +11,6 @@ import { DELIVERABLES as WEBFLOW_DELIVERABLES, STRATEGY_AUDIENCES as WEBFLOW_AUD
 import { useDeliverableMotion } from "./useDeliverableMotion";
 import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
-import "./strategy-light.css";
-import "./strategy-showcase.css";
 import "./wix-hero.css";
 import { WixEditor } from "./WixEditor";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
@@ -55,12 +53,12 @@ export default function WixPage({ platform = "Wix Studio" }: { platform?: "Wix S
   }, []);
   return <Shell showReferral={false}>
     <main className={`inner-page strategy-page wix-page${platform === "Webflow" ? " webflow-page" : ""}`} ref={pageRef}>
-      <MathGrid className="wix-hero service-hero-grid">
+      <MathGrid className="service-hero service-hero-grid">
         <div className="strategy-breadcrumb"><span><span className="strategy-breadcrumb-parent">Services</span> / {platform === "Webflow" ? "Webflow Development" : "Wix & Wix Studio Development"}</span><span>Triawave Studio</span></div>
-        <div className="wix-hero-layout">
-          <div className="wix-hero-text">
+        <div className="service-hero-layout">
+          <div className="service-hero-text">
             <h1 id="wix-title">{isWixStudio ? <>Built for your<br />business<br /><span>easy to manage</span></> : <>Your brand<br /><span>built in {platform}</span></>}</h1>
-            <div className="wix-hero-copy"><p>{isWixStudio ? "We design and build websites in Wix Studio, or bring your approved layouts to life. We create responsive pages and use Wix Velo for custom functionality where needed. After launch, we show your team how to update content without coding" : "We design your website from scratch and build it in Webflow—or work from your existing designs. We create responsive pages, set up CMS and interactions, launch the site and show your team how to update its content"}</p><AppLink className="button" href={`mailto:${SITE.email}`}>Discuss your website</AppLink></div>
+            <div className="service-hero-copy"><p>{isWixStudio ? "We design and build websites in Wix Studio, or bring your approved layouts to life. We create responsive pages and use Wix Velo for custom functionality where needed. After launch, we show your team how to update content without coding" : "We design your website from scratch and build it in Webflow—or work from your existing designs. We create responsive pages, set up CMS and interactions, launch the site and show your team how to update its content"}</p><AppLink className="button" href={SITE.contactUrl}>Discuss your website</AppLink></div>
           </div>
           <WixEditor platform={platform} />
         </div>
@@ -72,11 +70,11 @@ export default function WixPage({ platform = "Wix Studio" }: { platform?: "Wix S
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {(platform === "Wix Studio" ? WIX_PROJECTS : WEBFLOW_PROJECTS).map((project, index) => <div className="strategy-project-placeholder wix-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="wix-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="wix-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="wix-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="wix-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+          {(platform === "Wix Studio" ? WIX_PROJECTS : WEBFLOW_PROJECTS).map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
+            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
+            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
+            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
+            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
           </div>)}
         </div>
       </section>

@@ -2,6 +2,7 @@ import Lenis from "lenis";
 import { isMotionDisabled } from "./preferences";
 
 let controller: Lenis | null = null;
+let scrollPaused = false;
 
 /** One window-based controller; native layout, sticky and touch scrolling remain intact. */
 export function startSmoothScroll() {
@@ -27,6 +28,7 @@ export function startSmoothScroll() {
       virtualScroll: ({ event }) => !event.ctrlKey && !event.shiftKey,
     });
     controller = instance;
+    if (scrollPaused) instance.stop();
   };
 
   sync();
@@ -65,4 +67,10 @@ export function targetForHash(hash: string) {
   } catch {
     return null;
   }
+}
+
+export function setSmoothScrollPaused(paused: boolean) {
+  scrollPaused = paused;
+  if (paused) controller?.stop();
+  else controller?.start();
 }

@@ -1,4 +1,9 @@
 :root {
+  --text-body-size: 16px;
+  --text-small-size: 14px;
+  --text-body-leading: 1.35;
+  --text-heading-leading: 1.05;
+  --text-heading-tracking: -0.03em;
   font-family: "Inter", Arial, sans-serif;
   color: #f7f3f0;
   background: #050506;

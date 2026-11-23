@@ -1,6 +1,5 @@
 import { SITE } from "../../config/site";
 import { AppLink } from "../../components/ui/AppLink";
-import "./inner-pages.css";
 
 function IsometricCube({ x, y, size, colors }: { x: number; y: number; size: number; colors: [string, string, string] }) {
   // Equal-length edges along the three isometric axes: +30°, +150° and vertical.
@@ -33,7 +32,7 @@ export function InnerPageCTA({ description = "Planning a new website or rethinki
     <div className="inner-cta-copy">
       <h2>Let’s talk<br />about <span>your website</span></h2>
       <p>{description}</p>
-      <AppLink href={`mailto:${SITE.email}`} className="button">{buttonLabel}</AppLink>
+      <AppLink href={SITE.contactUrl} className="button">{buttonLabel}</AppLink>
     </div>
     <Cubes />
   </section>;

@@ -1,3 +1,4 @@
+import { DiagonalArrow } from "../../../components/ui/DiagonalArrow";
 import { SiteImage } from "../../../components/ui/SiteImage";
 import { MotionHeading } from "../../../components/ui/MotionHeading";
 import { AppLink } from "../../../components/ui/AppLink";
@@ -14,7 +15,7 @@ export function HomeHero() {
         <p>We combine strategy, design and development to create distinctive websites that clarify your offer, build trust and support growth</p>
         <div className="hero-actions">
           <StartProjectButton />
-          <AppLink href="/work" className="text-link">View our work <span aria-hidden="true">↗</span></AppLink>
+          <AppLink href="/work" className="text-link">View our work <span aria-hidden="true"><DiagonalArrow /></span></AppLink>
         </div>
       </div>
       <HeroArt />
