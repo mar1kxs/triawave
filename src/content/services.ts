@@ -9,9 +9,9 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     number: "01",
-    title: "Website Strategy",
-    description: "Structure, positioning and a clear plan for your future website",
-    path: "/services/website-strategy",
+    title: "Landing Page Design & Development",
+    description: "Focused campaign pages that communicate one offer and turn traffic into action",
+    path: "/services/landing-page-design-development",
     group: "Design",
   },
   {
@@ -37,31 +37,31 @@ export const SERVICES: Service[] = [
   },
   {
     number: "05",
-    title: "Custom Web Development",
-    description: "Custom React and Next.js solutions for complex business requirements",
-    path: "/services/custom-web-development",
-    group: "Development",
-  },
-  {
-    number: "06",
     title: "E-commerce Development",
     description: "Online stores designed around your products, customers and buying journey",
     path: "/services/e-commerce-development",
     group: "Development",
   },
   {
-    number: "07",
-    title: "Landing Page Design & Development",
-    description: "Focused campaign pages that communicate one offer and turn traffic into action",
-    path: "/services/landing-page-design-development",
-    group: "Design",
+    number: "06",
+    title: "Custom Web Development",
+    description: "Custom React and Next.js solutions for complex business requirements",
+    path: "/services/custom-web-development",
+    group: "Development",
   },
   {
-    number: "08",
+    number: "07",
     title: "Website Support & Optimization",
     description: "Ongoing design, development and optimization after your website goes live",
     path: "/services/website-support-optimization",
     group: "Support",
+  },
+  {
+    number: "08",
+    title: "Website Strategy",
+    description: "Structure, positioning and a clear plan for your future website",
+    path: "/services/website-strategy",
+    group: "Design",
   },
 ];
 

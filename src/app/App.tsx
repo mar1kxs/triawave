@@ -10,7 +10,9 @@ import EcommerceDevelopmentPage from "../pages/commerce/EcommerceDevelopmentPage
 import LandingPage from "../pages/landing/LandingPage";
 import WebsiteSupportPage from "../pages/support/WebsiteSupportPage";
 import { PlaceholderPage } from "../pages/placeholder/PlaceholderPage";
-import { normalizePath, screenTitleForPath } from "../config/routes";
+import PrivacyPage from "../pages/privacy/PrivacyPage";
+import NotFoundPage from "../pages/not-found/NotFoundPage";
+import { normalizePath, routeForPath, screenTitleForPath } from "../config/routes";
 import { applySeo } from "./seo";
 import { usePageMotion } from "../lib/motion/usePageMotion";
 import { scrollToDestination, startSmoothScroll, targetForHash } from "../lib/motion/smoothScroll";
@@ -46,6 +48,7 @@ export default function App({ initialPath }: { initialPath?: string }) {
   if (path === "/") return <HomePage />;
   if (path === "/about") return <AboutPage />;
   if (path === "/work") return <WorkPage />;
+  if (path === "/privacy-policy") return <PrivacyPage />;
   if (path === "/services/website-strategy") return <StrategyPage />;
   if (path === "/services/wix-studio-development") return <WixPage />;
   if (path === "/services/webflow-development") return <WebflowPage />;
@@ -54,5 +57,6 @@ export default function App({ initialPath }: { initialPath?: string }) {
   if (path === "/services/e-commerce-development") return <EcommerceDevelopmentPage />;
   if (path === "/services/landing-page-design-development") return <LandingPage />;
   if (path === "/services/website-support-optimization") return <WebsiteSupportPage />;
-  return <PlaceholderPage title={screenTitleForPath(path)} />;
+  if (routeForPath(path)) return <PlaceholderPage title={screenTitleForPath(path)} />;
+  return <NotFoundPage />;
 }

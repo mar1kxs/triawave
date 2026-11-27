@@ -1,4 +1,5 @@
-import { SiteImage } from "../../components/ui/SiteImage";
+import { ServiceProjectCard } from "../shared/ServiceProjectCard";
+import { projectsFor } from "../../data/projects";
 import { useEffect, useRef } from "react";
 import MathGrid from "../../components/ui/MathGrid/MathGrid";
 import "../shared/service-hero-grid.css";
@@ -15,19 +16,9 @@ import "./wix-hero.css";
 import { WixEditor } from "./WixEditor";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
 
-const WIX_PROJECTS = [
-  { image: "/projects/wix-panegrip.png", hoverImage: "/projects/wix-panegrip-hover.png", title: "Panegrip.dev", alt: "AI developer tools website displayed on a desktop monitor", tags: ["AI Developer Tools", "UX/UI", "App Development"] },
-  { image: "/projects/strategy-project-02.png", hoverImage: "/projects/strategy-hover-03.png", title: "DEFTECHCLUSTER", alt: "Defense technology platform displayed on a smartphone", tags: ["Defense Tech", "UX/UI", "Web Development"] },
-  { image: "/projects/wix-kyiv-energy.png", hoverImage: "/projects/wix-kyiv-energy-hover.png", title: "KYIV ENERGY", alt: "Kyiv Energy website displayed on a laptop", tags: ["Energy Solutions", "UX/UI", "Web Development"] },
-  { image: "/projects/strategy-project-03.png", hoverImage: "/projects/strategy-hover-02.png", title: "COSMOVAR", alt: "Cosmovar beauty and aesthetics website displayed on a laptop", tags: ["Beauty & Aesthetics", "UX/UI", "Web Development"] },
-] as const;
+const WIX_PROJECTS = projectsFor("wix");
 
-const WEBFLOW_PROJECTS = [
-  { image: "/projects/wix-panegrip.png", hoverImage: "/projects/wix-panegrip-hover.png", title: "Panegrip.dev", alt: "AI developer tools website displayed on a desktop monitor", tags: ["AI Developer Tools", "UX/UI", "App Development"] },
-  { image: "/projects/custom-tuscany-hover.png", hoverImage: "/projects/custom-tuscany.png", title: "Tuscany Photo Tours", alt: "Tuscany photo tours website displayed on a laptop", tags: ["Travel Platform", "UX/UI", "Web Development"] },
-  { image: "/projects/wix-kyiv-energy.png", hoverImage: "/projects/wix-kyiv-energy-hover.png", title: "KYIV ENERGY", alt: "Kyiv Energy website displayed on a laptop", tags: ["Energy Solutions", "UX/UI", "App Development"] },
-  { image: "/projects/uiux-liva-beauty.png", hoverImage: "/projects/uiux-hover-liva-beauty.png", title: "LIVA-BEAUTY", alt: "Beauty and ritual website displayed on a laptop", tags: ["Beauty Salon", "UX/UI", "Web Development"] },
-] as const;
+const WEBFLOW_PROJECTS = projectsFor("webflow");
 
 export default function WixPage({ platform = "Wix Studio" }: { platform?: "Wix Studio" | "Webflow" }) {
   const isWixStudio = platform === "Wix Studio";
@@ -70,12 +61,7 @@ export default function WixPage({ platform = "Wix Studio" }: { platform?: "Wix S
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {(platform === "Wix Studio" ? WIX_PROJECTS : WEBFLOW_PROJECTS).map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-          </div>)}
+          {(platform === "Wix Studio" ? WIX_PROJECTS : WEBFLOW_PROJECTS).map((project, index) => <ServiceProjectCard project={project} context={platform === "Wix Studio" ? "wix" : "webflow"} index={index} key={project.id} />)}
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">

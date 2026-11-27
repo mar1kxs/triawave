@@ -1,4 +1,5 @@
-import { SiteImage } from "../../components/ui/SiteImage";
+import { ServiceProjectCard } from "../shared/ServiceProjectCard";
+import { projectsFor } from "../../data/projects";
 import { useEffect, useRef } from "react";
 import MathGrid from "../../components/ui/MathGrid/MathGrid";
 import "../shared/service-hero-grid.css";
@@ -15,12 +16,7 @@ import "./support-hero.css";
 import { SupportDashboard } from "./SupportDashboard";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
 
-const SUPPORT_PROJECTS = [
-  { image: "/projects/ecommerce-kuberg.png", hoverImage: "/projects/ecommerce-kuberg-hover.png", title: "KUBERG APP", alt: "Electric motorcycle app displayed on a smartphone", tags: ["Electric Motorcycles", "UX/UI", "App Development"] },
-  { image: "/projects/custom-tuscany-hover.png", hoverImage: "/projects/custom-tuscany.png", title: "Tuscany Photo Tours", alt: "Tuscany photo tours website displayed on a laptop", tags: ["Travel Platform", "UX/UI", "Web Development"] },
-  { image: "/projects/wix-kyiv-energy.png", hoverImage: "/projects/wix-kyiv-energy-hover.png", title: "KYIV ENERGY", alt: "Kyiv Energy website displayed on a laptop", tags: ["Energy Solutions", "UX/UI", "App Development"] },
-  { image: "/projects/uiux-schooltogo.png", hoverImage: "/projects/uiux-hover-schooltogo.png", title: "SCHOOLTOGO.ONLINE", alt: "Online school website displayed on a smartphone", tags: ["Online School", "UX/UI", "Web Development"] },
-] as const;
+const SUPPORT_PROJECTS = projectsFor("support");
 
 export default function WebsiteSupportPage() {
   const deliverablesRef = useDeliverableMotion();
@@ -59,12 +55,7 @@ export default function WebsiteSupportPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {SUPPORT_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-          </div>)}
+          {SUPPORT_PROJECTS.map((project, index) => <ServiceProjectCard project={project} context={"support"} index={index} key={project.id} />)}
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">

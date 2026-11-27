@@ -1,3 +1,5 @@
+import { ServiceProjectCard } from "../shared/ServiceProjectCard";
+import { projectsFor } from "../../data/projects";
 import { SiteImage } from "../../components/ui/SiteImage";
 import { useEffect, useRef } from "react";
 import { SITE } from "../../config/site";
@@ -12,36 +14,7 @@ import { StrategyFaqItem } from "./StrategyFaqItem";
 import { StrategyCubes } from "./StrategyCubes";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
 
-const STRATEGY_PROJECTS = [
-  {
-    title: "CAPYCASINO",
-    image: "/projects/strategy-project-01.png",
-    hoverImage: "/projects/strategy-hover-04.png",
-    alt: "CAPYCASINO sweepstakes casino app displayed on a tablet",
-    tags: ["Sweepstakes Casino", "UX/UI", "Web Development"],
-  },
-  {
-    title: "deftechcluster",
-    image: "/projects/strategy-project-02.png",
-    hoverImage: "/projects/strategy-hover-03.png",
-    alt: "deftechcluster innovation platform displayed on a smartphone",
-    tags: ["Defense Tech", "UX/UI", "Web Development"],
-  },
-  {
-    title: "COSMOVAR",
-    image: "/projects/strategy-project-03.png",
-    hoverImage: "/projects/strategy-hover-02.png",
-    alt: "COSMOVAR beauty and aesthetics website displayed on a laptop",
-    tags: ["Beauty & Aesthetics", "UX/UI", "Web Development"],
-  },
-  {
-    title: "BML-LAB",
-    image: "/projects/strategy-project-04.png",
-    hoverImage: "/projects/strategy-hover-01.png",
-    alt: "BML-LAB digital pathology website displayed on a desktop computer",
-    tags: ["Digital Pathology", "UX/UI", "Web Development"],
-  },
-] as const;
+const STRATEGY_PROJECTS = projectsFor("strategy");
 
 export default function StrategyPage() {
   const deliverablesRef = useDeliverableMotion();
@@ -76,12 +49,7 @@ export default function StrategyPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {STRATEGY_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-              <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-              <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-          </div>)}
+          {STRATEGY_PROJECTS.map((project, index) => <ServiceProjectCard project={project} context={"strategy"} index={index} key={project.id} />)}
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">

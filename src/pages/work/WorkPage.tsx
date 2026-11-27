@@ -1,6 +1,6 @@
+import { projectsFor, projectPresentation } from "../../data/projects";
 import { DiagonalArrow } from "../../components/ui/DiagonalArrow";
-import imageManifest from "../../generated/images.json";
-import { SiteImage } from "../../components/ui/SiteImage";
+import { WorkProjectImages } from "./WorkProjectImages";
 import { useEffect, useRef, useState } from "react";
 import { Shell } from "../../components/layout/Shell";
 import { Footer } from "../../components/layout/Footer";
@@ -9,7 +9,6 @@ import { SITE } from "../../config/site";
 import { InnerPageCTA } from "../shared/InnerPageCTA";
 import "./work-page.css";
 
-const mobileImages: Record<string, { src: string; srcSet?: string }> = imageManifest;
 
 function CubeEdges() {
   return <svg className="work-cube-edges" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -17,18 +16,7 @@ function CubeEdges() {
   </svg>;
 }
 
-const PROJECTS = [
-  { src: "/projects/work-project-08.png", mobileSrc: "/projects/custom-tuscany-hover.png", hoverImage: "/projects/custom-tuscany.png", title: "Tuscany Photo Tours", tags: ["Travel Platform", "UX/UI", "Web Development"], alt: "Tuscany photo tours website displayed on a laptop" },
-  { src: "/projects/work-project-07.png", mobileSrc: "/projects/uiux-liva-beauty.png", hoverImage: "/projects/uiux-hover-liva-beauty.png", title: "LIVA-BEAUTY", tags: ["Beauty Salon", "UX/UI", "Web Development"], alt: "Beauty and ritual website displayed on a laptop" },
-  { src: "/projects/work-project-06.png", mobileSrc: "/projects/strategy-project-02.png", hoverImage: "/projects/strategy-hover-03.png", title: "deftechcluster", tags: ["Defense Tech", "UX/UI", "Web Development"], alt: "Innovation Bridges website displayed on a smartphone" },
-  { src: "/projects/work-project-05.png", mobileSrc: "/projects/uiux-schooltogo.png", hoverImage: "/projects/uiux-hover-schooltogo.png", title: "SCHOOLTOGO.ONLINE", tags: ["Online School", "UX/UI", "Web Development"], alt: "Online school website displayed on a smartphone" },
-  { src: "/projects/work-project-04.png", mobileSrc: "/projects/ecommerce-kuberg.png", hoverImage: "/projects/ecommerce-kuberg-hover.png", title: "KUBERG APP", tags: ["Electric Motorcycles", "UX/UI", "App Development"], alt: "Kuberg electric bike website displayed on a smartphone" },
-  { src: "/projects/work-project-03.png", mobileSrc: "/projects/wix-kyiv-energy.png", hoverImage: "/projects/wix-kyiv-energy-hover.png", title: "KYIV ENERGY", tags: ["Energy Solutions", "UX/UI", "App Development"], alt: "Kyiv Energy website displayed on a tablet" },
-  { src: "/projects/work-project-02.png", mobileSrc: "/projects/strategy-project-04.png", hoverImage: "/projects/strategy-hover-01.png", title: "BML-LAB", tags: ["Digital Pathology", "UX/UI", "App Development"], alt: "Medical laboratory website displayed on a desktop computer" },
-  { src: "/projects/work-project-01.png", mobileSrc: "/projects/wix-panegrip.png", hoverImage: "/projects/wix-panegrip-hover.png", title: "Panegrip.dev", tags: ["AI Developer Tools", "UX/UI", "App Development"], alt: "AI coding assistant website shown on a desktop monitor" },
-  { src: "/projects/work-project-10.png", mobileSrc: "/projects/strategy-project-01.png", hoverImage: "/projects/strategy-hover-04.png", title: "CAPYCASINO", tags: ["Sweepstakes Casino", "UX/UI", "App Development"], alt: "Sweepstakes casino mobile app displayed on a smartphone" },
-  { src: "/projects/work-project-09.png", mobileSrc: "/projects/strategy-project-03.png", hoverImage: "/projects/strategy-hover-02.png", title: "COSMOVAR", tags: ["Beauty & Aesthetics", "UX/UI", "App Development"], alt: "Beauty and aesthetics website displayed on a laptop" },
-] as const;
+const PROJECTS = projectsFor("work");
 
 export default function WorkPage() {
   const [expanded, setExpanded] = useState(false);
@@ -77,11 +65,10 @@ export default function WorkPage() {
       <section className="work-page-projects" id="work-projects" aria-label="Projects">
         <div className="work-page-grid" id="work-project-grid">
           {PROJECTS.slice(0, 6).map((project, index) =>
-            <div className="work-page-placeholder" role="img" aria-label={`${project.title}. ${project.tags.join(", ")}. ${project.alt}`} key={project.src}>
-              <picture className="work-project-picture"><source media="(max-width: 700px)" srcSet={mobileImages[project.mobileSrc]?.srcSet ?? project.mobileSrc} sizes="90vw" /><SiteImage src={project.src} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" /></picture>
-              <SiteImage className="work-mobile-hover" src={project.hoverImage} alt="" aria-hidden="true" loading="lazy" fetchPriority="low" />
-              <span className="work-project-title" aria-hidden="true">{project.title}</span>
-              <div className="work-project-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+            <div className="work-page-placeholder" role="img" aria-label={`${projectPresentation(project, "work").title}. ${projectPresentation(project, "work").tags.join(", ")}. ${projectPresentation(project, "work").alt}`} key={project.id}>
+              <WorkProjectImages project={project} eager={index === 0} />
+              <span className="work-project-title" aria-hidden="true">{projectPresentation(project, "work").title}</span>
+              <div className="work-project-tags" aria-hidden="true">{projectPresentation(project, "work").tags.map(tag => <span key={tag}>{tag}</span>)}</div>
             </div>
           )}
         </div>
@@ -89,19 +76,18 @@ export default function WorkPage() {
           <div className="work-projects-expansion-inner">
             <div className="work-page-grid work-extra-grid">
               {PROJECTS.slice(6).map((project, index) => <div className="work-page-placeholder" role="img"
-                aria-label={`${project.title}. ${project.tags.join(", ")}. ${project.alt}`} key={project.src}
+                aria-label={`${projectPresentation(project, "work").title}. ${projectPresentation(project, "work").tags.join(", ")}. ${projectPresentation(project, "work").alt}`} key={project.id}
                 ref={index === 0 ? firstNewProject : undefined} tabIndex={index === 0 ? -1 : undefined}>
-                <picture className="work-project-picture"><source media="(max-width: 700px)" srcSet={mobileImages[project.mobileSrc]?.srcSet ?? project.mobileSrc} sizes="90vw" /><SiteImage src={project.src} alt="" aria-hidden="true" loading="lazy" decoding="async" /></picture>
-              <SiteImage className="work-mobile-hover" src={project.hoverImage} alt="" aria-hidden="true" loading="lazy" fetchPriority="low" />
-                <span className="work-project-title" aria-hidden="true">{project.title}</span>
-                <div className="work-project-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+                <WorkProjectImages project={project} />
+                <span className="work-project-title" aria-hidden="true">{projectPresentation(project, "work").title}</span>
+                <div className="work-project-tags" aria-hidden="true">{projectPresentation(project, "work").tags.map(tag => <span key={tag}>{tag}</span>)}</div>
               </div>)}
             </div>
           </div>
         </div>
         <button className="work-page-more" type="button" onClick={showMore} aria-controls="work-extra-projects"
           aria-expanded={expanded} disabled={expanded} style={expanded ? { visibility: "hidden" } : undefined}>+ Show more</button>
-        <span className="work-project-status" role="status">{expanded ? "4 more projects shown. 10 projects in total." : ""}</span>
+        <span className="work-project-status" role="status">{expanded ? `${PROJECTS.length - 6} more projects shown. ${PROJECTS.length} projects in total.` : ""}</span>
       </section>
       <InnerPageCTA />
     </main>

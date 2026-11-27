@@ -1,4 +1,5 @@
-import { SiteImage } from "../../components/ui/SiteImage";
+import { ServiceProjectCard } from "../shared/ServiceProjectCard";
+import { projectsFor } from "../../data/projects";
 import { useEffect, useRef } from "react";
 import MathGrid from "../../components/ui/MathGrid/MathGrid";
 import "../shared/service-hero-grid.css";
@@ -15,12 +16,7 @@ import "./landing-hero.css";
 import { LandingFlow } from "./LandingFlow";
 import { ServiceProcessSection } from "../shared/ServiceProcessSection";
 
-const LANDING_PROJECTS = [
-  { image: "/projects/strategy-project-03.png", hoverImage: "/projects/strategy-hover-02.png", title: "COSMOVAR", alt: "Beauty and aesthetics website displayed on a laptop", tags: ["Beauty & Aesthetics", "UX/UI", "App Development"] },
-  { image: "/projects/uiux-liva-beauty.png", hoverImage: "/projects/uiux-hover-liva-beauty.png", title: "LIVA-BEAUTY", alt: "Beauty and ritual website displayed on a laptop", tags: ["Beauty Salon", "UX/UI", "Web Development"] },
-  { image: "/projects/uiux-schooltogo.png", hoverImage: "/projects/uiux-hover-schooltogo.png", title: "SCHOOLTOGO.ONLINE", alt: "Online school website displayed on a smartphone", tags: ["Online School", "UX/UI", "Web Development"] },
-  { image: "/projects/strategy-project-04.png", hoverImage: "/projects/strategy-hover-01.png", title: "BML-LAB", alt: "Digital pathology website displayed on a desktop computer", tags: ["Digital Pathology", "UX/UI", "App Development"] },
-] as const;
+const LANDING_PROJECTS = projectsFor("landing");
 
 export default function LandingPage() {
   const deliverablesRef = useDeliverableMotion();
@@ -59,12 +55,7 @@ export default function LandingPage() {
           <span>X:01 / Y:Work</span>
         </div>
         <div className="strategy-projects-grid">
-          {LANDING_PROJECTS.map((project, index) => <div className="strategy-project-placeholder service-project-card" role="img" aria-label={`${project.title}. ${project.alt}`} key={project.title}>
-            <SiteImage className="service-project-card-image" src={project.image} alt="" aria-hidden="true" loading={index === 0 ? "eager" : "lazy"} decoding="async" />
-            <SiteImage className="service-project-card-hover-image" src={project.hoverImage} alt="" aria-hidden="true" fetchPriority="low" loading="lazy" decoding="async" />
-            <span className="service-project-card-label" aria-hidden="true">{project.title}</span>
-            <div className="service-project-card-tags" aria-hidden="true">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-          </div>)}
+          {LANDING_PROJECTS.map((project, index) => <ServiceProjectCard project={project} context={"landing"} index={index} key={project.id} />)}
         </div>
       </section>
       <section className="strategy-start" id="strategy-start">

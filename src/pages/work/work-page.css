@@ -237,6 +237,13 @@
 
 .work-project-picture { display: contents; }
 .work-page .work-page-placeholder > .work-mobile-hover { display: none; }
+/* Missing formats keep the existing card surface, never a cross-format crop. */
+@media (min-width: 701px) {
+  .work-project-picture[data-missing-landscape] { visibility: hidden; }
+}
+@media (max-width: 700px) {
+  .work-project-picture[data-missing-square] { visibility: hidden; }
+}
 @media (max-width: 700px) {
   .work-page .work-page-placeholder {
     aspect-ratio: 1;

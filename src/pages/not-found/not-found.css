@@ -1,0 +1,17 @@
+/* Figma frame 3:409 geometry; typography adapted from the existing site. */
+.not-found-page { min-height: 100svh; background: #0b090e; color: var(--white); }
+.not-found-page > .site-header { height: 75px; padding: 17px var(--page-pad) 18px; background: rgba(5,5,6,.4); border: 0; }
+.not-found-main { min-height: calc(100svh - 75px); display: grid; place-items: center; padding: 48px var(--page-pad) 123px; }
+.not-found-content { width: min(541px, 100%); display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
+.not-found-content h1 { margin: 0; width: 100%; font: 700 176px/176px var(--display); letter-spacing: 0; }
+.not-found-message { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.not-found-message h2 { margin: 0; font: 500 24px/25px var(--display); letter-spacing: 0; }
+.not-found-message p { margin: 0; max-width: 435px; font: 400 16px/19px Inter, sans-serif; color: var(--muted); }
+.not-found-home.button { min-height: 40px; width: 150px; height: 40px; padding: 11px 20px; display: flex; align-items: center; justify-content: center; font: 700 12px/18px var(--display); letter-spacing: 1.4px; white-space: nowrap; }
+@media (max-width: 700px) {
+  .not-found-page > .site-header { height: 64px; padding-block: 12px; }
+  .not-found-main { min-height: calc(100svh - 64px); padding-block: 40px 104px; }
+  .not-found-content h1 { font-size: clamp(112px, 36vw, 176px); line-height: 1; }
+  .not-found-message h2 { font-size: 22px; line-height: 28px; }
+  .not-found-message p { line-height: 24px; }
+}

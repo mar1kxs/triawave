@@ -1,12 +1,14 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 import {
   SITE,
   SEO_ROUTES,
   canonicalForPath,
   robotsForRoute,
   seoForPath,
+  socialImageForPath,
 } from "../dist-ssr/entry-server.js";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
@@ -41,10 +43,19 @@ for (const route of checkedRoutes) {
     failures.push(`${path}: expected exactly one title`);
   if (!title) failures.push(`${path}: missing title`);
   if (!description) failures.push(`${path}: missing meta description`);
-  if (canonical !== canonicalForPath(path))
+  if (canonical !== (path === "/404" ? "" : canonicalForPath(path)))
     failures.push(`${path}: incorrect canonical`);
   if (robots !== robotsForRoute(route))
     failures.push(`${path}: incorrect robots directive`);
+  const ogUrl = get(html, /<meta\s+property="og:url"\s+content="([^"]*)"/i);
+  if (ogUrl !== canonicalForPath(path)) failures.push(`${path}: incorrect og:url`);
+  const imageUrl = socialImageForPath(path);
+  for (const tag of ['property="og:image"', 'name="twitter:image"']) {
+    if (!html.includes(`${tag} content="${imageUrl}"`)) failures.push(`${path}: missing social image`);
+  }
+  const image = await sharp(join(distDir, new URL(imageUrl).pathname)).metadata();
+  if (image.width !== 1200 || image.height !== 630 || image.format !== "png")
+    failures.push(`${path}: invalid social image`);
   if (count(html, /<h1(?:\s|>)/gi) !== 1)
     failures.push(`${path}: expected exactly one H1`);
   if (

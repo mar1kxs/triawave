@@ -1,12 +1,12 @@
 import { setSmoothScrollPaused } from "../../../lib/motion/smoothScroll";
 import { SiteImage } from "../../ui/SiteImage";
 import { SITE } from "../../../config/site";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { SERVICES } from "../../../content/services";
 import { AppLink } from "../../ui/AppLink";
 import { MegaMenu } from "./MegaMenu";
 
-export function Header() {
+export function Header({ brand, servicesArrow = "/assets/header-arrow-down.svg" }: { brand?: ReactNode; servicesArrow?: string } = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -106,7 +106,7 @@ export function Header() {
   return (
     <header ref={headerRef} className={headerVisible ? "site-header" : "site-header site-header-hidden"} onMouseLeave={() => { if (!menuPinned) setMenuOpen(false); }}>
       <AppLink href="/" className="brand" aria-label="Triawave home">
-        <SiteImage src="/assets/logo.svg" alt="Triawave" width="209" height="40" />
+        {brand ?? <SiteImage src="/assets/logo.svg" alt="Triawave" width="209" height="40" />}
       </AppLink>
       <nav className="desktop-nav" aria-label="Main navigation">
         <AppLink href="/work">Work</AppLink>
@@ -118,7 +118,7 @@ export function Header() {
           onMouseEnter={() => { if (window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) setMenuOpen(true); }}
           onClick={() => { setMenuOpen(!menuPinned); setMenuPinned(!menuPinned); }}
         >
-          Services <span aria-hidden="true"><SiteImage src="/assets/header-arrow-down.svg" alt="" width="12" height="12" /></span>
+          Services <span aria-hidden="true"><SiteImage src={servicesArrow} alt="" width="12" height="12" /></span>
         </button>
         <AppLink href="/about">About</AppLink>
         <AppLink href={SITE.contactUrl}>Contact</AppLink>

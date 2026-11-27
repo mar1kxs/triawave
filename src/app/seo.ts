@@ -40,6 +40,11 @@ export function canonicalForPath(path: string) {
   return route.path === "/" ? `${SITE_URL}/` : `${SITE_URL}${route.path}`;
 }
 
+export function socialImageForPath(path: string) {
+  const route = seoForPath(path);
+  return `${SITE_URL}/social/${route.path === "/" ? "home" : route.path.slice(1).replaceAll("/", "-")}.png`;
+}
+
 export function robotsForRoute(route: SeoRoute) {
   return route.indexable
     ? "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
@@ -119,17 +124,28 @@ export function applySeo(path: string) {
   setMeta("property", "og:title", route.title);
   setMeta("property", "og:description", route.description);
   setMeta("property", "og:url", canonical);
-  setMeta("name", "twitter:card", "summary");
+  setMeta("property", "og:image", socialImageForPath(path));
+  setMeta("property", "og:image:width", "1200");
+  setMeta("property", "og:image:height", "630");
+  setMeta("property", "og:image:type", "image/png");
+  setMeta("property", "og:image:alt", route.title);
+  setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:image", socialImageForPath(path));
+  setMeta("name", "twitter:image:alt", route.title);
   setMeta("name", "twitter:title", route.title);
   setMeta("name", "twitter:description", route.description);
 
   let canonicalLink = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  if (!canonicalLink) {
-    canonicalLink = document.createElement("link");
-    canonicalLink.rel = "canonical";
-    document.head.append(canonicalLink);
+  if (route.path === "/404") {
+    canonicalLink?.remove();
+  } else {
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.rel = "canonical";
+      document.head.append(canonicalLink);
+    }
+    canonicalLink.href = canonical;
   }
-  canonicalLink.href = canonical;
 
   document.getElementById("structured-data")?.remove();
   const structuredData = structuredDataForPath(path);

@@ -113,6 +113,15 @@ img {
   overflow: visible;
 }
 
+.referral-bar--dismissed,
+.referral-bar__duplicate {
+  display: none;
+}
+
+@keyframes referral-marquee {
+  to { transform: translateX(-50%); }
+}
+
 .referral-bar button {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -1888,7 +1897,47 @@ img {
 
 @media (max-width: 640px) {
   .referral-bar {
-    font-size: 10px;
+    display: flex;
+    font-size: 12px;
+    padding: 10px 0;
+    overflow: hidden;
+  }
+  .referral-bar button {
+    display: none;
+  }
+  .referral-bar .referral-bar__link {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .referral-bar__track {
+    display: flex;
+    width: max-content;
+    animation: referral-marquee 32s linear infinite;
+  }
+  .referral-bar__message {
+    display: block;
+    flex-shrink: 0;
+    padding-right: 40px;
+    white-space: nowrap;
+  }
+  .referral-bar__link:focus-visible .referral-bar__track,
+  .referral-bar__link:active .referral-bar__track {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .referral-bar__track {
+      animation: none;
+      width: auto;
+    }
+    .referral-bar__message {
+      white-space: normal;
+      padding: 0 var(--page-pad);
+    }
+    .referral-bar__duplicate {
+      display: none;
+    }
   }
   .minimal-header {
     padding-top: 24px;

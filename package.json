@@ -8,15 +8,18 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run check && npm run build:client && npm run build:ssr && npm run prerender && npm run seo:check",
+    "build": "npm run check && npm run projects:check && npm run build:client && npm run build:ssr && npm run prerender && npm run seo:check",
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "preview": "vite preview",
     "check": "tsc -b --pretty false",
+    "projects:check": "node scripts/check-projects.mjs",
     "prerender": "node scripts/prerender.mjs",
     "seo:check": "node scripts/seo-check.mjs",
+    "seo:check:http": "node scripts/seo-check-http.mjs",
     "validate": "npm run build",
-    "images:optimize": "node scripts/optimize-images.mjs"
+    "images:optimize": "node scripts/optimize-images.mjs",
+    "icons:generate": "node scripts/generate-icons.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.3.0",
