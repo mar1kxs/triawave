@@ -1,16 +1,17 @@
 import { readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
-// Static fallback frame extracted from the supplied Triawave tumble animation.
-const artwork = await readFile(new URL("../public/favicon-source.png", import.meta.url));
+// Use the tightly framed vector logo so small browser/search icons stay legible.
+// The tumble animation remains available separately as favicon.gif.
+const artwork = await readFile(new URL("../public/favicon.svg", import.meta.url));
 const pngs = new Map();
 for (const size of [16, 32, 48, 64, 192, 512]) {
-  const png = await sharp(artwork).resize(size, size).png().toBuffer();
+  const png = await sharp(artwork, { density: 768 }).resize(size, size).png().toBuffer();
   pngs.set(size, png);
   await writeFile(new URL(`../public/favicon-${size}.png`, import.meta.url), png);
 }
 await writeFile(new URL("../public/apple-touch-icon.png", import.meta.url),
-  await sharp(artwork).resize(180, 180).png().toBuffer());
+  await sharp(artwork, { density: 768 }).resize(180, 180).png().toBuffer());
 
 // ICO directory with embedded PNG images for native browser fallback.
 const sizes = [16, 32, 48];
